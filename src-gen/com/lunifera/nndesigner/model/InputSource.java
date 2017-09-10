@@ -4,8 +4,6 @@ package com.lunifera.nndesigner.model;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Input Source</b></em>'.
@@ -22,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface InputSource extends EObject {
+public interface InputSource extends Element {
 	/**
 	 * Returns the value of the '<em><b>Target Layers</b></em>' reference list.
 	 * The list contents are of type {@link com.lunifera.nndesigner.model.Layer}.

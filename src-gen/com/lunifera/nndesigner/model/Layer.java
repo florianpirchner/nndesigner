@@ -20,7 +20,7 @@ import org.eclipse.emf.common.util.EList;
  * @model abstract="true"
  * @generated
  */
-public interface Layer extends Element, InputSource {
+public interface Layer extends InputSource {
 	/**
 	 * Returns the value of the '<em><b>Input Sources</b></em>' reference list.
 	 * The list contents are of type {@link com.lunifera.nndesigner.model.InputSource}.

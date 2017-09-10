@@ -74,6 +74,7 @@ public class KerasSwitch<T> extends Switch<T> {
 				Model model = (Model)theEObject;
 				T result = caseModel(model);
 				if (result == null) result = caseModel_Model(model);
+				if (result == null) result = caseElement(model);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -81,8 +82,8 @@ public class KerasSwitch<T> extends Switch<T> {
 				DenseLayer denseLayer = (DenseLayer)theEObject;
 				T result = caseDenseLayer(denseLayer);
 				if (result == null) result = caseLayer(denseLayer);
-				if (result == null) result = caseElement(denseLayer);
 				if (result == null) result = caseInputSource(denseLayer);
+				if (result == null) result = caseElement(denseLayer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -90,8 +91,8 @@ public class KerasSwitch<T> extends Switch<T> {
 				Dropout dropout = (Dropout)theEObject;
 				T result = caseDropout(dropout);
 				if (result == null) result = caseLayer(dropout);
-				if (result == null) result = caseElement(dropout);
 				if (result == null) result = caseInputSource(dropout);
+				if (result == null) result = caseElement(dropout);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -99,8 +100,8 @@ public class KerasSwitch<T> extends Switch<T> {
 				Reshape reshape = (Reshape)theEObject;
 				T result = caseReshape(reshape);
 				if (result == null) result = caseLayer(reshape);
-				if (result == null) result = caseElement(reshape);
 				if (result == null) result = caseInputSource(reshape);
+				if (result == null) result = caseElement(reshape);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -108,8 +109,8 @@ public class KerasSwitch<T> extends Switch<T> {
 				Flatten flatten = (Flatten)theEObject;
 				T result = caseFlatten(flatten);
 				if (result == null) result = caseLayer(flatten);
-				if (result == null) result = caseElement(flatten);
 				if (result == null) result = caseInputSource(flatten);
+				if (result == null) result = caseElement(flatten);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -117,8 +118,8 @@ public class KerasSwitch<T> extends Switch<T> {
 				Permute permute = (Permute)theEObject;
 				T result = casePermute(permute);
 				if (result == null) result = caseLayer(permute);
-				if (result == null) result = caseElement(permute);
 				if (result == null) result = caseInputSource(permute);
+				if (result == null) result = caseElement(permute);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -126,8 +127,8 @@ public class KerasSwitch<T> extends Switch<T> {
 				RepeatVector repeatVector = (RepeatVector)theEObject;
 				T result = caseRepeatVector(repeatVector);
 				if (result == null) result = caseLayer(repeatVector);
-				if (result == null) result = caseElement(repeatVector);
 				if (result == null) result = caseInputSource(repeatVector);
+				if (result == null) result = caseElement(repeatVector);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -135,8 +136,8 @@ public class KerasSwitch<T> extends Switch<T> {
 				ActivityRegularization activityRegularization = (ActivityRegularization)theEObject;
 				T result = caseActivityRegularization(activityRegularization);
 				if (result == null) result = caseLayer(activityRegularization);
-				if (result == null) result = caseElement(activityRegularization);
 				if (result == null) result = caseInputSource(activityRegularization);
+				if (result == null) result = caseElement(activityRegularization);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -265,21 +266,6 @@ public class KerasSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Model</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Model</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseModel_Model(com.lunifera.nndesigner.model.Model object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -291,6 +277,21 @@ public class KerasSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseElement(Element object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Model</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseModel_Model(com.lunifera.nndesigner.model.Model object) {
 		return null;
 	}
 

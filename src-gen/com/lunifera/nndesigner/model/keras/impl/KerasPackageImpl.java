@@ -164,6 +164,24 @@ public class KerasPackageImpl extends EPackageImpl implements KerasPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getModel_Inputs() {
+		return (EReference)modelEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getModel_Outputs() {
+		return (EReference)modelEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDenseLayer() {
 		return denseLayerEClass;
 	}
@@ -422,6 +440,8 @@ public class KerasPackageImpl extends EPackageImpl implements KerasPackage {
 
 		// Create classes and their features
 		modelEClass = createEClass(MODEL);
+		createEReference(modelEClass, MODEL__INPUTS);
+		createEReference(modelEClass, MODEL__OUTPUTS);
 
 		denseLayerEClass = createEClass(DENSE_LAYER);
 		createEAttribute(denseLayerEClass, DENSE_LAYER__NUMBER_OF_OUTPUT_UNITS);
@@ -500,6 +520,8 @@ public class KerasPackageImpl extends EPackageImpl implements KerasPackage {
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getModel_Inputs(), theModelPackage.getLayer(), null, "inputs", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModel_Outputs(), theModelPackage.getLayer(), null, "outputs", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(denseLayerEClass, DenseLayer.class, "DenseLayer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDenseLayer_NumberOfOutputUnits(), theEcorePackage.getEInt(), "numberOfOutputUnits", null, 0, 1, DenseLayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -3,17 +3,22 @@
 package com.lunifera.nndesigner.model.impl;
 
 import com.lunifera.nndesigner.model.Design;
-import com.lunifera.nndesigner.model.Model;
+import com.lunifera.nndesigner.model.Element;
 import com.lunifera.nndesigner.model.ModelPackage;
 
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,21 +28,21 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.lunifera.nndesigner.model.impl.DesignImpl#getModel <em>Model</em>}</li>
+ *   <li>{@link com.lunifera.nndesigner.model.impl.DesignImpl#getElements <em>Elements</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class DesignImpl extends MinimalEObjectImpl.Container implements Design {
 	/**
-	 * The cached value of the '{@link #getModel() <em>Model</em>}' containment reference.
+	 * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getModel()
+	 * @see #getElements()
 	 * @generated
 	 * @ordered
 	 */
-	protected Model model;
+	protected EList<Element> elements;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -63,42 +68,11 @@ public class DesignImpl extends MinimalEObjectImpl.Container implements Design {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Model getModel() {
-		return model;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetModel(Model newModel, NotificationChain msgs) {
-		Model oldModel = model;
-		model = newModel;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.DESIGN__MODEL, oldModel, newModel);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<Element> getElements() {
+		if (elements == null) {
+			elements = new EObjectContainmentEList<Element>(Element.class, this, ModelPackage.DESIGN__ELEMENTS);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setModel(Model newModel) {
-		if (newModel != model) {
-			NotificationChain msgs = null;
-			if (model != null)
-				msgs = ((InternalEObject)model).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.DESIGN__MODEL, null, msgs);
-			if (newModel != null)
-				msgs = ((InternalEObject)newModel).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.DESIGN__MODEL, null, msgs);
-			msgs = basicSetModel(newModel, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.DESIGN__MODEL, newModel, newModel));
+		return elements;
 	}
 
 	/**
@@ -109,8 +83,8 @@ public class DesignImpl extends MinimalEObjectImpl.Container implements Design {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ModelPackage.DESIGN__MODEL:
-				return basicSetModel(null, msgs);
+			case ModelPackage.DESIGN__ELEMENTS:
+				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -123,8 +97,8 @@ public class DesignImpl extends MinimalEObjectImpl.Container implements Design {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ModelPackage.DESIGN__MODEL:
-				return getModel();
+			case ModelPackage.DESIGN__ELEMENTS:
+				return getElements();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -134,11 +108,13 @@ public class DesignImpl extends MinimalEObjectImpl.Container implements Design {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ModelPackage.DESIGN__MODEL:
-				setModel((Model)newValue);
+			case ModelPackage.DESIGN__ELEMENTS:
+				getElements().clear();
+				getElements().addAll((Collection<? extends Element>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -152,8 +128,8 @@ public class DesignImpl extends MinimalEObjectImpl.Container implements Design {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ModelPackage.DESIGN__MODEL:
-				setModel((Model)null);
+			case ModelPackage.DESIGN__ELEMENTS:
+				getElements().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -167,8 +143,8 @@ public class DesignImpl extends MinimalEObjectImpl.Container implements Design {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ModelPackage.DESIGN__MODEL:
-				return model != null;
+			case ModelPackage.DESIGN__ELEMENTS:
+				return elements != null && !elements.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -1,21 +1,21 @@
 package com.lunifera.nndesigner.model
 
 class Design {
-	contains Model model
-}
-
-abstract class Model {
 	contains Element[*] elements
 }
 
 interface Element {
 }
 
-interface InputSource {
+abstract class Model extends Element {
+	
+}
+
+interface InputSource extends Element {
 	refers Layer[*] targetLayers opposite inputSources
 }
 
-abstract class Layer extends Element, InputSource {
+abstract class Layer extends InputSource {
 	refers InputSource[*] inputSources opposite targetLayers
 }
 

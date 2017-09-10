@@ -69,13 +69,13 @@ public interface ModelPackage extends EPackage {
 	int DESIGN = 0;
 
 	/**
-	 * The feature id for the '<em><b>Model</b></em>' containment reference.
+	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DESIGN__MODEL = 0;
+	int DESIGN__ELEMENTS = 0;
 
 	/**
 	 * The number of structural features of the '<em>Design</em>' class.
@@ -96,43 +96,6 @@ public interface ModelPackage extends EPackage {
 	int DESIGN_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link com.lunifera.nndesigner.model.impl.ModelImpl <em>Model</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.lunifera.nndesigner.model.impl.ModelImpl
-	 * @see com.lunifera.nndesigner.model.impl.ModelPackageImpl#getModel()
-	 * @generated
-	 */
-	int MODEL = 1;
-
-	/**
-	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL__ELEMENTS = 0;
-
-	/**
-	 * The number of structural features of the '<em>Model</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>Model</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link com.lunifera.nndesigner.model.Element <em>Element</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -140,7 +103,7 @@ public interface ModelPackage extends EPackage {
 	 * @see com.lunifera.nndesigner.model.impl.ModelPackageImpl#getElement()
 	 * @generated
 	 */
-	int ELEMENT = 2;
+	int ELEMENT = 1;
 
 	/**
 	 * The number of structural features of the '<em>Element</em>' class.
@@ -161,6 +124,34 @@ public interface ModelPackage extends EPackage {
 	int ELEMENT_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link com.lunifera.nndesigner.model.impl.ModelImpl <em>Model</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.lunifera.nndesigner.model.impl.ModelImpl
+	 * @see com.lunifera.nndesigner.model.impl.ModelPackageImpl#getModel()
+	 * @generated
+	 */
+	int MODEL = 2;
+
+	/**
+	 * The number of structural features of the '<em>Model</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Model</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link com.lunifera.nndesigner.model.InputSource <em>Input Source</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -177,7 +168,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_SOURCE__TARGET_LAYERS = 0;
+	int INPUT_SOURCE__TARGET_LAYERS = ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Input Source</em>' class.
@@ -186,7 +177,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_SOURCE_FEATURE_COUNT = 1;
+	int INPUT_SOURCE_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Input Source</em>' class.
@@ -195,7 +186,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_SOURCE_OPERATION_COUNT = 0;
+	int INPUT_SOURCE_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.lunifera.nndesigner.model.impl.LayerImpl <em>Layer</em>}' class.
@@ -214,7 +205,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LAYER__TARGET_LAYERS = ELEMENT_FEATURE_COUNT + 0;
+	int LAYER__TARGET_LAYERS = INPUT_SOURCE__TARGET_LAYERS;
 
 	/**
 	 * The feature id for the '<em><b>Input Sources</b></em>' reference list.
@@ -223,7 +214,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LAYER__INPUT_SOURCES = ELEMENT_FEATURE_COUNT + 1;
+	int LAYER__INPUT_SOURCES = INPUT_SOURCE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Layer</em>' class.
@@ -232,7 +223,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LAYER_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 2;
+	int LAYER_FEATURE_COUNT = INPUT_SOURCE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Layer</em>' class.
@@ -241,7 +232,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LAYER_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 0;
+	int LAYER_OPERATION_COUNT = INPUT_SOURCE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.lunifera.nndesigner.model.impl.FunctionImpl <em>Function</em>}' class.
@@ -645,36 +636,15 @@ public interface ModelPackage extends EPackage {
 	EClass getDesign();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link com.lunifera.nndesigner.model.Design#getModel <em>Model</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Model</em>'.
-	 * @see com.lunifera.nndesigner.model.Design#getModel()
-	 * @see #getDesign()
-	 * @generated
-	 */
-	EReference getDesign_Model();
-
-	/**
-	 * Returns the meta object for class '{@link com.lunifera.nndesigner.model.Model <em>Model</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Model</em>'.
-	 * @see com.lunifera.nndesigner.model.Model
-	 * @generated
-	 */
-	EClass getModel();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link com.lunifera.nndesigner.model.Model#getElements <em>Elements</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.lunifera.nndesigner.model.Design#getElements <em>Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Elements</em>'.
-	 * @see com.lunifera.nndesigner.model.Model#getElements()
-	 * @see #getModel()
+	 * @see com.lunifera.nndesigner.model.Design#getElements()
+	 * @see #getDesign()
 	 * @generated
 	 */
-	EReference getModel_Elements();
+	EReference getDesign_Elements();
 
 	/**
 	 * Returns the meta object for class '{@link com.lunifera.nndesigner.model.Element <em>Element</em>}'.
@@ -685,6 +655,16 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getElement();
+
+	/**
+	 * Returns the meta object for class '{@link com.lunifera.nndesigner.model.Model <em>Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Model</em>'.
+	 * @see com.lunifera.nndesigner.model.Model
+	 * @generated
+	 */
+	EClass getModel();
 
 	/**
 	 * Returns the meta object for class '{@link com.lunifera.nndesigner.model.InputSource <em>Input Source</em>}'.
@@ -937,30 +917,12 @@ public interface ModelPackage extends EPackage {
 		EClass DESIGN = eINSTANCE.getDesign();
 
 		/**
-		 * The meta object literal for the '<em><b>Model</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DESIGN__MODEL = eINSTANCE.getDesign_Model();
-
-		/**
-		 * The meta object literal for the '{@link com.lunifera.nndesigner.model.impl.ModelImpl <em>Model</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.lunifera.nndesigner.model.impl.ModelImpl
-		 * @see com.lunifera.nndesigner.model.impl.ModelPackageImpl#getModel()
-		 * @generated
-		 */
-		EClass MODEL = eINSTANCE.getModel();
-
-		/**
 		 * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MODEL__ELEMENTS = eINSTANCE.getModel_Elements();
+		EReference DESIGN__ELEMENTS = eINSTANCE.getDesign_Elements();
 
 		/**
 		 * The meta object literal for the '{@link com.lunifera.nndesigner.model.Element <em>Element</em>}' class.
@@ -971,6 +933,16 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ELEMENT = eINSTANCE.getElement();
+
+		/**
+		 * The meta object literal for the '{@link com.lunifera.nndesigner.model.impl.ModelImpl <em>Model</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.lunifera.nndesigner.model.impl.ModelImpl
+		 * @see com.lunifera.nndesigner.model.impl.ModelPackageImpl#getModel()
+		 * @generated
+		 */
+		EClass MODEL = eINSTANCE.getModel();
 
 		/**
 		 * The meta object literal for the '{@link com.lunifera.nndesigner.model.InputSource <em>Input Source</em>}' class.

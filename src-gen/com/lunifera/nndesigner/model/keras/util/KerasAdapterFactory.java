@@ -104,12 +104,12 @@ public class KerasAdapterFactory extends AdapterFactoryImpl {
 				return createActivityRegularizationAdapter();
 			}
 			@Override
-			public Adapter caseModel_Model(com.lunifera.nndesigner.model.Model object) {
-				return createModel_ModelAdapter();
-			}
-			@Override
 			public Adapter caseElement(Element object) {
 				return createElementAdapter();
+			}
+			@Override
+			public Adapter caseModel_Model(com.lunifera.nndesigner.model.Model object) {
+				return createModel_ModelAdapter();
 			}
 			@Override
 			public Adapter caseInputSource(InputSource object) {
@@ -252,20 +252,6 @@ public class KerasAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.lunifera.nndesigner.model.Model <em>Model</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.lunifera.nndesigner.model.Model
-	 * @generated
-	 */
-	public Adapter createModel_ModelAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link com.lunifera.nndesigner.model.Element <em>Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -276,6 +262,20 @@ public class KerasAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.lunifera.nndesigner.model.Model <em>Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.lunifera.nndesigner.model.Model
+	 * @generated
+	 */
+	public Adapter createModel_ModelAdapter() {
 		return null;
 	}
 

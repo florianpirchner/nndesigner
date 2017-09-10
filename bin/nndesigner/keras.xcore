@@ -9,7 +9,8 @@ import com.lunifera.nndesigner.model.Shape2D
 import com.lunifera.nndesigner.model.Shape3D
 
 class Model extends com.lunifera.nndesigner.model.Model {
-	
+	refers Layer[*] inputs
+	refers Layer[*] outputs
 }
 
 class DenseLayer extends Layer {

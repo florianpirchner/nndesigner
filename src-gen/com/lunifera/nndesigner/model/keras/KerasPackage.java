@@ -70,13 +70,22 @@ public interface KerasPackage extends EPackage {
 	int MODEL = 0;
 
 	/**
-	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Inputs</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__ELEMENTS = ModelPackage.MODEL__ELEMENTS;
+	int MODEL__INPUTS = ModelPackage.MODEL_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Outputs</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL__OUTPUTS = ModelPackage.MODEL_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Model</em>' class.
@@ -85,7 +94,7 @@ public interface KerasPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_FEATURE_COUNT = ModelPackage.MODEL_FEATURE_COUNT + 0;
+	int MODEL_FEATURE_COUNT = ModelPackage.MODEL_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Model</em>' class.
@@ -601,6 +610,28 @@ public interface KerasPackage extends EPackage {
 	EClass getModel();
 
 	/**
+	 * Returns the meta object for the reference list '{@link com.lunifera.nndesigner.model.keras.Model#getInputs <em>Inputs</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Inputs</em>'.
+	 * @see com.lunifera.nndesigner.model.keras.Model#getInputs()
+	 * @see #getModel()
+	 * @generated
+	 */
+	EReference getModel_Inputs();
+
+	/**
+	 * Returns the meta object for the reference list '{@link com.lunifera.nndesigner.model.keras.Model#getOutputs <em>Outputs</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Outputs</em>'.
+	 * @see com.lunifera.nndesigner.model.keras.Model#getOutputs()
+	 * @see #getModel()
+	 * @generated
+	 */
+	EReference getModel_Outputs();
+
+	/**
 	 * Returns the meta object for class '{@link com.lunifera.nndesigner.model.keras.DenseLayer <em>Dense Layer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -911,6 +942,22 @@ public interface KerasPackage extends EPackage {
 		 * @generated
 		 */
 		EClass MODEL = eINSTANCE.getModel();
+
+		/**
+		 * The meta object literal for the '<em><b>Inputs</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODEL__INPUTS = eINSTANCE.getModel_Inputs();
+
+		/**
+		 * The meta object literal for the '<em><b>Outputs</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODEL__OUTPUTS = eINSTANCE.getModel_Outputs();
 
 		/**
 		 * The meta object literal for the '{@link com.lunifera.nndesigner.model.keras.impl.DenseLayerImpl <em>Dense Layer</em>}' class.

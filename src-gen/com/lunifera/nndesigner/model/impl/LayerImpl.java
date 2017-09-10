@@ -202,36 +202,4 @@ public abstract class LayerImpl extends MinimalEObjectImpl.Container implements 
 		return super.eIsSet(featureID);
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == InputSource.class) {
-			switch (derivedFeatureID) {
-				case ModelPackage.LAYER__TARGET_LAYERS: return ModelPackage.INPUT_SOURCE__TARGET_LAYERS;
-				default: return -1;
-			}
-		}
-		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == InputSource.class) {
-			switch (baseFeatureID) {
-				case ModelPackage.INPUT_SOURCE__TARGET_LAYERS: return ModelPackage.LAYER__TARGET_LAYERS;
-				default: return -1;
-			}
-		}
-		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-	}
-
 } //LayerImpl
