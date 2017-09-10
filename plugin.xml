@@ -9,9 +9,25 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated model -->
       <package
-            uri="nndesigner"
-            class="nndesigner.NndesignerPackage"
-            genModel="src/nndesigner/model.xcore"/>
+            uri="com.lunifera.nndesigner"
+            class="com.lunifera.nndesigner.NndesignerPackage"
+            genModel="src/nndesigner/base.xcore"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated keras -->
+      <package
+            uri="com.lunifera.nndesigner.model.keras"
+            class="com.lunifera.nndesigner.model.keras.KerasPackage"
+            genModel="src/nndesigner/keras.xcore"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated base -->
+      <package
+            uri="com.lunifera.nndesigner.model"
+            class="com.lunifera.nndesigner.model.ModelPackage"
+            genModel="src/nndesigner/base.xcore"/>
    </extension>
 
 </plugin>
