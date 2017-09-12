@@ -78,24 +78,6 @@ public interface TensorflowPackage extends EPackage {
 	int LAYER__NAME = CorePackage.LAYER__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Output Tensors</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LAYER__OUTPUT_TENSORS = CorePackage.LAYER__OUTPUT_TENSORS;
-
-	/**
-	 * The feature id for the '<em><b>Input Tensors</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LAYER__INPUT_TENSORS = CorePackage.LAYER__INPUT_TENSORS;
-
-	/**
 	 * The feature id for the '<em><b>Trainable</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -2,7 +2,6 @@
  */
 package org.eclipse.athene.nn.model.keras;
 
-import org.eclipse.athene.nn.model.tensorflow.Layer;
 
 /**
  * <!-- begin-user-doc -->

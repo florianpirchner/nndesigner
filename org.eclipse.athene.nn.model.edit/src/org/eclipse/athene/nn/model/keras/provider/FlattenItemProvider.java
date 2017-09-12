@@ -5,14 +5,9 @@ package org.eclipse.athene.nn.model.keras.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.athene.nn.model.keras.Flatten;
-
-import org.eclipse.athene.nn.model.tensorflow.provider.LayerItemProvider;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 /**

@@ -6,8 +6,6 @@ import org.eclipse.athene.nn.model.core.ActivationFunction;
 import org.eclipse.athene.nn.model.core.InitializerFunction;
 import org.eclipse.athene.nn.model.core.Shape;
 
-import org.eclipse.athene.nn.model.tensorflow.Layer;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Dense</b></em>'.
@@ -17,7 +15,7 @@ import org.eclipse.athene.nn.model.tensorflow.Layer;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.athene.nn.model.keras.Dense#getNumberOfOutputUnits <em>Number Of Output Units</em>}</li>
+ *   <li>{@link org.eclipse.athene.nn.model.keras.Dense#getUnits <em>Units</em>}</li>
  *   <li>{@link org.eclipse.athene.nn.model.keras.Dense#getInputShape <em>Input Shape</em>}</li>
  *   <li>{@link org.eclipse.athene.nn.model.keras.Dense#isUseBias <em>Use Bias</em>}</li>
  *   <li>{@link org.eclipse.athene.nn.model.keras.Dense#getActivationFunction <em>Activation Function</em>}</li>
@@ -31,30 +29,30 @@ import org.eclipse.athene.nn.model.tensorflow.Layer;
  */
 public interface Dense extends Layer {
 	/**
-	 * Returns the value of the '<em><b>Number Of Output Units</b></em>' attribute.
+	 * Returns the value of the '<em><b>Units</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Number Of Output Units</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Units</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Number Of Output Units</em>' attribute.
-	 * @see #setNumberOfOutputUnits(int)
-	 * @see org.eclipse.athene.nn.model.keras.KerasPackage#getDense_NumberOfOutputUnits()
+	 * @return the value of the '<em>Units</em>' attribute.
+	 * @see #setUnits(int)
+	 * @see org.eclipse.athene.nn.model.keras.KerasPackage#getDense_Units()
 	 * @model unique="false"
 	 * @generated
 	 */
-	int getNumberOfOutputUnits();
+	int getUnits();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.athene.nn.model.keras.Dense#getNumberOfOutputUnits <em>Number Of Output Units</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.athene.nn.model.keras.Dense#getUnits <em>Units</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Number Of Output Units</em>' attribute.
-	 * @see #getNumberOfOutputUnits()
+	 * @param value the new value of the '<em>Units</em>' attribute.
+	 * @see #getUnits()
 	 * @generated
 	 */
-	void setNumberOfOutputUnits(int value);
+	void setUnits(int value);
 
 	/**
 	 * Returns the value of the '<em><b>Input Shape</b></em>' containment reference.

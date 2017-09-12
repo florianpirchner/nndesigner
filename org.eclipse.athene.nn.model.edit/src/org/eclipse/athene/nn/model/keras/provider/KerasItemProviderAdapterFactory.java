@@ -5,12 +5,9 @@ package org.eclipse.athene.nn.model.keras.provider;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.athene.nn.model.core.CorePackage;
 import org.eclipse.athene.nn.model.core.Design;
-
 import org.eclipse.athene.nn.model.core.util.CoreSwitch;
-
 import org.eclipse.athene.nn.model.keras.KerasFactory;
 import org.eclipse.athene.nn.model.keras.KerasPackage;
 
@@ -21,11 +18,8 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.edit.command.CommandParameter;
-
 import org.eclipse.emf.edit.domain.EditingDomain;
 
 import org.eclipse.emf.edit.provider.ChangeNotifier;
@@ -119,6 +113,144 @@ public class KerasItemProviderAdapterFactory extends KerasAdapterFactory impleme
 		}
 
 		return modelItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.athene.nn.model.keras.Tensor} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TensorItemProvider tensorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.athene.nn.model.keras.Tensor}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTensorAdapter() {
+		if (tensorItemProvider == null) {
+			tensorItemProvider = new TensorItemProvider(this);
+		}
+
+		return tensorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.athene.nn.model.keras.Layer} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LayerItemProvider layerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.athene.nn.model.keras.Layer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLayerAdapter() {
+		if (layerItemProvider == null) {
+			layerItemProvider = new LayerItemProvider(this);
+		}
+
+		return layerItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.athene.nn.model.keras.Node} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NodeItemProvider nodeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.athene.nn.model.keras.Node}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNodeAdapter() {
+		if (nodeItemProvider == null) {
+			nodeItemProvider = new NodeItemProvider(this);
+		}
+
+		return nodeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.athene.nn.model.keras.InputNode} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected InputNodeItemProvider inputNodeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.athene.nn.model.keras.InputNode}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createInputNodeAdapter() {
+		if (inputNodeItemProvider == null) {
+			inputNodeItemProvider = new InputNodeItemProvider(this);
+		}
+
+		return inputNodeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.athene.nn.model.keras.OutputNode} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OutputNodeItemProvider outputNodeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.athene.nn.model.keras.OutputNode}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createOutputNodeAdapter() {
+		if (outputNodeItemProvider == null) {
+			outputNodeItemProvider = new OutputNodeItemProvider(this);
+		}
+
+		return outputNodeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.athene.nn.model.keras.Backend} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BackendItemProvider backendItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.athene.nn.model.keras.Backend}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBackendAdapter() {
+		if (backendItemProvider == null) {
+			backendItemProvider = new BackendItemProvider(this);
+		}
+
+		return backendItemProvider;
 	}
 
 	/**
@@ -432,6 +564,12 @@ public class KerasItemProviderAdapterFactory extends KerasAdapterFactory impleme
 	 */
 	public void dispose() {
 		if (modelItemProvider != null) modelItemProvider.dispose();
+		if (layerItemProvider != null) layerItemProvider.dispose();
+		if (nodeItemProvider != null) nodeItemProvider.dispose();
+		if (tensorItemProvider != null) tensorItemProvider.dispose();
+		if (inputNodeItemProvider != null) inputNodeItemProvider.dispose();
+		if (outputNodeItemProvider != null) outputNodeItemProvider.dispose();
+		if (backendItemProvider != null) backendItemProvider.dispose();
 		if (denseItemProvider != null) denseItemProvider.dispose();
 		if (dropoutItemProvider != null) dropoutItemProvider.dispose();
 		if (activationItemProvider != null) activationItemProvider.dispose();
@@ -493,6 +631,11 @@ public class KerasItemProviderAdapterFactory extends KerasAdapterFactory impleme
 					(createChildParameter
 						(CorePackage.Literals.DESIGN__ELEMENTS,
 						 KerasFactory.eINSTANCE.createModel()));
+
+				newChildDescriptors.add
+					(createChildParameter
+						(CorePackage.Literals.DESIGN__ELEMENTS,
+						 KerasFactory.eINSTANCE.createLayer()));
 
 				newChildDescriptors.add
 					(createChildParameter

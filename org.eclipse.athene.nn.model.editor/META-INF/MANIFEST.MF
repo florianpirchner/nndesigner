@@ -4,13 +4,14 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipse.athene.nn.model.editor;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: org.eclipse.athene.nn.model.core.presentation.AtheneEditorPlugin$Implementation
+Bundle-Activator: org.eclipse.athene.nn.model.keras.presentation.KerasEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.eclipse.athene.nn.model.core.presentation,
  org.eclipse.athene.nn.model.keras.presentation,
- org.eclipse.athene.nn.model.tensorflow.presentation
+ org.eclipse.athene.nn.model.tensorflow.presentation,
+ _.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
  org.eclipse.athene.nn.model.edit;visibility:=reexport,

@@ -7,34 +7,6 @@
 <plugin>
 
    <extension point="org.eclipse.ui.newWizards">
-      <!-- @generated core -->
-      <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
-            name="%_UI_Wizard_category"/>
-      <wizard
-            id="org.eclipse.athene.nn.model.core.presentation.CoreModelWizardID"
-            name="%_UI_CoreModelWizard_label"
-            class="org.eclipse.athene.nn.model.core.presentation.CoreModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/CoreModelFile.gif">
-         <description>%_UI_CoreModelWizard_description</description>
-         <selection class="org.eclipse.core.resources.IResource"/>
-      </wizard>
-   </extension>
-
-   <extension point="org.eclipse.ui.editors">
-      <!-- @generated core -->
-      <editor
-            id="org.eclipse.athene.nn.model.core.presentation.CoreEditorID"
-            name="%_UI_CoreEditor_label"
-            icon="icons/full/obj16/CoreModelFile.gif"
-            extensions="athene"
-            class="org.eclipse.athene.nn.model.core.presentation.CoreEditor"
-            contributorClass="org.eclipse.athene.nn.model.core.presentation.CoreActionBarContributor">
-      </editor>
-   </extension>
-
-   <extension point="org.eclipse.ui.newWizards">
       <!-- @generated keras -->
       <category
             id="org.eclipse.emf.ecore.Wizard.category.ID"
@@ -86,6 +58,33 @@
             extensions="tensorflow"
             class="org.eclipse.athene.nn.model.tensorflow.presentation.TensorflowEditor"
             contributorClass="org.eclipse.athene.nn.model.tensorflow.presentation.TensorflowActionBarContributor">
+      </editor>
+   </extension>
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated core -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.eclipse.athene.nn.model.core.presentation.CoreModelWizardID"
+            name="%_UI_CoreModelWizard_label"
+            class="org.eclipse.athene.nn.model.core.presentation.CoreModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/CoreModelFile.gif">
+         <description>%_UI_CoreModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated core -->
+      <editor
+            id="org.eclipse.athene.nn.model.core.presentation.CoreEditorID"
+            name="%_UI_CoreEditor_label"
+            icon="icons/full/obj16/CoreModelFile.gif"
+            extensions="athene"
+            class="org.eclipse.athene.nn.model.core.presentation.CoreEditor"
+            contributorClass="org.eclipse.athene.nn.model.core.presentation.CoreActionBarContributor">
       </editor>
    </extension>
 </plugin>

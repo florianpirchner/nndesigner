@@ -143,31 +143,13 @@ public interface CorePackage extends EPackage {
 	int TENSOR = 2;
 
 	/**
-	 * The feature id for the '<em><b>Providing Layer</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TENSOR__PROVIDING_LAYER = 0;
-
-	/**
-	 * The feature id for the '<em><b>Consuming Layers</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TENSOR__CONSUMING_LAYERS = 1;
-
-	/**
 	 * The number of structural features of the '<em>Tensor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TENSOR_FEATURE_COUNT = 2;
+	int TENSOR_FEATURE_COUNT = 0;
 
 	/**
 	 * The number of operations of the '<em>Tensor</em>' class.
@@ -198,31 +180,13 @@ public interface CorePackage extends EPackage {
 	int LAYER__NAME = ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Output Tensors</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LAYER__OUTPUT_TENSORS = ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Input Tensors</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LAYER__INPUT_TENSORS = ELEMENT_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>Layer</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LAYER_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 2;
+	int LAYER_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Layer</em>' class.
@@ -251,24 +215,6 @@ public interface CorePackage extends EPackage {
 	 * @ordered
 	 */
 	int MODEL__NAME = LAYER__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Output Tensors</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL__OUTPUT_TENSORS = LAYER__OUTPUT_TENSORS;
-
-	/**
-	 * The feature id for the '<em><b>Input Tensors</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL__INPUT_TENSORS = LAYER__INPUT_TENSORS;
 
 	/**
 	 * The number of structural features of the '<em>Model</em>' class.
@@ -795,28 +741,6 @@ public interface CorePackage extends EPackage {
 	EClass getTensor();
 
 	/**
-	 * Returns the meta object for the container reference '{@link org.eclipse.athene.nn.model.core.Tensor#getProvidingLayer <em>Providing Layer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Providing Layer</em>'.
-	 * @see org.eclipse.athene.nn.model.core.Tensor#getProvidingLayer()
-	 * @see #getTensor()
-	 * @generated
-	 */
-	EReference getTensor_ProvidingLayer();
-
-	/**
-	 * Returns the meta object for the reference list '{@link org.eclipse.athene.nn.model.core.Tensor#getConsumingLayers <em>Consuming Layers</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Consuming Layers</em>'.
-	 * @see org.eclipse.athene.nn.model.core.Tensor#getConsumingLayers()
-	 * @see #getTensor()
-	 * @generated
-	 */
-	EReference getTensor_ConsumingLayers();
-
-	/**
 	 * Returns the meta object for class '{@link org.eclipse.athene.nn.model.core.Layer <em>Layer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -825,28 +749,6 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getLayer();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.athene.nn.model.core.Layer#getOutputTensors <em>Output Tensors</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Output Tensors</em>'.
-	 * @see org.eclipse.athene.nn.model.core.Layer#getOutputTensors()
-	 * @see #getLayer()
-	 * @generated
-	 */
-	EReference getLayer_OutputTensors();
-
-	/**
-	 * Returns the meta object for the reference list '{@link org.eclipse.athene.nn.model.core.Layer#getInputTensors <em>Input Tensors</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Input Tensors</em>'.
-	 * @see org.eclipse.athene.nn.model.core.Layer#getInputTensors()
-	 * @see #getLayer()
-	 * @generated
-	 */
-	EReference getLayer_InputTensors();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.athene.nn.model.core.Model <em>Model</em>}'.
@@ -1103,22 +1005,6 @@ public interface CorePackage extends EPackage {
 		EClass TENSOR = eINSTANCE.getTensor();
 
 		/**
-		 * The meta object literal for the '<em><b>Providing Layer</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TENSOR__PROVIDING_LAYER = eINSTANCE.getTensor_ProvidingLayer();
-
-		/**
-		 * The meta object literal for the '<em><b>Consuming Layers</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TENSOR__CONSUMING_LAYERS = eINSTANCE.getTensor_ConsumingLayers();
-
-		/**
 		 * The meta object literal for the '{@link org.eclipse.athene.nn.model.core.impl.LayerImpl <em>Layer</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1127,22 +1013,6 @@ public interface CorePackage extends EPackage {
 		 * @generated
 		 */
 		EClass LAYER = eINSTANCE.getLayer();
-
-		/**
-		 * The meta object literal for the '<em><b>Output Tensors</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference LAYER__OUTPUT_TENSORS = eINSTANCE.getLayer_OutputTensors();
-
-		/**
-		 * The meta object literal for the '<em><b>Input Tensors</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference LAYER__INPUT_TENSORS = eINSTANCE.getLayer_InputTensors();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.athene.nn.model.core.impl.ModelImpl <em>Model</em>}' class.

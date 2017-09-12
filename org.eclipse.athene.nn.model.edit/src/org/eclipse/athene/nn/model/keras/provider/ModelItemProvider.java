@@ -5,12 +5,14 @@ package org.eclipse.athene.nn.model.keras.provider;
 
 import java.util.Collection;
 import java.util.List;
-
+import org.eclipse.athene.nn.model.keras.KerasPackage;
 import org.eclipse.athene.nn.model.keras.Model;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.athene.nn.model.keras.Model} object.
@@ -40,8 +42,54 @@ public class ModelItemProvider extends org.eclipse.athene.nn.model.core.provider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addKerasVersionPropertyDescriptor(object);
+			addBackendPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Keras Version feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addKerasVersionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Model_kerasVersion_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Model_kerasVersion_feature", "_UI_Model_type"),
+				 KerasPackage.Literals.MODEL__KERAS_VERSION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Backend feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addBackendPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Model_backend_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Model_backend_feature", "_UI_Model_type"),
+				 KerasPackage.Literals.MODEL__BACKEND,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -80,6 +128,12 @@ public class ModelItemProvider extends org.eclipse.athene.nn.model.core.provider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(Model.class)) {
+			case KerasPackage.MODEL__KERAS_VERSION:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

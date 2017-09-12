@@ -16,18 +16,12 @@ interface Element {
 	String name
 }
 
-class Tensor {
-	// the layer which provides (exports) the tensor
-	refers Layer providingLayer opposite outputTensors
-	// the layer which consumes (imports)
-	refers Layer[*] consumingLayers opposite inputTensors
+abstract class Tensor {
+
 }
 
 abstract class Layer extends Element {
-	// tensors created and provided by this layer
-	contains Tensor[*] outputTensors opposite providingLayer
-	// tensors used by this layer
-	refers Tensor[*] inputTensors opposite consumingLayers
+
 }
 
 abstract class Model extends Layer {

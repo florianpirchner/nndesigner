@@ -271,44 +271,8 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTensor_ProvidingLayer() {
-		return (EReference)tensorEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTensor_ConsumingLayers() {
-		return (EReference)tensorEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getLayer() {
 		return layerEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getLayer_OutputTensors() {
-		return (EReference)layerEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getLayer_InputTensors() {
-		return (EReference)layerEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -508,12 +472,8 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		createEAttribute(elementEClass, ELEMENT__NAME);
 
 		tensorEClass = createEClass(TENSOR);
-		createEReference(tensorEClass, TENSOR__PROVIDING_LAYER);
-		createEReference(tensorEClass, TENSOR__CONSUMING_LAYERS);
 
 		layerEClass = createEClass(LAYER);
-		createEReference(layerEClass, LAYER__OUTPUT_TENSORS);
-		createEReference(layerEClass, LAYER__INPUT_TENSORS);
 
 		modelEClass = createEClass(MODEL);
 
@@ -598,13 +558,9 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		initEClass(elementEClass, Element.class, "Element", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getElement_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(tensorEClass, Tensor.class, "Tensor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTensor_ProvidingLayer(), this.getLayer(), this.getLayer_OutputTensors(), "providingLayer", null, 0, 1, Tensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTensor_ConsumingLayers(), this.getLayer(), this.getLayer_InputTensors(), "consumingLayers", null, 0, -1, Tensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(tensorEClass, Tensor.class, "Tensor", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(layerEClass, Layer.class, "Layer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getLayer_OutputTensors(), this.getTensor(), this.getTensor_ProvidingLayer(), "outputTensors", null, 0, -1, Layer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getLayer_InputTensors(), this.getTensor(), this.getTensor_ConsumingLayers(), "inputTensors", null, 0, -1, Layer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(modelEClass, Model.class, "Model", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

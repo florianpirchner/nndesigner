@@ -6,20 +6,27 @@ import org.eclipse.athene.nn.model.core.CorePackage;
 
 import org.eclipse.athene.nn.model.keras.Activation;
 import org.eclipse.athene.nn.model.keras.ActivityRegularization;
+import org.eclipse.athene.nn.model.keras.Backend;
 import org.eclipse.athene.nn.model.keras.Dense;
 import org.eclipse.athene.nn.model.keras.Dropout;
 import org.eclipse.athene.nn.model.keras.Flatten;
+import org.eclipse.athene.nn.model.keras.InputNode;
 import org.eclipse.athene.nn.model.keras.KerasFactory;
 import org.eclipse.athene.nn.model.keras.KerasPackage;
+import org.eclipse.athene.nn.model.keras.Layer;
 import org.eclipse.athene.nn.model.keras.Model;
+import org.eclipse.athene.nn.model.keras.Node;
+import org.eclipse.athene.nn.model.keras.OutputNode;
 import org.eclipse.athene.nn.model.keras.Permute;
 import org.eclipse.athene.nn.model.keras.RepeatVector;
 import org.eclipse.athene.nn.model.keras.Reshape;
+import org.eclipse.athene.nn.model.keras.Tensor;
 
 import org.eclipse.athene.nn.model.tensorflow.TensorflowPackage;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
@@ -39,6 +46,48 @@ public class KerasPackageImpl extends EPackageImpl implements KerasPackage {
 	 * @generated
 	 */
 	private EClass modelEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass layerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass nodeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass tensorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass inputNodeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass outputNodeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass backendEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -144,8 +193,8 @@ public class KerasPackageImpl extends EPackageImpl implements KerasPackage {
 
 		// Initialize simple dependencies
 		CorePackage.eINSTANCE.eClass();
-		TensorflowPackage.eINSTANCE.eClass();
 		EcorePackage.eINSTANCE.eClass();
+		TensorflowPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theKerasPackage.createPackageContents();
@@ -176,6 +225,168 @@ public class KerasPackageImpl extends EPackageImpl implements KerasPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getModel_KerasVersion() {
+		return (EAttribute)modelEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getModel_Backend() {
+		return (EReference)modelEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getLayer() {
+		return layerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLayer_Nodes() {
+		return (EReference)layerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getLayer__GetOutput__int() {
+		return layerEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getLayer__GetInput__int() {
+		return layerEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getNode() {
+		return nodeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getNode_Input() {
+		return (EReference)nodeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getNode_Output() {
+		return (EReference)nodeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTensor() {
+		return tensorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTensor_ProvidingNode() {
+		return (EReference)tensorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTensor_ConsumingNodes() {
+		return (EReference)tensorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getInputNode() {
+		return inputNodeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInputNode_InputLayer() {
+		return (EReference)inputNodeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getOutputNode() {
+		return outputNodeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOutputNode_OutputLayer() {
+		return (EReference)outputNodeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBackend() {
+		return backendEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBackend_Name() {
+		return (EAttribute)backendEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDense() {
 		return denseEClass;
 	}
@@ -185,7 +396,7 @@ public class KerasPackageImpl extends EPackageImpl implements KerasPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDense_NumberOfOutputUnits() {
+	public EAttribute getDense_Units() {
 		return (EAttribute)denseEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -479,9 +690,33 @@ public class KerasPackageImpl extends EPackageImpl implements KerasPackage {
 
 		// Create classes and their features
 		modelEClass = createEClass(MODEL);
+		createEAttribute(modelEClass, MODEL__KERAS_VERSION);
+		createEReference(modelEClass, MODEL__BACKEND);
+
+		layerEClass = createEClass(LAYER);
+		createEReference(layerEClass, LAYER__NODES);
+		createEOperation(layerEClass, LAYER___GET_OUTPUT__INT);
+		createEOperation(layerEClass, LAYER___GET_INPUT__INT);
+
+		nodeEClass = createEClass(NODE);
+		createEReference(nodeEClass, NODE__INPUT);
+		createEReference(nodeEClass, NODE__OUTPUT);
+
+		tensorEClass = createEClass(TENSOR);
+		createEReference(tensorEClass, TENSOR__PROVIDING_NODE);
+		createEReference(tensorEClass, TENSOR__CONSUMING_NODES);
+
+		inputNodeEClass = createEClass(INPUT_NODE);
+		createEReference(inputNodeEClass, INPUT_NODE__INPUT_LAYER);
+
+		outputNodeEClass = createEClass(OUTPUT_NODE);
+		createEReference(outputNodeEClass, OUTPUT_NODE__OUTPUT_LAYER);
+
+		backendEClass = createEClass(BACKEND);
+		createEAttribute(backendEClass, BACKEND__NAME);
 
 		denseEClass = createEClass(DENSE);
-		createEAttribute(denseEClass, DENSE__NUMBER_OF_OUTPUT_UNITS);
+		createEAttribute(denseEClass, DENSE__UNITS);
 		createEReference(denseEClass, DENSE__INPUT_SHAPE);
 		createEAttribute(denseEClass, DENSE__USE_BIAS);
 		createEReference(denseEClass, DENSE__ACTIVATION_FUNCTION);
@@ -545,8 +780,8 @@ public class KerasPackageImpl extends EPackageImpl implements KerasPackage {
 
 		// Obtain other dependent packages
 		CorePackage theCorePackage = (CorePackage)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
-		TensorflowPackage theTensorflowPackage = (TensorflowPackage)EPackage.Registry.INSTANCE.getEPackage(TensorflowPackage.eNS_URI);
 		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
+		TensorflowPackage theTensorflowPackage = (TensorflowPackage)EPackage.Registry.INSTANCE.getEPackage(TensorflowPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -554,20 +789,52 @@ public class KerasPackageImpl extends EPackageImpl implements KerasPackage {
 
 		// Add supertypes to classes
 		modelEClass.getESuperTypes().add(theCorePackage.getModel());
-		denseEClass.getESuperTypes().add(theTensorflowPackage.getLayer());
-		dropoutEClass.getESuperTypes().add(theTensorflowPackage.getLayer());
-		activationEClass.getESuperTypes().add(theTensorflowPackage.getLayer());
-		reshapeEClass.getESuperTypes().add(theTensorflowPackage.getLayer());
-		flattenEClass.getESuperTypes().add(theTensorflowPackage.getLayer());
-		permuteEClass.getESuperTypes().add(theTensorflowPackage.getLayer());
-		repeatVectorEClass.getESuperTypes().add(theTensorflowPackage.getLayer());
-		activityRegularizationEClass.getESuperTypes().add(theTensorflowPackage.getLayer());
+		layerEClass.getESuperTypes().add(theTensorflowPackage.getLayer());
+		tensorEClass.getESuperTypes().add(theCorePackage.getTensor());
+		inputNodeEClass.getESuperTypes().add(this.getNode());
+		outputNodeEClass.getESuperTypes().add(this.getNode());
+		denseEClass.getESuperTypes().add(this.getLayer());
+		dropoutEClass.getESuperTypes().add(this.getLayer());
+		activationEClass.getESuperTypes().add(this.getLayer());
+		reshapeEClass.getESuperTypes().add(this.getLayer());
+		flattenEClass.getESuperTypes().add(this.getLayer());
+		permuteEClass.getESuperTypes().add(this.getLayer());
+		repeatVectorEClass.getESuperTypes().add(this.getLayer());
+		activityRegularizationEClass.getESuperTypes().add(this.getLayer());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getModel_KerasVersion(), theEcorePackage.getEString(), "kerasVersion", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModel_Backend(), this.getBackend(), null, "backend", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(layerEClass, Layer.class, "Layer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getLayer_Nodes(), this.getNode(), null, "nodes", null, 0, -1, Layer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		EOperation op = initEOperation(getLayer__GetOutput__int(), this.getTensor(), "getOutput", 0, 1, !IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theEcorePackage.getEInt(), "index", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getLayer__GetInput__int(), this.getTensor(), "getInput", 0, 1, !IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theEcorePackage.getEInt(), "index", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+		initEClass(nodeEClass, Node.class, "Node", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getNode_Input(), this.getTensor(), this.getTensor_ProvidingNode(), "input", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_Output(), this.getTensor(), null, "output", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(tensorEClass, Tensor.class, "Tensor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTensor_ProvidingNode(), this.getNode(), this.getNode_Input(), "providingNode", null, 0, 1, Tensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTensor_ConsumingNodes(), this.getNode(), this.getNode_Output(), "consumingNodes", null, 0, -1, Tensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(inputNodeEClass, InputNode.class, "InputNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getInputNode_InputLayer(), this.getLayer(), null, "inputLayer", null, 0, 1, InputNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(outputNodeEClass, OutputNode.class, "OutputNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getOutputNode_OutputLayer(), this.getLayer(), null, "outputLayer", null, 0, 1, OutputNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(backendEClass, Backend.class, "Backend", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBackend_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Backend.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(denseEClass, Dense.class, "Dense", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDense_NumberOfOutputUnits(), theEcorePackage.getEInt(), "numberOfOutputUnits", null, 0, 1, Dense.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDense_Units(), theEcorePackage.getEInt(), "units", null, 0, 1, Dense.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDense_InputShape(), theCorePackage.getShape(), null, "inputShape", null, 0, 1, Dense.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDense_UseBias(), theEcorePackage.getEBoolean(), "useBias", null, 0, 1, Dense.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDense_ActivationFunction(), theCorePackage.getActivationFunction(), null, "activationFunction", null, 0, 1, Dense.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -8,4 +8,5 @@ class Layer extends org.eclipse.athene.nn.model.core.Layer {
 	 
 	boolean trainable
 }
+
  

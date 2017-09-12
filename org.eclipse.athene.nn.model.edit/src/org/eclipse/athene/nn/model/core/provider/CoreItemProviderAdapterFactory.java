@@ -112,29 +112,6 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.athene.nn.model.core.Tensor} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected TensorItemProvider tensorItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.eclipse.athene.nn.model.core.Tensor}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createTensorAdapter() {
-		if (tensorItemProvider == null) {
-			tensorItemProvider = new TensorItemProvider(this);
-		}
-
-		return tensorItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.athene.nn.model.core.Shape2D} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -376,7 +353,6 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory implement
 	 */
 	public void dispose() {
 		if (designItemProvider != null) designItemProvider.dispose();
-		if (tensorItemProvider != null) tensorItemProvider.dispose();
 		if (shape2DItemProvider != null) shape2DItemProvider.dispose();
 		if (shape3DItemProvider != null) shape3DItemProvider.dispose();
 		if (integerDupleItemProvider != null) integerDupleItemProvider.dispose();

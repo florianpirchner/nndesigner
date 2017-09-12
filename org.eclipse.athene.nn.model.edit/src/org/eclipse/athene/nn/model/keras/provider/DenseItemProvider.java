@@ -5,17 +5,11 @@ package org.eclipse.athene.nn.model.keras.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.athene.nn.model.core.CoreFactory;
-
 import org.eclipse.athene.nn.model.keras.Dense;
 import org.eclipse.athene.nn.model.keras.KerasPackage;
-
-import org.eclipse.athene.nn.model.tensorflow.provider.LayerItemProvider;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
@@ -51,7 +45,7 @@ public class DenseItemProvider extends LayerItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNumberOfOutputUnitsPropertyDescriptor(object);
+			addUnitsPropertyDescriptor(object);
 			addUseBiasPropertyDescriptor(object);
 			addActivationFunctionPropertyDescriptor(object);
 			addWeightsInitializerPropertyDescriptor(object);
@@ -61,19 +55,19 @@ public class DenseItemProvider extends LayerItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Number Of Output Units feature.
+	 * This adds a property descriptor for the Units feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNumberOfOutputUnitsPropertyDescriptor(Object object) {
+	protected void addUnitsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Dense_numberOfOutputUnits_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Dense_numberOfOutputUnits_feature", "_UI_Dense_type"),
-				 KerasPackage.Literals.DENSE__NUMBER_OF_OUTPUT_UNITS,
+				 getString("_UI_Dense_units_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Dense_units_feature", "_UI_Dense_type"),
+				 KerasPackage.Literals.DENSE__UNITS,
 				 true,
 				 false,
 				 false,
@@ -238,7 +232,7 @@ public class DenseItemProvider extends LayerItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Dense.class)) {
-			case KerasPackage.DENSE__NUMBER_OF_OUTPUT_UNITS:
+			case KerasPackage.DENSE__UNITS:
 			case KerasPackage.DENSE__USE_BIAS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

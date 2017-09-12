@@ -4,7 +4,6 @@ package org.eclipse.athene.nn.model.keras.presentation;
 
 import org.eclipse.athene.nn.model.core.provider.AtheneEditPlugin;
 import org.eclipse.athene.nn.model.tensorflow.provider.TensorflowEditPlugin;
-
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.ui.EclipseUIPlugin;

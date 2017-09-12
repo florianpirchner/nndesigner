@@ -4,8 +4,6 @@ package org.eclipse.athene.nn.model.keras;
 
 import org.eclipse.athene.nn.model.core.Shape2D;
 
-import org.eclipse.athene.nn.model.tensorflow.Layer;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Activity Regularization</b></em>'.

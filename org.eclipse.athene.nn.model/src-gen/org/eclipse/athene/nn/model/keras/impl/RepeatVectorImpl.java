@@ -8,8 +8,6 @@ import org.eclipse.athene.nn.model.core.Shape3D;
 import org.eclipse.athene.nn.model.keras.KerasPackage;
 import org.eclipse.athene.nn.model.keras.RepeatVector;
 
-import org.eclipse.athene.nn.model.tensorflow.impl.LayerImpl;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 

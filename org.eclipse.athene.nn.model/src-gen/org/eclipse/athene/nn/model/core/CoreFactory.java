@@ -31,15 +31,6 @@ public interface CoreFactory extends EFactory {
 	Design createDesign();
 
 	/**
-	 * Returns a new object of class '<em>Tensor</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Tensor</em>'.
-	 * @generated
-	 */
-	Tensor createTensor();
-
-	/**
 	 * Returns a new object of class '<em>Shape2 D</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

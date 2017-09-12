@@ -3,7 +3,6 @@
 package org.eclipse.athene.nn.model.keras.util;
 
 import org.eclipse.athene.nn.model.core.Element;
-import org.eclipse.athene.nn.model.core.Layer;
 
 import org.eclipse.athene.nn.model.keras.*;
 
@@ -75,6 +74,30 @@ public class KerasAdapterFactory extends AdapterFactoryImpl {
 				return createModelAdapter();
 			}
 			@Override
+			public Adapter caseLayer(Layer object) {
+				return createLayerAdapter();
+			}
+			@Override
+			public Adapter caseNode(Node object) {
+				return createNodeAdapter();
+			}
+			@Override
+			public Adapter caseTensor(Tensor object) {
+				return createTensorAdapter();
+			}
+			@Override
+			public Adapter caseInputNode(InputNode object) {
+				return createInputNodeAdapter();
+			}
+			@Override
+			public Adapter caseOutputNode(OutputNode object) {
+				return createOutputNodeAdapter();
+			}
+			@Override
+			public Adapter caseBackend(Backend object) {
+				return createBackendAdapter();
+			}
+			@Override
 			public Adapter caseDense(Dense object) {
 				return createDenseAdapter();
 			}
@@ -111,8 +134,8 @@ public class KerasAdapterFactory extends AdapterFactoryImpl {
 				return createElementAdapter();
 			}
 			@Override
-			public Adapter caseLayer(Layer object) {
-				return createLayerAdapter();
+			public Adapter caseCore_Layer(org.eclipse.athene.nn.model.core.Layer object) {
+				return createCore_LayerAdapter();
 			}
 			@Override
 			public Adapter caseCore_Model(org.eclipse.athene.nn.model.core.Model object) {
@@ -121,6 +144,10 @@ public class KerasAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseTensorflow_Layer(org.eclipse.athene.nn.model.tensorflow.Layer object) {
 				return createTensorflow_LayerAdapter();
+			}
+			@Override
+			public Adapter caseCore_Tensor(org.eclipse.athene.nn.model.core.Tensor object) {
+				return createCore_TensorAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -153,6 +180,90 @@ public class KerasAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createModelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.athene.nn.model.keras.Layer <em>Layer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.athene.nn.model.keras.Layer
+	 * @generated
+	 */
+	public Adapter createLayerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.athene.nn.model.keras.Node <em>Node</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.athene.nn.model.keras.Node
+	 * @generated
+	 */
+	public Adapter createNodeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.athene.nn.model.keras.Tensor <em>Tensor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.athene.nn.model.keras.Tensor
+	 * @generated
+	 */
+	public Adapter createTensorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.athene.nn.model.keras.InputNode <em>Input Node</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.athene.nn.model.keras.InputNode
+	 * @generated
+	 */
+	public Adapter createInputNodeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.athene.nn.model.keras.OutputNode <em>Output Node</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.athene.nn.model.keras.OutputNode
+	 * @generated
+	 */
+	public Adapter createOutputNodeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.athene.nn.model.keras.Backend <em>Backend</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.athene.nn.model.keras.Backend
+	 * @generated
+	 */
+	public Adapter createBackendAdapter() {
 		return null;
 	}
 
@@ -292,7 +403,7 @@ public class KerasAdapterFactory extends AdapterFactoryImpl {
 	 * @see org.eclipse.athene.nn.model.core.Layer
 	 * @generated
 	 */
-	public Adapter createLayerAdapter() {
+	public Adapter createCore_LayerAdapter() {
 		return null;
 	}
 
@@ -321,6 +432,20 @@ public class KerasAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTensorflow_LayerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.athene.nn.model.core.Tensor <em>Tensor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.athene.nn.model.core.Tensor
+	 * @generated
+	 */
+	public Adapter createCore_TensorAdapter() {
 		return null;
 	}
 

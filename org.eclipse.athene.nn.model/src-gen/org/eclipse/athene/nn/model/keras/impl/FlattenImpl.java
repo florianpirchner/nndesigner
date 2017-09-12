@@ -5,8 +5,6 @@ package org.eclipse.athene.nn.model.keras.impl;
 import org.eclipse.athene.nn.model.keras.Flatten;
 import org.eclipse.athene.nn.model.keras.KerasPackage;
 
-import org.eclipse.athene.nn.model.tensorflow.impl.LayerImpl;
-
 import org.eclipse.emf.ecore.EClass;
 
 /**

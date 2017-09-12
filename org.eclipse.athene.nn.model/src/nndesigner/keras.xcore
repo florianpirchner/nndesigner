@@ -10,14 +10,55 @@ import org.eclipse.athene.nn.model.core.IntegerDuple
 import org.eclipse.athene.nn.model.core.Shape
 import org.eclipse.athene.nn.model.core.Shape2D
 import org.eclipse.athene.nn.model.core.Shape3D
-import org.eclipse.athene.nn.model.tensorflow.Layer
- 
+
 class Model extends org.eclipse.athene.nn.model.core.Model {
+	String kerasVersion
+	refers Backend backend
+}
+
+class Layer extends org.eclipse.athene.nn.model.tensorflow.Layer {
+	contains Node[*] nodes
+	/**
+	 * Returns the output tensor for the given node index
+	 */
+	op Tensor getOutput(int index) {
+		return nodes.get(index).output
+	}
+	/**
+	 * Returns the input tensor for the given node index
+	 */
+	op Tensor getInput(int index) {
+		return nodes.get(index).input
+	}
+}
+
+class Node {
+	refers Tensor input opposite providingNode
+	contains Tensor output opposite consumingNode
+}
+
+class Tensor extends org.eclipse.athene.nn.model.core.Tensor {
+	// the node which provides (exports) the tensor
+	refers Node providingNode opposite input
+	// the nodes which consume the tensor (imports)
+	refers Node[*] consumingNodes opposite output
+}
+
+class InputNode extends Node {
+	refers Layer inputLayer
+}
+
+class OutputNode extends Node {
+	refers Layer outputLayer
+}
+
+class Backend {
+	String name
 }
 
 class Dense extends Layer {
 	// dimension of output space
-	int numberOfOutputUnits
+	int units
 	/*
 	 * nD tensor with shape: (batch_size, ..., input_dim). 
 	 * The most common situation would be a 2D input with shape (batch_size, input_dim)
@@ -91,7 +132,7 @@ class Activation extends Layer {
  */
 class Reshape extends Layer {
 	/*
-	 *Tuple of integers,
+	 * Tuple of integers,
 	 * does not include the samples dimension (batch size).
 	 */
 	contains Shape targetShape
@@ -148,7 +189,7 @@ class RepeatVector extends Layer {
 	// 3D tensor of shape (num_samples, n, features).
 	contains Shape3D outputShape
 }
- 
+
 /**
  * Layer that applies an update to the cost function cored input activity.
  */

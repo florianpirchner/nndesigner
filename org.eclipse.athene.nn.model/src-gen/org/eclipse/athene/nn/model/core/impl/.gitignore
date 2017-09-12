@@ -1,0 +1,17 @@
+/ActivationFunctionImpl.java
+/CoreFactoryImpl.java
+/CorePackageImpl.java
+/DesignImpl.java
+/DotFunctionImpl.java
+/FunctionImpl.java
+/InitializerFunctionImpl.java
+/IntegerDupleImpl.java
+/LayerImpl.java
+/LossFunctionImpl.java
+/MathFunctionImpl.java
+/MatmulFunctionImpl.java
+/ModelImpl.java
+/Shape2DImpl.java
+/Shape3DImpl.java
+/ShapeImpl.java
+/TensorImpl.java

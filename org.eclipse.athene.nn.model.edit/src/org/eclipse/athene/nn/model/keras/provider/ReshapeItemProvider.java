@@ -5,19 +5,12 @@ package org.eclipse.athene.nn.model.keras.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.athene.nn.model.core.CoreFactory;
-
 import org.eclipse.athene.nn.model.keras.KerasPackage;
 import org.eclipse.athene.nn.model.keras.Reshape;
-
-import org.eclipse.athene.nn.model.tensorflow.provider.LayerItemProvider;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 

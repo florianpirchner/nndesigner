@@ -58,7 +58,6 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case CorePackage.DESIGN: return createDesign();
-			case CorePackage.TENSOR: return createTensor();
 			case CorePackage.SHAPE2_D: return createShape2D();
 			case CorePackage.SHAPE3_D: return createShape3D();
 			case CorePackage.INTEGER_DUPLE: return createIntegerDuple();
@@ -107,16 +106,6 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	public Design createDesign() {
 		DesignImpl design = new DesignImpl();
 		return design;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Tensor createTensor() {
-		TensorImpl tensor = new TensorImpl();
-		return tensor;
 	}
 
 	/**

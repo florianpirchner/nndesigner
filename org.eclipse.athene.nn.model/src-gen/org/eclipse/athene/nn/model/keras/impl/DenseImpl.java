@@ -9,8 +9,6 @@ import org.eclipse.athene.nn.model.core.Shape;
 import org.eclipse.athene.nn.model.keras.Dense;
 import org.eclipse.athene.nn.model.keras.KerasPackage;
 
-import org.eclipse.athene.nn.model.tensorflow.impl.LayerImpl;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -27,7 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.athene.nn.model.keras.impl.DenseImpl#getNumberOfOutputUnits <em>Number Of Output Units</em>}</li>
+ *   <li>{@link org.eclipse.athene.nn.model.keras.impl.DenseImpl#getUnits <em>Units</em>}</li>
  *   <li>{@link org.eclipse.athene.nn.model.keras.impl.DenseImpl#getInputShape <em>Input Shape</em>}</li>
  *   <li>{@link org.eclipse.athene.nn.model.keras.impl.DenseImpl#isUseBias <em>Use Bias</em>}</li>
  *   <li>{@link org.eclipse.athene.nn.model.keras.impl.DenseImpl#getActivationFunction <em>Activation Function</em>}</li>
@@ -39,24 +37,24 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class DenseImpl extends LayerImpl implements Dense {
 	/**
-	 * The default value of the '{@link #getNumberOfOutputUnits() <em>Number Of Output Units</em>}' attribute.
+	 * The default value of the '{@link #getUnits() <em>Units</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNumberOfOutputUnits()
+	 * @see #getUnits()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int NUMBER_OF_OUTPUT_UNITS_EDEFAULT = 0;
+	protected static final int UNITS_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getNumberOfOutputUnits() <em>Number Of Output Units</em>}' attribute.
+	 * The cached value of the '{@link #getUnits() <em>Units</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNumberOfOutputUnits()
+	 * @see #getUnits()
 	 * @generated
 	 * @ordered
 	 */
-	protected int numberOfOutputUnits = NUMBER_OF_OUTPUT_UNITS_EDEFAULT;
+	protected int units = UNITS_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getInputShape() <em>Input Shape</em>}' containment reference.
@@ -142,8 +140,8 @@ public class DenseImpl extends LayerImpl implements Dense {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getNumberOfOutputUnits() {
-		return numberOfOutputUnits;
+	public int getUnits() {
+		return units;
 	}
 
 	/**
@@ -151,11 +149,11 @@ public class DenseImpl extends LayerImpl implements Dense {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setNumberOfOutputUnits(int newNumberOfOutputUnits) {
-		int oldNumberOfOutputUnits = numberOfOutputUnits;
-		numberOfOutputUnits = newNumberOfOutputUnits;
+	public void setUnits(int newUnits) {
+		int oldUnits = units;
+		units = newUnits;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, KerasPackage.DENSE__NUMBER_OF_OUTPUT_UNITS, oldNumberOfOutputUnits, numberOfOutputUnits));
+			eNotify(new ENotificationImpl(this, Notification.SET, KerasPackage.DENSE__UNITS, oldUnits, units));
 	}
 
 	/**
@@ -358,8 +356,8 @@ public class DenseImpl extends LayerImpl implements Dense {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case KerasPackage.DENSE__NUMBER_OF_OUTPUT_UNITS:
-				return getNumberOfOutputUnits();
+			case KerasPackage.DENSE__UNITS:
+				return getUnits();
 			case KerasPackage.DENSE__INPUT_SHAPE:
 				return getInputShape();
 			case KerasPackage.DENSE__USE_BIAS:
@@ -385,8 +383,8 @@ public class DenseImpl extends LayerImpl implements Dense {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case KerasPackage.DENSE__NUMBER_OF_OUTPUT_UNITS:
-				setNumberOfOutputUnits((Integer)newValue);
+			case KerasPackage.DENSE__UNITS:
+				setUnits((Integer)newValue);
 				return;
 			case KerasPackage.DENSE__INPUT_SHAPE:
 				setInputShape((Shape)newValue);
@@ -415,8 +413,8 @@ public class DenseImpl extends LayerImpl implements Dense {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case KerasPackage.DENSE__NUMBER_OF_OUTPUT_UNITS:
-				setNumberOfOutputUnits(NUMBER_OF_OUTPUT_UNITS_EDEFAULT);
+			case KerasPackage.DENSE__UNITS:
+				setUnits(UNITS_EDEFAULT);
 				return;
 			case KerasPackage.DENSE__INPUT_SHAPE:
 				setInputShape((Shape)null);
@@ -445,8 +443,8 @@ public class DenseImpl extends LayerImpl implements Dense {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case KerasPackage.DENSE__NUMBER_OF_OUTPUT_UNITS:
-				return numberOfOutputUnits != NUMBER_OF_OUTPUT_UNITS_EDEFAULT;
+			case KerasPackage.DENSE__UNITS:
+				return units != UNITS_EDEFAULT;
 			case KerasPackage.DENSE__INPUT_SHAPE:
 				return inputShape != null;
 			case KerasPackage.DENSE__USE_BIAS:
@@ -471,8 +469,8 @@ public class DenseImpl extends LayerImpl implements Dense {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (numberOfOutputUnits: ");
-		result.append(numberOfOutputUnits);
+		result.append(" (units: ");
+		result.append(units);
 		result.append(", useBias: ");
 		result.append(useBias);
 		result.append(')');
