@@ -1,0 +1,11 @@
+@GenModel(childCreationExtenders="true")
+@GenModel(extensibleProviderFactory="true")
+@GenModel(editDirectory="/org.eclipse.athene.nn.model.edit/src")
+@GenModel(editorDirectory="/org.eclipse.athene.nn.model.editor/src")
+package org.eclipse.athene.nn.model.tensorflow
+
+class Layer extends org.eclipse.athene.nn.model.core.Layer {
+	 
+	boolean trainable
+}
+ 

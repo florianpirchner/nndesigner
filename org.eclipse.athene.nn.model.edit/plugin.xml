@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <!-- @generated core -->
+      <factory
+            uri="org.eclipse.athene.nn.model.core"
+            class="org.eclipse.athene.nn.model.core.provider.CoreItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <!-- @generated keras -->
+      <factory
+            uri="org.eclipse.athene.nn.model.keras"
+            class="org.eclipse.athene.nn.model.keras.provider.KerasItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.childCreationExtenders">
+      <!-- @generated keras -->
+      <extender
+            uri="org.eclipse.athene.nn.model.core"
+            class="org.eclipse.athene.nn.model.keras.provider.KerasItemProviderAdapterFactory$CoreChildCreationExtender"/>
+   </extension>
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <!-- @generated tensorflow -->
+      <factory
+            uri="org.eclipse.athene.nn.model.tensorflow"
+            class="org.eclipse.athene.nn.model.tensorflow.provider.TensorflowItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.childCreationExtenders">
+      <!-- @generated tensorflow -->
+      <extender
+            uri="org.eclipse.athene.nn.model.core"
+            class="org.eclipse.athene.nn.model.tensorflow.provider.TensorflowItemProviderAdapterFactory$CoreChildCreationExtender"/>
+   </extension>
+</plugin>

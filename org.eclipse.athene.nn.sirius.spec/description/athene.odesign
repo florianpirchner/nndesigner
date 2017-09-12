@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="athene" version="12.0.0.2017041100">
+  <ownedViewpoints name="Athene NN Designer" modelFileExtension="athene">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="NNDesigner" domainClass="core::Design">
+      <defaultLayer name="Default">
+        <toolSections/>
+      </defaultLayer>
+      <additionalLayers name="Layers" activeByDefault="true">
+        <nodeMappings name="Activation" domainClass="keras::Activation">
+          <style xsi:type="style:WorkspaceImageDescription" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/org.eclipse.athene.sirius.spec/icons/man.svg">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="Dense" domainClass="keras::Dense">
+          <style xsi:type="style:WorkspaceImageDescription" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/org.eclipse.athene.sirius.spec/icons/woman.svg">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="Dropout" domainClass="keras::Dropout"/>
+        <nodeMappings name="Flatten" domainClass="keras::Flatten"/>
+        <nodeMappings name="Permute" domainClass="keras::Permute"/>
+        <nodeMappings name="RepeatVector" domainClass="keras::RepeatVector"/>
+        <nodeMappings name="Reshape" domainClass="keras::Reshape"/>
+        <toolSections>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createActivation" label="Activation" nodeMappings="//@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@nodeMappings[name='Activation']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="keras::Activate" referenceName="elements">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New Layer"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createDense" label="Dense" nodeMappings="//@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@nodeMappings[name='Dense']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="keras::Dense" referenceName="elements">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New Layer"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="connectToInput" label="Tensor" edgeMappings="//@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Tensor']/@edgeMappings[name='Tensor']" iconPath="/org.eclipse.sirius.sample.basicfamily.advanced.design/icons/father.png">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="outputTensors" valueExpression="var:source"/>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="inputTensors" valueExpression="var:target"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </additionalLayers>
+      <additionalLayers name="Tensor" activeByDefault="true">
+        <edgeMappings name="Tensor" sourceMapping="//@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@nodeMappings[name='Activation'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@nodeMappings[name='Dense'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@nodeMappings[name='Dropout'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@nodeMappings[name='Flatten'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@nodeMappings[name='Permute'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@nodeMappings[name='RepeatVector'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@nodeMappings[name='Reshape']" targetMapping="//@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@nodeMappings[name='Activation'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@nodeMappings[name='Dense'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@nodeMappings[name='Dropout'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@nodeMappings[name='Flatten'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@nodeMappings[name='Permute'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@nodeMappings[name='RepeatVector'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@nodeMappings[name='Reshape']" targetFinderExpression="[thisEObject.consumingLayers/]" sourceFinderExpression="[thisEObject.providingLayer/]" domainClass="core::Tensor" useDomainElement="true">
+          <style sizeComputationExpression="2" routingStyle="manhattan">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+      </additionalLayers>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.athene.sirius.spec.Services"/>
+  </ownedViewpoints>
+</description:Group>

@@ -1,0 +1,165 @@
+@GenModel(childCreationExtenders="true")
+@GenModel(extensibleProviderFactory="true")
+@GenModel(editDirectory="/org.eclipse.athene.nn.model.edit/src")
+@GenModel(editorDirectory="/org.eclipse.athene.nn.model.editor/src")
+package org.eclipse.athene.nn.model.keras
+
+import org.eclipse.athene.nn.model.core.ActivationFunction
+import org.eclipse.athene.nn.model.core.InitializerFunction
+import org.eclipse.athene.nn.model.core.IntegerDuple
+import org.eclipse.athene.nn.model.core.Shape
+import org.eclipse.athene.nn.model.core.Shape2D
+import org.eclipse.athene.nn.model.core.Shape3D
+import org.eclipse.athene.nn.model.tensorflow.Layer
+ 
+class Model extends org.eclipse.athene.nn.model.core.Model {
+}
+
+class Dense extends Layer {
+	// dimension of output space
+	int numberOfOutputUnits
+	/*
+	 * nD tensor with shape: (batch_size, ..., input_dim). 
+	 * The most common situation would be a 2D input with shape (batch_size, input_dim)
+	 */
+	contains Shape inputShape
+	// true if bias should be used
+	boolean useBias
+	/*
+	 * Activation function to use (see <a href="https://keras.io/activations/">activations</a>). <br>
+	 * If you don't specify anything, no activation is applied (ie. "linear" activation: a(x) = x).
+	 */
+	refers ActivationFunction activationFunction
+	/*
+	 * Initializer for the kernel weights matrix (see <a href="https://keras.io/initializers/">initializers</a>).
+	 */
+	refers InitializerFunction weightsInitializer
+	/*
+	 *  Initializer for the bias vector (see <a href="https://keras.io/initializers/">initializers</a>).
+	 */
+	refers InitializerFunction biasInitializer
+}
+
+/*
+ * Dropout consists in randomly setting a fraction rate of input units to 0 at each update during training time, 
+ * which helps prevent overfitting.
+ */
+class Dropout extends Layer {
+	// float between 0 and 1. Fraction of the input units to drop.
+	float rate
+	/*
+	 * 1D integer tensor representing the shape of the binary dropout mask that will be multiplied with the input. <br>
+	 * For instance, if your inputs have shape  (batch_size, timesteps, features) and you want the dropout mask to be 
+	 * the same for all timesteps, you can use noise_shape=(batch_size, 1, features).
+	 */
+	contains Shape noiseShape
+	// A Python integer to use as random seed.
+	int seed
+}
+
+/*
+ * Applies an activation function to an output.
+ */
+class Activation extends Layer {
+	// float between 0 and 1. Fraction of the input units to drop.
+	refers ActivationFunction activationFunction
+	/*
+	 * Arbitrary. Use the keyword argument `input_shape`
+	 * (tuple of integers, does not include the samples axis)
+	 * when using this layer as the first layer in a model.
+	 */
+	contains Shape inputShape
+}
+
+/*
+ * Reshapes an output to a certain shape.<br>
+ * <code>
+ * 	# as first layer in a Sequential model<br>
+ * 		model = Sequential()<br>
+ * 		model.add(Reshape((3, 4), input_shape=(12,)))<br>
+ * # now: model.output_shape == (None, 3, 4)<br>
+ * # note: `None` is the batch dimension<br>
+ * <br>
+ * # as intermediate layer in a Sequential model<br>
+ * 		model.add(Reshape((6, 2)))<br>
+ * # now: model.output_shape == (None, 6, 2)<br>
+ * <br>
+ * # also supports shape inference using `-1` as dimension<br>
+ * 		model.add(Reshape((-1, 2, 2)))<br>
+ * # now: model.output_shape == (None, 3, 2, 2)<br>
+ * </code>
+ */
+class Reshape extends Layer {
+	/*
+	 *Tuple of integers,
+	 * does not include the samples dimension (batch size).
+	 */
+	contains Shape targetShape
+	/*
+	 * Arbitrary, although all dimensions in the input shaped must be fixed. <br>
+	 * Use the keyword argument input_shape (tuple of integers, does not include the batch axis) when using this layer as the 
+	 * first layer in a model.
+	 */
+	contains Shape inputShape
+	/*
+	 * Tuple of integers. Does not include the batch axis.<br>
+	 * <code>(batch_size,) + target_shape</code>
+	 */
+	contains Shape outputShape
+}
+
+/*
+ * Flattens the input. Does not affect the batch size.
+ */
+class Flatten extends Layer {
+}
+
+/*
+ * Permutes the dimensions of the input according to a given pattern.<br>
+ * Useful for e.g. connecting RNNs and convnets together.
+ */
+class Permute extends Layer {
+	/**
+	 *  Tuple of integers. Permutation pattern, does not include the samples dimension. <br>
+	 * Indexing starts at 1. For instance,  (2, 1) permutes the first and second dimension of the input.
+	 */
+	contains IntegerDuple dims
+	/*
+	 * Arbitrary. Use the keyword argument input_shape (tuple of integers, does not include the samples axis) 
+	 * when using this layer as the first layer in a model.<br>
+	 * OutputShape:<br>
+	 * Same as the input shape, but with the dimensions re-ordered according to the specified pattern. 
+	 */
+	contains Shape inputShape
+	/*
+	 * Same as the input shape, but with the dimensions re-ordered according to the specified pattern.
+	 */
+	contains transient Shape outputShape
+}
+
+/*
+ * Repeats the input n times.
+ */
+class RepeatVector extends Layer {
+	// repetition factor.
+	int numberOfRepeats
+	// 2D tensor of shape (num_samples, features).
+	contains Shape2D inputShape
+	// 3D tensor of shape (num_samples, n, features).
+	contains Shape3D outputShape
+}
+ 
+/**
+ * Layer that applies an update to the cost function cored input activity.
+ */
+class ActivityRegularization extends Layer {
+	// L1 regularization factor (positive float).
+	int l1
+	// L2 regularization factor (positive float).
+	int l2
+	/**
+	 * Arbitrary. Use the keyword argument input_shape (tuple of integers, does not include the samples axis) 
+	 * when using this layer as the first layer in a model.
+	 */
+	contains Shape2D inputShape
+}

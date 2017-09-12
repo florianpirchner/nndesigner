@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated core -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.eclipse.athene.nn.model.core.presentation.CoreModelWizardID"
+            name="%_UI_CoreModelWizard_label"
+            class="org.eclipse.athene.nn.model.core.presentation.CoreModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/CoreModelFile.gif">
+         <description>%_UI_CoreModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated core -->
+      <editor
+            id="org.eclipse.athene.nn.model.core.presentation.CoreEditorID"
+            name="%_UI_CoreEditor_label"
+            icon="icons/full/obj16/CoreModelFile.gif"
+            extensions="athene"
+            class="org.eclipse.athene.nn.model.core.presentation.CoreEditor"
+            contributorClass="org.eclipse.athene.nn.model.core.presentation.CoreActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated keras -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.eclipse.athene.nn.model.keras.presentation.KerasModelWizardID"
+            name="%_UI_KerasModelWizard_label"
+            class="org.eclipse.athene.nn.model.keras.presentation.KerasModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/KerasModelFile.gif">
+         <description>%_UI_KerasModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated keras -->
+      <editor
+            id="org.eclipse.athene.nn.model.keras.presentation.KerasEditorID"
+            name="%_UI_KerasEditor_label"
+            icon="icons/full/obj16/KerasModelFile.gif"
+            extensions="keras"
+            class="org.eclipse.athene.nn.model.keras.presentation.KerasEditor"
+            contributorClass="org.eclipse.athene.nn.model.keras.presentation.KerasActionBarContributor">
+      </editor>
+   </extension>
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated tensorflow -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.eclipse.athene.nn.model.tensorflow.presentation.TensorflowModelWizardID"
+            name="%_UI_TensorflowModelWizard_label"
+            class="org.eclipse.athene.nn.model.tensorflow.presentation.TensorflowModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/TensorflowModelFile.gif">
+         <description>%_UI_TensorflowModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated tensorflow -->
+      <editor
+            id="org.eclipse.athene.nn.model.tensorflow.presentation.TensorflowEditorID"
+            name="%_UI_TensorflowEditor_label"
+            icon="icons/full/obj16/TensorflowModelFile.gif"
+            extensions="tensorflow"
+            class="org.eclipse.athene.nn.model.tensorflow.presentation.TensorflowEditor"
+            contributorClass="org.eclipse.athene.nn.model.tensorflow.presentation.TensorflowActionBarContributor">
+      </editor>
+   </extension>
+</plugin>
