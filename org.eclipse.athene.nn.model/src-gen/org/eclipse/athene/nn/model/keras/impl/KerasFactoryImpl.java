@@ -58,10 +58,9 @@ public class KerasFactoryImpl extends EFactoryImpl implements KerasFactory {
 		switch (eClass.getClassifierID()) {
 			case KerasPackage.MODEL: return createModel();
 			case KerasPackage.LAYER: return createLayer();
-			case KerasPackage.NODE: return createNode();
-			case KerasPackage.TENSOR: return createTensor();
 			case KerasPackage.INPUT_NODE: return createInputNode();
 			case KerasPackage.OUTPUT_NODE: return createOutputNode();
+			case KerasPackage.TENSOR: return createTensor();
 			case KerasPackage.BACKEND: return createBackend();
 			case KerasPackage.DENSE: return createDense();
 			case KerasPackage.DROPOUT: return createDropout();
@@ -101,26 +100,6 @@ public class KerasFactoryImpl extends EFactoryImpl implements KerasFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Node createNode() {
-		NodeImpl node = new NodeImpl();
-		return node;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Tensor createTensor() {
-		TensorImpl tensor = new TensorImpl();
-		return tensor;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public InputNode createInputNode() {
 		InputNodeImpl inputNode = new InputNodeImpl();
 		return inputNode;
@@ -134,6 +113,16 @@ public class KerasFactoryImpl extends EFactoryImpl implements KerasFactory {
 	public OutputNode createOutputNode() {
 		OutputNodeImpl outputNode = new OutputNodeImpl();
 		return outputNode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Tensor createTensor() {
+		TensorImpl tensor = new TensorImpl();
+		return tensor;
 	}
 
 	/**

@@ -2,10 +2,13 @@
  */
 package org.eclipse.athene.nn.model.keras.impl;
 
+import java.lang.reflect.InvocationTargetException;
+
 import java.util.Collection;
 
+import org.eclipse.athene.nn.model.keras.InputNode;
 import org.eclipse.athene.nn.model.keras.KerasPackage;
-import org.eclipse.athene.nn.model.keras.Node;
+import org.eclipse.athene.nn.model.keras.OutputNode;
 import org.eclipse.athene.nn.model.keras.Tensor;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -19,6 +22,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -29,7 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.athene.nn.model.keras.impl.TensorImpl#getProvidingNode <em>Providing Node</em>}</li>
+ *   <li>{@link org.eclipse.athene.nn.model.keras.impl.TensorImpl#getContainerNode <em>Container Node</em>}</li>
  *   <li>{@link org.eclipse.athene.nn.model.keras.impl.TensorImpl#getConsumingNodes <em>Consuming Nodes</em>}</li>
  * </ul>
  *
@@ -37,14 +41,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class TensorImpl extends org.eclipse.athene.nn.model.core.impl.TensorImpl implements Tensor {
 	/**
-	 * The cached value of the '{@link #getProvidingNode() <em>Providing Node</em>}' reference.
+	 * The cached value of the '{@link #getConsumingNodes() <em>Consuming Nodes</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getProvidingNode()
+	 * @see #getConsumingNodes()
 	 * @generated
 	 * @ordered
 	 */
-	protected Node providingNode;
+	protected EList<InputNode> consumingNodes;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -70,16 +74,9 @@ public class TensorImpl extends org.eclipse.athene.nn.model.core.impl.TensorImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Node getProvidingNode() {
-		if (providingNode != null && providingNode.eIsProxy()) {
-			InternalEObject oldProvidingNode = (InternalEObject)providingNode;
-			providingNode = (Node)eResolveProxy(oldProvidingNode);
-			if (providingNode != oldProvidingNode) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, KerasPackage.TENSOR__PROVIDING_NODE, oldProvidingNode, providingNode));
-			}
-		}
-		return providingNode;
+	public OutputNode getContainerNode() {
+		if (eContainerFeatureID() != KerasPackage.TENSOR__CONTAINER_NODE) return null;
+		return (OutputNode)eContainer();
 	}
 
 	/**
@@ -87,8 +84,9 @@ public class TensorImpl extends org.eclipse.athene.nn.model.core.impl.TensorImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Node basicGetProvidingNode() {
-		return providingNode;
+	public OutputNode basicGetContainerNode() {
+		if (eContainerFeatureID() != KerasPackage.TENSOR__CONTAINER_NODE) return null;
+		return (OutputNode)eInternalContainer();
 	}
 
 	/**
@@ -96,13 +94,8 @@ public class TensorImpl extends org.eclipse.athene.nn.model.core.impl.TensorImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetProvidingNode(Node newProvidingNode, NotificationChain msgs) {
-		Node oldProvidingNode = providingNode;
-		providingNode = newProvidingNode;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KerasPackage.TENSOR__PROVIDING_NODE, oldProvidingNode, newProvidingNode);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+	public NotificationChain basicSetContainerNode(OutputNode newContainerNode, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newContainerNode, KerasPackage.TENSOR__CONTAINER_NODE, msgs);
 		return msgs;
 	}
 
@@ -111,18 +104,20 @@ public class TensorImpl extends org.eclipse.athene.nn.model.core.impl.TensorImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setProvidingNode(Node newProvidingNode) {
-		if (newProvidingNode != providingNode) {
+	public void setContainerNode(OutputNode newContainerNode) {
+		if (newContainerNode != eInternalContainer() || (eContainerFeatureID() != KerasPackage.TENSOR__CONTAINER_NODE && newContainerNode != null)) {
+			if (EcoreUtil.isAncestor(this, newContainerNode))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
-			if (providingNode != null)
-				msgs = ((InternalEObject)providingNode).eInverseRemove(this, KerasPackage.NODE__INPUT, Node.class, msgs);
-			if (newProvidingNode != null)
-				msgs = ((InternalEObject)newProvidingNode).eInverseAdd(this, KerasPackage.NODE__INPUT, Node.class, msgs);
-			msgs = basicSetProvidingNode(newProvidingNode, msgs);
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newContainerNode != null)
+				msgs = ((InternalEObject)newContainerNode).eInverseAdd(this, KerasPackage.OUTPUT_NODE__OUTPUT_TENSOR, OutputNode.class, msgs);
+			msgs = basicSetContainerNode(newContainerNode, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, KerasPackage.TENSOR__PROVIDING_NODE, newProvidingNode, newProvidingNode));
+			eNotify(new ENotificationImpl(this, Notification.SET, KerasPackage.TENSOR__CONTAINER_NODE, newContainerNode, newContainerNode));
 	}
 
 	/**
@@ -130,11 +125,35 @@ public class TensorImpl extends org.eclipse.athene.nn.model.core.impl.TensorImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Node> getConsumingNodes() {
+	public EList<InputNode> getConsumingNodes() {
 		if (consumingNodes == null) {
-			consumingNodes = new EObjectWithInverseResolvingEList<Node>(Node.class, this, KerasPackage.TENSOR__CONSUMING_NODES, KerasPackage.NODE__OUTPUT);
+			consumingNodes = new EObjectWithInverseResolvingEList<InputNode>(InputNode.class, this, KerasPackage.TENSOR__CONSUMING_NODES, KerasPackage.INPUT_NODE__INPUT_TENSOR);
 		}
 		return consumingNodes;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void removeFromLayer() {
+		OutputNode _containerNode = this.getContainerNode();
+		_containerNode.setLayer(null);
+		this.getConsumingNodes().clear();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void unconnectFromTargetInput(final InputNode targetInputNode) {
+		this.getConsumingNodes().remove(targetInputNode);
+		boolean _isEmpty = this.getConsumingNodes().isEmpty();
+		if (_isEmpty) {
+			this.removeFromLayer();
+		}
 	}
 
 	/**
@@ -146,10 +165,10 @@ public class TensorImpl extends org.eclipse.athene.nn.model.core.impl.TensorImpl
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case KerasPackage.TENSOR__PROVIDING_NODE:
-				if (providingNode != null)
-					msgs = ((InternalEObject)providingNode).eInverseRemove(this, KerasPackage.NODE__INPUT, Node.class, msgs);
-				return basicSetProvidingNode((Node)otherEnd, msgs);
+			case KerasPackage.TENSOR__CONTAINER_NODE:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetContainerNode((OutputNode)otherEnd, msgs);
 			case KerasPackage.TENSOR__CONSUMING_NODES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getConsumingNodes()).basicAdd(otherEnd, msgs);
 		}
@@ -164,8 +183,8 @@ public class TensorImpl extends org.eclipse.athene.nn.model.core.impl.TensorImpl
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case KerasPackage.TENSOR__PROVIDING_NODE:
-				return basicSetProvidingNode(null, msgs);
+			case KerasPackage.TENSOR__CONTAINER_NODE:
+				return basicSetContainerNode(null, msgs);
 			case KerasPackage.TENSOR__CONSUMING_NODES:
 				return ((InternalEList<?>)getConsumingNodes()).basicRemove(otherEnd, msgs);
 		}
@@ -180,8 +199,8 @@ public class TensorImpl extends org.eclipse.athene.nn.model.core.impl.TensorImpl
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case KerasPackage.TENSOR__CONSUMING_NODES:
-				return eInternalContainer().eInverseRemove(this, KerasPackage.NODE__OUTPUT, Node.class, msgs);
+			case KerasPackage.TENSOR__CONTAINER_NODE:
+				return eInternalContainer().eInverseRemove(this, KerasPackage.OUTPUT_NODE__OUTPUT_TENSOR, OutputNode.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -194,9 +213,9 @@ public class TensorImpl extends org.eclipse.athene.nn.model.core.impl.TensorImpl
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case KerasPackage.TENSOR__PROVIDING_NODE:
-				if (resolve) return getProvidingNode();
-				return basicGetProvidingNode();
+			case KerasPackage.TENSOR__CONTAINER_NODE:
+				if (resolve) return getContainerNode();
+				return basicGetContainerNode();
 			case KerasPackage.TENSOR__CONSUMING_NODES:
 				return getConsumingNodes();
 		}
@@ -212,12 +231,12 @@ public class TensorImpl extends org.eclipse.athene.nn.model.core.impl.TensorImpl
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case KerasPackage.TENSOR__PROVIDING_NODE:
-				setProvidingNode((Node)newValue);
+			case KerasPackage.TENSOR__CONTAINER_NODE:
+				setContainerNode((OutputNode)newValue);
 				return;
 			case KerasPackage.TENSOR__CONSUMING_NODES:
 				getConsumingNodes().clear();
-				getConsumingNodes().addAll((Collection<? extends Node>)newValue);
+				getConsumingNodes().addAll((Collection<? extends InputNode>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -231,8 +250,8 @@ public class TensorImpl extends org.eclipse.athene.nn.model.core.impl.TensorImpl
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case KerasPackage.TENSOR__PROVIDING_NODE:
-				setProvidingNode((Node)null);
+			case KerasPackage.TENSOR__CONTAINER_NODE:
+				setContainerNode((OutputNode)null);
 				return;
 			case KerasPackage.TENSOR__CONSUMING_NODES:
 				getConsumingNodes().clear();
@@ -249,12 +268,30 @@ public class TensorImpl extends org.eclipse.athene.nn.model.core.impl.TensorImpl
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case KerasPackage.TENSOR__PROVIDING_NODE:
-				return providingNode != null;
+			case KerasPackage.TENSOR__CONTAINER_NODE:
+				return basicGetContainerNode() != null;
 			case KerasPackage.TENSOR__CONSUMING_NODES:
-				return !getConsumingNodes().isEmpty();
+				return consumingNodes != null && !consumingNodes.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case KerasPackage.TENSOR___REMOVE_FROM_LAYER:
+				removeFromLayer();
+				return null;
+			case KerasPackage.TENSOR___UNCONNECT_FROM_TARGET_INPUT__INPUTNODE:
+				unconnectFromTargetInput((InputNode)arguments.get(0));
+				return null;
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //TensorImpl

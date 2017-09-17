@@ -39,26 +39,26 @@ public class TensorItemProvider extends org.eclipse.athene.nn.model.core.provide
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addProvidingNodePropertyDescriptor(object);
+			addContainerNodePropertyDescriptor(object);
 			addConsumingNodesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Providing Node feature.
+	 * This adds a property descriptor for the Container Node feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addProvidingNodePropertyDescriptor(Object object) {
+	protected void addContainerNodePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Tensor_providingNode_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Tensor_providingNode_feature", "_UI_Tensor_type"),
-				 KerasPackage.Literals.TENSOR__PROVIDING_NODE,
+				 getString("_UI_Tensor_containerNode_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Tensor_containerNode_feature", "_UI_Tensor_type"),
+				 KerasPackage.Literals.TENSOR__CONTAINER_NODE,
 				 true,
 				 false,
 				 true,

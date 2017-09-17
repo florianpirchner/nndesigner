@@ -12,7 +12,9 @@ package org.eclipse.athene.nn.model.keras;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.athene.nn.model.keras.OutputNode#getOutputLayer <em>Output Layer</em>}</li>
+ *   <li>{@link org.eclipse.athene.nn.model.keras.OutputNode#getLayer <em>Layer</em>}</li>
+ *   <li>{@link org.eclipse.athene.nn.model.keras.OutputNode#getOutputTensor <em>Output Tensor</em>}</li>
+ *   <li>{@link org.eclipse.athene.nn.model.keras.OutputNode#getConnectedNode <em>Connected Node</em>}</li>
  * </ul>
  *
  * @see org.eclipse.athene.nn.model.keras.KerasPackage#getOutputNode()
@@ -21,29 +23,108 @@ package org.eclipse.athene.nn.model.keras;
  */
 public interface OutputNode extends Node {
 	/**
-	 * Returns the value of the '<em><b>Output Layer</b></em>' reference.
+	 * Returns the value of the '<em><b>Layer</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link org.eclipse.athene.nn.model.keras.Layer#getOutputNodes <em>Output Nodes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Output Layer</em>' reference isn't clear,
+	 * If the meaning of the '<em>Layer</em>' container reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Output Layer</em>' reference.
-	 * @see #setOutputLayer(Layer)
-	 * @see org.eclipse.athene.nn.model.keras.KerasPackage#getOutputNode_OutputLayer()
-	 * @model
+	 * @return the value of the '<em>Layer</em>' container reference.
+	 * @see #setLayer(Layer)
+	 * @see org.eclipse.athene.nn.model.keras.KerasPackage#getOutputNode_Layer()
+	 * @see org.eclipse.athene.nn.model.keras.Layer#getOutputNodes
+	 * @model opposite="outputNodes" transient="false"
 	 * @generated
 	 */
-	Layer getOutputLayer();
+	Layer getLayer();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.athene.nn.model.keras.OutputNode#getOutputLayer <em>Output Layer</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.athene.nn.model.keras.OutputNode#getLayer <em>Layer</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Output Layer</em>' reference.
-	 * @see #getOutputLayer()
+	 * @param value the new value of the '<em>Layer</em>' container reference.
+	 * @see #getLayer()
 	 * @generated
 	 */
-	void setOutputLayer(Layer value);
+	void setLayer(Layer value);
+
+	/**
+	 * Returns the value of the '<em><b>Output Tensor</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link org.eclipse.athene.nn.model.keras.Tensor#getContainerNode <em>Container Node</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Output Tensor</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Output Tensor</em>' containment reference.
+	 * @see #setOutputTensor(Tensor)
+	 * @see org.eclipse.athene.nn.model.keras.KerasPackage#getOutputNode_OutputTensor()
+	 * @see org.eclipse.athene.nn.model.keras.Tensor#getContainerNode
+	 * @model opposite="containerNode" containment="true"
+	 * @generated
+	 */
+	Tensor getOutputTensor();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.athene.nn.model.keras.OutputNode#getOutputTensor <em>Output Tensor</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Output Tensor</em>' containment reference.
+	 * @see #getOutputTensor()
+	 * @generated
+	 */
+	void setOutputTensor(Tensor value);
+
+	/**
+	 * Returns the value of the '<em><b>Connected Node</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link org.eclipse.athene.nn.model.keras.InputNode#getConnectedNode <em>Connected Node</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Connected Node</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Connected Node</em>' reference.
+	 * @see #setConnectedNode(InputNode)
+	 * @see org.eclipse.athene.nn.model.keras.KerasPackage#getOutputNode_ConnectedNode()
+	 * @see org.eclipse.athene.nn.model.keras.InputNode#getConnectedNode
+	 * @model opposite="connectedNode"
+	 * @generated
+	 */
+	InputNode getConnectedNode();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.athene.nn.model.keras.OutputNode#getConnectedNode <em>Connected Node</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Connected Node</em>' reference.
+	 * @see #getConnectedNode()
+	 * @generated
+	 */
+	void setConnectedNode(InputNode value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * *
+	 * Removes the input node and its connected input node from the layer
+	 * <!-- end-model-doc -->
+	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='&lt;%org.eclipse.athene.nn.model.keras.Layer%&gt; _layer = this.getLayer();\nboolean _tripleEquals = (_layer == null);\nif (_tripleEquals)\n{\n\treturn;\n}\nthis.setLayer(null);\nthis.setOutputTensor(null);\nthis.getConnectedNode().removeFromLayer();\nthis.setConnectedNode(null);'"
+	 * @generated
+	 */
+	void removeFromLayer();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model targetUnique="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='&lt;%org.eclipse.athene.nn.model.keras.Tensor%&gt; tensor = null;\n&lt;%org.eclipse.athene.nn.model.keras.Tensor%&gt; _outputTensor = this.getOutputTensor();\nboolean _tripleNotEquals = (_outputTensor != null);\nif (_tripleNotEquals)\n{\n\ttensor = this.getOutputTensor();\n}\nelse\n{\n\ttensor = &lt;%org.eclipse.athene.nn.model.keras.KerasFactory%&gt;.eINSTANCE.createTensor();\n\tthis.setOutputTensor(tensor);\n}\nfinal &lt;%org.eclipse.athene.nn.model.keras.InputNode%&gt; targetInputNode = &lt;%org.eclipse.athene.nn.model.keras.KerasFactory%&gt;.eINSTANCE.createInputNode();\ntarget.getInputNodes().add(targetInputNode);\nfinal &lt;%org.eclipse.athene.nn.model.keras.OutputNode%&gt; targetOutputNode = &lt;%org.eclipse.athene.nn.model.keras.KerasFactory%&gt;.eINSTANCE.createOutputNode();\ntarget.getOutputNodes().add(targetOutputNode);\ntargetOutputNode.setConnectedNode(targetInputNode);\ntargetInputNode.setInputTensor(tensor);'"
+	 * @generated
+	 */
+	void connectToLayer(Layer target);
 
 } // OutputNode

@@ -17,39 +17,112 @@ class Model extends org.eclipse.athene.nn.model.core.Model {
 }
 
 class Layer extends org.eclipse.athene.nn.model.tensorflow.Layer {
-	contains Node[*] nodes
+	contains InputNode[*] inputNodes opposite layer
+	contains OutputNode[*] outputNodes opposite layer
 	/**
 	 * Returns the output tensor for the given node index
 	 */
 	op Tensor getOutput(int index) {
-		return nodes.get(index).output
+		return outputNodes.get(index).outputTensor
 	}
 	/**
 	 * Returns the input tensor for the given node index
 	 */
 	op Tensor getInput(int index) {
-		return nodes.get(index).input
+		return inputNodes.get(index).inputTensor
 	}
 }
 
-class Node {
-	refers Tensor input opposite providingNode
-	contains Tensor output opposite consumingNode
-}
-
-class Tensor extends org.eclipse.athene.nn.model.core.Tensor {
-	// the node which provides (exports) the tensor
-	refers Node providingNode opposite input
-	// the nodes which consume the tensor (imports)
-	refers Node[*] consumingNodes opposite output
+abstract class Node {
+	contains Shape shape
+	op void removeFromLayer() {
+	}
 }
 
 class InputNode extends Node {
-	refers Layer inputLayer
+	container Layer layer opposite inputNodes
+	refers Tensor inputTensor opposite consumingNodes
+	refers OutputNode connectedNode opposite connectedNode
+	/**
+	 * Removes the input node and its connected output node from the layer
+	 */
+	op void removeFromLayer() {
+		if(layer === null) {
+			return
+		}
+		layer = null
+		inputTensor = null
+		connectedNode.removeFromLayer
+		connectedNode = null
+	}
 }
 
 class OutputNode extends Node {
-	refers Layer outputLayer
+	container Layer layer opposite outputNodes
+	contains Tensor outputTensor opposite containerNode
+	refers InputNode connectedNode opposite connectedNode
+	/**
+	 * Removes the input node and its connected input node from the layer
+	 */
+	op void removeFromLayer() {
+		if(layer === null) {
+			return
+		}
+		layer = null
+		outputTensor = null
+		connectedNode.removeFromLayer
+		connectedNode = null
+	}
+	op void connectToLayer(Layer target) {
+		var Tensor tensor = null
+		if (outputTensor !== null) {
+			tensor = getOutputTensor()
+		} else {
+			tensor = KerasFactory.eINSTANCE.createTensor()
+			outputTensor = tensor
+		}
+
+		// create input and output nodes and connect
+		val InputNode targetInputNode = KerasFactory.eINSTANCE.createInputNode()
+		target.inputNodes.add(targetInputNode)
+
+		val OutputNode targetOutputNode = KerasFactory.eINSTANCE.createOutputNode()
+		target.outputNodes.add(targetOutputNode)
+
+		targetOutputNode.connectedNode = targetInputNode
+
+		// apply the tensor to target input node
+		targetInputNode.inputTensor = tensor
+	}
+}
+
+class Tensor extends org.eclipse.athene.nn.model.core.Tensor {
+	// the node which creates (exports) the tensor
+	refers OutputNode containerNode opposite outputTensor
+	// the nodes which consume the tensor (imports)
+	refers InputNode[*] consumingNodes opposite inputTensor
+	/**
+	 * Removes the tensor and its container node from its layer
+	 */
+	op void removeFromLayer() {
+		containerNode.layer = null
+		consumingNodes.clear
+	}
+	/**
+	 * Removes the tensor and its container node from its layer
+	 */
+	op void unconnectFromTargetInput(InputNode targetInputNode) {
+		consumingNodes.remove(targetInputNode);
+
+		// TODO - for now we only delete the tensor and not the whole invalid chain
+		// // remove the input node and the output node from the target layer
+		// Layer targetLayer = targetInputNode.getLayer();
+		// targetLayer.getInputNodes().remove(targetInputNode);
+		// targetLayer.getOutputNodes().remove(targetInputNode.getConnectedNode());
+		if (consumingNodes.isEmpty) {
+			removeFromLayer()
+		}
+	}
 }
 
 class Backend {

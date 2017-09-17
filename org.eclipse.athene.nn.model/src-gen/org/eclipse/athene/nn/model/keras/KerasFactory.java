@@ -40,24 +40,6 @@ public interface KerasFactory extends EFactory {
 	Layer createLayer();
 
 	/**
-	 * Returns a new object of class '<em>Node</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Node</em>'.
-	 * @generated
-	 */
-	Node createNode();
-
-	/**
-	 * Returns a new object of class '<em>Tensor</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Tensor</em>'.
-	 * @generated
-	 */
-	Tensor createTensor();
-
-	/**
 	 * Returns a new object of class '<em>Input Node</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -74,6 +56,15 @@ public interface KerasFactory extends EFactory {
 	 * @generated
 	 */
 	OutputNode createOutputNode();
+
+	/**
+	 * Returns a new object of class '<em>Tensor</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Tensor</em>'.
+	 * @generated
+	 */
+	Tensor createTensor();
 
 	/**
 	 * Returns a new object of class '<em>Backend</em>'.

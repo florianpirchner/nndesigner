@@ -92,13 +92,6 @@ public class KerasSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case KerasPackage.TENSOR: {
-				Tensor tensor = (Tensor)theEObject;
-				T result = caseTensor(tensor);
-				if (result == null) result = caseCore_Tensor(tensor);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case KerasPackage.INPUT_NODE: {
 				InputNode inputNode = (InputNode)theEObject;
 				T result = caseInputNode(inputNode);
@@ -110,6 +103,13 @@ public class KerasSwitch<T> extends Switch<T> {
 				OutputNode outputNode = (OutputNode)theEObject;
 				T result = caseOutputNode(outputNode);
 				if (result == null) result = caseNode(outputNode);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case KerasPackage.TENSOR: {
+				Tensor tensor = (Tensor)theEObject;
+				T result = caseTensor(tensor);
+				if (result == null) result = caseCore_Tensor(tensor);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -249,21 +249,6 @@ public class KerasSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Tensor</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Tensor</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseTensor(Tensor object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Input Node</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -290,6 +275,21 @@ public class KerasSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseOutputNode(OutputNode object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Tensor</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Tensor</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTensor(Tensor object) {
 		return null;
 	}
 

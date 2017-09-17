@@ -25,9 +25,16 @@ vision_model.add(Flatten())
 
 # Now let's get a tensor with the output of our vision model:
 image_input = Input(shape=(224, 224, 3))
-print(image_input)
+image_input2 = Input(shape=(224, 224, 3))
+
+print(vision_model(image_input))
+print(vision_model(image_input2))
+
+print(vision_model.inputs)
+print(vision_model.outputs)
+
 encoded_image = vision_model(image_input)
-print(encoded_image)
+
 
 # Next, let's define a language model to encode the question into a vector.
 # Each question will be at most 100 word long,

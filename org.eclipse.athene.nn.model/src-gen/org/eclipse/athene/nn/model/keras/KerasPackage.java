@@ -146,13 +146,22 @@ public interface KerasPackage extends EPackage {
 	int LAYER__TRAINABLE = TensorflowPackage.LAYER__TRAINABLE;
 
 	/**
-	 * The feature id for the '<em><b>Nodes</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Input Nodes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LAYER__NODES = TensorflowPackage.LAYER_FEATURE_COUNT + 0;
+	int LAYER__INPUT_NODES = TensorflowPackage.LAYER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Output Nodes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAYER__OUTPUT_NODES = TensorflowPackage.LAYER_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Layer</em>' class.
@@ -161,7 +170,7 @@ public interface KerasPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LAYER_FEATURE_COUNT = TensorflowPackage.LAYER_FEATURE_COUNT + 1;
+	int LAYER_FEATURE_COUNT = TensorflowPackage.LAYER_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get Output</em>' operation.
@@ -201,22 +210,13 @@ public interface KerasPackage extends EPackage {
 	int NODE = 2;
 
 	/**
-	 * The feature id for the '<em><b>Input</b></em>' reference.
+	 * The feature id for the '<em><b>Shape</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__INPUT = 0;
-
-	/**
-	 * The feature id for the '<em><b>Output</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE__OUTPUT = 1;
+	int NODE__SHAPE = 0;
 
 	/**
 	 * The number of structural features of the '<em>Node</em>' class.
@@ -225,7 +225,16 @@ public interface KerasPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE_FEATURE_COUNT = 2;
+	int NODE_FEATURE_COUNT = 1;
+
+	/**
+	 * The operation id for the '<em>Remove From Layer</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE___REMOVE_FROM_LAYER = 0;
 
 	/**
 	 * The number of operations of the '<em>Node</em>' class.
@@ -234,7 +243,162 @@ public interface KerasPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE_OPERATION_COUNT = 0;
+	int NODE_OPERATION_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.athene.nn.model.keras.impl.InputNodeImpl <em>Input Node</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.athene.nn.model.keras.impl.InputNodeImpl
+	 * @see org.eclipse.athene.nn.model.keras.impl.KerasPackageImpl#getInputNode()
+	 * @generated
+	 */
+	int INPUT_NODE = 3;
+
+	/**
+	 * The feature id for the '<em><b>Shape</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_NODE__SHAPE = NODE__SHAPE;
+
+	/**
+	 * The feature id for the '<em><b>Layer</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_NODE__LAYER = NODE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Input Tensor</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_NODE__INPUT_TENSOR = NODE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Connected Node</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_NODE__CONNECTED_NODE = NODE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Input Node</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_NODE_FEATURE_COUNT = NODE_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Remove From Layer</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_NODE___REMOVE_FROM_LAYER = NODE_OPERATION_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Input Node</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_NODE_OPERATION_COUNT = NODE_OPERATION_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.athene.nn.model.keras.impl.OutputNodeImpl <em>Output Node</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.athene.nn.model.keras.impl.OutputNodeImpl
+	 * @see org.eclipse.athene.nn.model.keras.impl.KerasPackageImpl#getOutputNode()
+	 * @generated
+	 */
+	int OUTPUT_NODE = 4;
+
+	/**
+	 * The feature id for the '<em><b>Shape</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_NODE__SHAPE = NODE__SHAPE;
+
+	/**
+	 * The feature id for the '<em><b>Layer</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_NODE__LAYER = NODE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Output Tensor</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_NODE__OUTPUT_TENSOR = NODE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Connected Node</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_NODE__CONNECTED_NODE = NODE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Output Node</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_NODE_FEATURE_COUNT = NODE_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Remove From Layer</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_NODE___REMOVE_FROM_LAYER = NODE_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Connect To Layer</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_NODE___CONNECT_TO_LAYER__LAYER = NODE_OPERATION_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Output Node</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_NODE_OPERATION_COUNT = NODE_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.athene.nn.model.keras.impl.TensorImpl <em>Tensor</em>}' class.
@@ -244,19 +408,19 @@ public interface KerasPackage extends EPackage {
 	 * @see org.eclipse.athene.nn.model.keras.impl.KerasPackageImpl#getTensor()
 	 * @generated
 	 */
-	int TENSOR = 3;
+	int TENSOR = 5;
 
 	/**
-	 * The feature id for the '<em><b>Providing Node</b></em>' reference.
+	 * The feature id for the '<em><b>Container Node</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TENSOR__PROVIDING_NODE = CorePackage.TENSOR_FEATURE_COUNT + 0;
+	int TENSOR__CONTAINER_NODE = CorePackage.TENSOR_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Consuming Nodes</b></em>' container reference list.
+	 * The feature id for the '<em><b>Consuming Nodes</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -274,123 +438,31 @@ public interface KerasPackage extends EPackage {
 	int TENSOR_FEATURE_COUNT = CorePackage.TENSOR_FEATURE_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Remove From Layer</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TENSOR___REMOVE_FROM_LAYER = CorePackage.TENSOR_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Unconnect From Target Input</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TENSOR___UNCONNECT_FROM_TARGET_INPUT__INPUTNODE = CorePackage.TENSOR_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Tensor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TENSOR_OPERATION_COUNT = CorePackage.TENSOR_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.athene.nn.model.keras.impl.InputNodeImpl <em>Input Node</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.athene.nn.model.keras.impl.InputNodeImpl
-	 * @see org.eclipse.athene.nn.model.keras.impl.KerasPackageImpl#getInputNode()
-	 * @generated
-	 */
-	int INPUT_NODE = 4;
-
-	/**
-	 * The feature id for the '<em><b>Input</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INPUT_NODE__INPUT = NODE__INPUT;
-
-	/**
-	 * The feature id for the '<em><b>Output</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INPUT_NODE__OUTPUT = NODE__OUTPUT;
-
-	/**
-	 * The feature id for the '<em><b>Input Layer</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INPUT_NODE__INPUT_LAYER = NODE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Input Node</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INPUT_NODE_FEATURE_COUNT = NODE_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Input Node</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INPUT_NODE_OPERATION_COUNT = NODE_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.athene.nn.model.keras.impl.OutputNodeImpl <em>Output Node</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.athene.nn.model.keras.impl.OutputNodeImpl
-	 * @see org.eclipse.athene.nn.model.keras.impl.KerasPackageImpl#getOutputNode()
-	 * @generated
-	 */
-	int OUTPUT_NODE = 5;
-
-	/**
-	 * The feature id for the '<em><b>Input</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OUTPUT_NODE__INPUT = NODE__INPUT;
-
-	/**
-	 * The feature id for the '<em><b>Output</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OUTPUT_NODE__OUTPUT = NODE__OUTPUT;
-
-	/**
-	 * The feature id for the '<em><b>Output Layer</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OUTPUT_NODE__OUTPUT_LAYER = NODE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Output Node</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OUTPUT_NODE_FEATURE_COUNT = NODE_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Output Node</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OUTPUT_NODE_OPERATION_COUNT = NODE_OPERATION_COUNT + 0;
+	int TENSOR_OPERATION_COUNT = CorePackage.TENSOR_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.athene.nn.model.keras.impl.BackendImpl <em>Backend</em>}' class.
@@ -458,13 +530,22 @@ public interface KerasPackage extends EPackage {
 	int DENSE__TRAINABLE = LAYER__TRAINABLE;
 
 	/**
-	 * The feature id for the '<em><b>Nodes</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Input Nodes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DENSE__NODES = LAYER__NODES;
+	int DENSE__INPUT_NODES = LAYER__INPUT_NODES;
+
+	/**
+	 * The feature id for the '<em><b>Output Nodes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DENSE__OUTPUT_NODES = LAYER__OUTPUT_NODES;
 
 	/**
 	 * The feature id for the '<em><b>Units</b></em>' attribute.
@@ -585,13 +666,22 @@ public interface KerasPackage extends EPackage {
 	int DROPOUT__TRAINABLE = LAYER__TRAINABLE;
 
 	/**
-	 * The feature id for the '<em><b>Nodes</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Input Nodes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DROPOUT__NODES = LAYER__NODES;
+	int DROPOUT__INPUT_NODES = LAYER__INPUT_NODES;
+
+	/**
+	 * The feature id for the '<em><b>Output Nodes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DROPOUT__OUTPUT_NODES = LAYER__OUTPUT_NODES;
 
 	/**
 	 * The feature id for the '<em><b>Rate</b></em>' attribute.
@@ -685,13 +775,22 @@ public interface KerasPackage extends EPackage {
 	int ACTIVATION__TRAINABLE = LAYER__TRAINABLE;
 
 	/**
-	 * The feature id for the '<em><b>Nodes</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Input Nodes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTIVATION__NODES = LAYER__NODES;
+	int ACTIVATION__INPUT_NODES = LAYER__INPUT_NODES;
+
+	/**
+	 * The feature id for the '<em><b>Output Nodes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTIVATION__OUTPUT_NODES = LAYER__OUTPUT_NODES;
 
 	/**
 	 * The feature id for the '<em><b>Activation Function</b></em>' reference.
@@ -776,13 +875,22 @@ public interface KerasPackage extends EPackage {
 	int RESHAPE__TRAINABLE = LAYER__TRAINABLE;
 
 	/**
-	 * The feature id for the '<em><b>Nodes</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Input Nodes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESHAPE__NODES = LAYER__NODES;
+	int RESHAPE__INPUT_NODES = LAYER__INPUT_NODES;
+
+	/**
+	 * The feature id for the '<em><b>Output Nodes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESHAPE__OUTPUT_NODES = LAYER__OUTPUT_NODES;
 
 	/**
 	 * The feature id for the '<em><b>Target Shape</b></em>' containment reference.
@@ -876,13 +984,22 @@ public interface KerasPackage extends EPackage {
 	int FLATTEN__TRAINABLE = LAYER__TRAINABLE;
 
 	/**
-	 * The feature id for the '<em><b>Nodes</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Input Nodes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FLATTEN__NODES = LAYER__NODES;
+	int FLATTEN__INPUT_NODES = LAYER__INPUT_NODES;
+
+	/**
+	 * The feature id for the '<em><b>Output Nodes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLATTEN__OUTPUT_NODES = LAYER__OUTPUT_NODES;
 
 	/**
 	 * The number of structural features of the '<em>Flatten</em>' class.
@@ -949,13 +1066,22 @@ public interface KerasPackage extends EPackage {
 	int PERMUTE__TRAINABLE = LAYER__TRAINABLE;
 
 	/**
-	 * The feature id for the '<em><b>Nodes</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Input Nodes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PERMUTE__NODES = LAYER__NODES;
+	int PERMUTE__INPUT_NODES = LAYER__INPUT_NODES;
+
+	/**
+	 * The feature id for the '<em><b>Output Nodes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERMUTE__OUTPUT_NODES = LAYER__OUTPUT_NODES;
 
 	/**
 	 * The feature id for the '<em><b>Dims</b></em>' containment reference.
@@ -1049,13 +1175,22 @@ public interface KerasPackage extends EPackage {
 	int REPEAT_VECTOR__TRAINABLE = LAYER__TRAINABLE;
 
 	/**
-	 * The feature id for the '<em><b>Nodes</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Input Nodes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REPEAT_VECTOR__NODES = LAYER__NODES;
+	int REPEAT_VECTOR__INPUT_NODES = LAYER__INPUT_NODES;
+
+	/**
+	 * The feature id for the '<em><b>Output Nodes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPEAT_VECTOR__OUTPUT_NODES = LAYER__OUTPUT_NODES;
 
 	/**
 	 * The feature id for the '<em><b>Number Of Repeats</b></em>' attribute.
@@ -1149,13 +1284,22 @@ public interface KerasPackage extends EPackage {
 	int ACTIVITY_REGULARIZATION__TRAINABLE = LAYER__TRAINABLE;
 
 	/**
-	 * The feature id for the '<em><b>Nodes</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Input Nodes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTIVITY_REGULARIZATION__NODES = LAYER__NODES;
+	int ACTIVITY_REGULARIZATION__INPUT_NODES = LAYER__INPUT_NODES;
+
+	/**
+	 * The feature id for the '<em><b>Output Nodes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTIVITY_REGULARIZATION__OUTPUT_NODES = LAYER__OUTPUT_NODES;
 
 	/**
 	 * The feature id for the '<em><b>L1</b></em>' attribute.
@@ -1264,15 +1408,26 @@ public interface KerasPackage extends EPackage {
 	EClass getLayer();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.athene.nn.model.keras.Layer#getNodes <em>Nodes</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.athene.nn.model.keras.Layer#getInputNodes <em>Input Nodes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Nodes</em>'.
-	 * @see org.eclipse.athene.nn.model.keras.Layer#getNodes()
+	 * @return the meta object for the containment reference list '<em>Input Nodes</em>'.
+	 * @see org.eclipse.athene.nn.model.keras.Layer#getInputNodes()
 	 * @see #getLayer()
 	 * @generated
 	 */
-	EReference getLayer_Nodes();
+	EReference getLayer_InputNodes();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.athene.nn.model.keras.Layer#getOutputNodes <em>Output Nodes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Output Nodes</em>'.
+	 * @see org.eclipse.athene.nn.model.keras.Layer#getOutputNodes()
+	 * @see #getLayer()
+	 * @generated
+	 */
+	EReference getLayer_OutputNodes();
 
 	/**
 	 * Returns the meta object for the '{@link org.eclipse.athene.nn.model.keras.Layer#getOutput(int) <em>Get Output</em>}' operation.
@@ -1305,58 +1460,25 @@ public interface KerasPackage extends EPackage {
 	EClass getNode();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.athene.nn.model.keras.Node#getInput <em>Input</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.athene.nn.model.keras.Node#getShape <em>Shape</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Input</em>'.
-	 * @see org.eclipse.athene.nn.model.keras.Node#getInput()
+	 * @return the meta object for the containment reference '<em>Shape</em>'.
+	 * @see org.eclipse.athene.nn.model.keras.Node#getShape()
 	 * @see #getNode()
 	 * @generated
 	 */
-	EReference getNode_Input();
+	EReference getNode_Shape();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.athene.nn.model.keras.Node#getOutput <em>Output</em>}'.
+	 * Returns the meta object for the '{@link org.eclipse.athene.nn.model.keras.Node#removeFromLayer() <em>Remove From Layer</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Output</em>'.
-	 * @see org.eclipse.athene.nn.model.keras.Node#getOutput()
-	 * @see #getNode()
+	 * @return the meta object for the '<em>Remove From Layer</em>' operation.
+	 * @see org.eclipse.athene.nn.model.keras.Node#removeFromLayer()
 	 * @generated
 	 */
-	EReference getNode_Output();
-
-	/**
-	 * Returns the meta object for class '{@link org.eclipse.athene.nn.model.keras.Tensor <em>Tensor</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Tensor</em>'.
-	 * @see org.eclipse.athene.nn.model.keras.Tensor
-	 * @generated
-	 */
-	EClass getTensor();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.athene.nn.model.keras.Tensor#getProvidingNode <em>Providing Node</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Providing Node</em>'.
-	 * @see org.eclipse.athene.nn.model.keras.Tensor#getProvidingNode()
-	 * @see #getTensor()
-	 * @generated
-	 */
-	EReference getTensor_ProvidingNode();
-
-	/**
-	 * Returns the meta object for the container reference list '{@link org.eclipse.athene.nn.model.keras.Tensor#getConsumingNodes <em>Consuming Nodes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference list '<em>Consuming Nodes</em>'.
-	 * @see org.eclipse.athene.nn.model.keras.Tensor#getConsumingNodes()
-	 * @see #getTensor()
-	 * @generated
-	 */
-	EReference getTensor_ConsumingNodes();
+	EOperation getNode__RemoveFromLayer();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.athene.nn.model.keras.InputNode <em>Input Node</em>}'.
@@ -1369,15 +1491,47 @@ public interface KerasPackage extends EPackage {
 	EClass getInputNode();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.athene.nn.model.keras.InputNode#getInputLayer <em>Input Layer</em>}'.
+	 * Returns the meta object for the container reference '{@link org.eclipse.athene.nn.model.keras.InputNode#getLayer <em>Layer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Input Layer</em>'.
-	 * @see org.eclipse.athene.nn.model.keras.InputNode#getInputLayer()
+	 * @return the meta object for the container reference '<em>Layer</em>'.
+	 * @see org.eclipse.athene.nn.model.keras.InputNode#getLayer()
 	 * @see #getInputNode()
 	 * @generated
 	 */
-	EReference getInputNode_InputLayer();
+	EReference getInputNode_Layer();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.athene.nn.model.keras.InputNode#getInputTensor <em>Input Tensor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Input Tensor</em>'.
+	 * @see org.eclipse.athene.nn.model.keras.InputNode#getInputTensor()
+	 * @see #getInputNode()
+	 * @generated
+	 */
+	EReference getInputNode_InputTensor();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.athene.nn.model.keras.InputNode#getConnectedNode <em>Connected Node</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Connected Node</em>'.
+	 * @see org.eclipse.athene.nn.model.keras.InputNode#getConnectedNode()
+	 * @see #getInputNode()
+	 * @generated
+	 */
+	EReference getInputNode_ConnectedNode();
+
+	/**
+	 * Returns the meta object for the '{@link org.eclipse.athene.nn.model.keras.InputNode#removeFromLayer() <em>Remove From Layer</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Remove From Layer</em>' operation.
+	 * @see org.eclipse.athene.nn.model.keras.InputNode#removeFromLayer()
+	 * @generated
+	 */
+	EOperation getInputNode__RemoveFromLayer();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.athene.nn.model.keras.OutputNode <em>Output Node</em>}'.
@@ -1390,15 +1544,109 @@ public interface KerasPackage extends EPackage {
 	EClass getOutputNode();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.athene.nn.model.keras.OutputNode#getOutputLayer <em>Output Layer</em>}'.
+	 * Returns the meta object for the container reference '{@link org.eclipse.athene.nn.model.keras.OutputNode#getLayer <em>Layer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Output Layer</em>'.
-	 * @see org.eclipse.athene.nn.model.keras.OutputNode#getOutputLayer()
+	 * @return the meta object for the container reference '<em>Layer</em>'.
+	 * @see org.eclipse.athene.nn.model.keras.OutputNode#getLayer()
 	 * @see #getOutputNode()
 	 * @generated
 	 */
-	EReference getOutputNode_OutputLayer();
+	EReference getOutputNode_Layer();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.athene.nn.model.keras.OutputNode#getOutputTensor <em>Output Tensor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Output Tensor</em>'.
+	 * @see org.eclipse.athene.nn.model.keras.OutputNode#getOutputTensor()
+	 * @see #getOutputNode()
+	 * @generated
+	 */
+	EReference getOutputNode_OutputTensor();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.athene.nn.model.keras.OutputNode#getConnectedNode <em>Connected Node</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Connected Node</em>'.
+	 * @see org.eclipse.athene.nn.model.keras.OutputNode#getConnectedNode()
+	 * @see #getOutputNode()
+	 * @generated
+	 */
+	EReference getOutputNode_ConnectedNode();
+
+	/**
+	 * Returns the meta object for the '{@link org.eclipse.athene.nn.model.keras.OutputNode#removeFromLayer() <em>Remove From Layer</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Remove From Layer</em>' operation.
+	 * @see org.eclipse.athene.nn.model.keras.OutputNode#removeFromLayer()
+	 * @generated
+	 */
+	EOperation getOutputNode__RemoveFromLayer();
+
+	/**
+	 * Returns the meta object for the '{@link org.eclipse.athene.nn.model.keras.OutputNode#connectToLayer(org.eclipse.athene.nn.model.keras.Layer) <em>Connect To Layer</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Connect To Layer</em>' operation.
+	 * @see org.eclipse.athene.nn.model.keras.OutputNode#connectToLayer(org.eclipse.athene.nn.model.keras.Layer)
+	 * @generated
+	 */
+	EOperation getOutputNode__ConnectToLayer__Layer();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.athene.nn.model.keras.Tensor <em>Tensor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Tensor</em>'.
+	 * @see org.eclipse.athene.nn.model.keras.Tensor
+	 * @generated
+	 */
+	EClass getTensor();
+
+	/**
+	 * Returns the meta object for the container reference '{@link org.eclipse.athene.nn.model.keras.Tensor#getContainerNode <em>Container Node</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Container Node</em>'.
+	 * @see org.eclipse.athene.nn.model.keras.Tensor#getContainerNode()
+	 * @see #getTensor()
+	 * @generated
+	 */
+	EReference getTensor_ContainerNode();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.eclipse.athene.nn.model.keras.Tensor#getConsumingNodes <em>Consuming Nodes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Consuming Nodes</em>'.
+	 * @see org.eclipse.athene.nn.model.keras.Tensor#getConsumingNodes()
+	 * @see #getTensor()
+	 * @generated
+	 */
+	EReference getTensor_ConsumingNodes();
+
+	/**
+	 * Returns the meta object for the '{@link org.eclipse.athene.nn.model.keras.Tensor#removeFromLayer() <em>Remove From Layer</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Remove From Layer</em>' operation.
+	 * @see org.eclipse.athene.nn.model.keras.Tensor#removeFromLayer()
+	 * @generated
+	 */
+	EOperation getTensor__RemoveFromLayer();
+
+	/**
+	 * Returns the meta object for the '{@link org.eclipse.athene.nn.model.keras.Tensor#unconnectFromTargetInput(org.eclipse.athene.nn.model.keras.InputNode) <em>Unconnect From Target Input</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Unconnect From Target Input</em>' operation.
+	 * @see org.eclipse.athene.nn.model.keras.Tensor#unconnectFromTargetInput(org.eclipse.athene.nn.model.keras.InputNode)
+	 * @generated
+	 */
+	EOperation getTensor__UnconnectFromTargetInput__InputNode();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.athene.nn.model.keras.Backend <em>Backend</em>}'.
@@ -1814,12 +2062,20 @@ public interface KerasPackage extends EPackage {
 		EClass LAYER = eINSTANCE.getLayer();
 
 		/**
-		 * The meta object literal for the '<em><b>Nodes</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Input Nodes</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference LAYER__NODES = eINSTANCE.getLayer_Nodes();
+		EReference LAYER__INPUT_NODES = eINSTANCE.getLayer_InputNodes();
+
+		/**
+		 * The meta object literal for the '<em><b>Output Nodes</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LAYER__OUTPUT_NODES = eINSTANCE.getLayer_OutputNodes();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Output</b></em>' operation.
@@ -1848,46 +2104,20 @@ public interface KerasPackage extends EPackage {
 		EClass NODE = eINSTANCE.getNode();
 
 		/**
-		 * The meta object literal for the '<em><b>Input</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Shape</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NODE__INPUT = eINSTANCE.getNode_Input();
+		EReference NODE__SHAPE = eINSTANCE.getNode_Shape();
 
 		/**
-		 * The meta object literal for the '<em><b>Output</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Remove From Layer</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NODE__OUTPUT = eINSTANCE.getNode_Output();
-
-		/**
-		 * The meta object literal for the '{@link org.eclipse.athene.nn.model.keras.impl.TensorImpl <em>Tensor</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.eclipse.athene.nn.model.keras.impl.TensorImpl
-		 * @see org.eclipse.athene.nn.model.keras.impl.KerasPackageImpl#getTensor()
-		 * @generated
-		 */
-		EClass TENSOR = eINSTANCE.getTensor();
-
-		/**
-		 * The meta object literal for the '<em><b>Providing Node</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TENSOR__PROVIDING_NODE = eINSTANCE.getTensor_ProvidingNode();
-
-		/**
-		 * The meta object literal for the '<em><b>Consuming Nodes</b></em>' container reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TENSOR__CONSUMING_NODES = eINSTANCE.getTensor_ConsumingNodes();
+		EOperation NODE___REMOVE_FROM_LAYER = eINSTANCE.getNode__RemoveFromLayer();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.athene.nn.model.keras.impl.InputNodeImpl <em>Input Node</em>}' class.
@@ -1900,12 +2130,36 @@ public interface KerasPackage extends EPackage {
 		EClass INPUT_NODE = eINSTANCE.getInputNode();
 
 		/**
-		 * The meta object literal for the '<em><b>Input Layer</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Layer</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference INPUT_NODE__INPUT_LAYER = eINSTANCE.getInputNode_InputLayer();
+		EReference INPUT_NODE__LAYER = eINSTANCE.getInputNode_Layer();
+
+		/**
+		 * The meta object literal for the '<em><b>Input Tensor</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INPUT_NODE__INPUT_TENSOR = eINSTANCE.getInputNode_InputTensor();
+
+		/**
+		 * The meta object literal for the '<em><b>Connected Node</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INPUT_NODE__CONNECTED_NODE = eINSTANCE.getInputNode_ConnectedNode();
+
+		/**
+		 * The meta object literal for the '<em><b>Remove From Layer</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation INPUT_NODE___REMOVE_FROM_LAYER = eINSTANCE.getInputNode__RemoveFromLayer();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.athene.nn.model.keras.impl.OutputNodeImpl <em>Output Node</em>}' class.
@@ -1918,12 +2172,86 @@ public interface KerasPackage extends EPackage {
 		EClass OUTPUT_NODE = eINSTANCE.getOutputNode();
 
 		/**
-		 * The meta object literal for the '<em><b>Output Layer</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Layer</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference OUTPUT_NODE__OUTPUT_LAYER = eINSTANCE.getOutputNode_OutputLayer();
+		EReference OUTPUT_NODE__LAYER = eINSTANCE.getOutputNode_Layer();
+
+		/**
+		 * The meta object literal for the '<em><b>Output Tensor</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OUTPUT_NODE__OUTPUT_TENSOR = eINSTANCE.getOutputNode_OutputTensor();
+
+		/**
+		 * The meta object literal for the '<em><b>Connected Node</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OUTPUT_NODE__CONNECTED_NODE = eINSTANCE.getOutputNode_ConnectedNode();
+
+		/**
+		 * The meta object literal for the '<em><b>Remove From Layer</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation OUTPUT_NODE___REMOVE_FROM_LAYER = eINSTANCE.getOutputNode__RemoveFromLayer();
+
+		/**
+		 * The meta object literal for the '<em><b>Connect To Layer</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation OUTPUT_NODE___CONNECT_TO_LAYER__LAYER = eINSTANCE.getOutputNode__ConnectToLayer__Layer();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.athene.nn.model.keras.impl.TensorImpl <em>Tensor</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.athene.nn.model.keras.impl.TensorImpl
+		 * @see org.eclipse.athene.nn.model.keras.impl.KerasPackageImpl#getTensor()
+		 * @generated
+		 */
+		EClass TENSOR = eINSTANCE.getTensor();
+
+		/**
+		 * The meta object literal for the '<em><b>Container Node</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TENSOR__CONTAINER_NODE = eINSTANCE.getTensor_ContainerNode();
+
+		/**
+		 * The meta object literal for the '<em><b>Consuming Nodes</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TENSOR__CONSUMING_NODES = eINSTANCE.getTensor_ConsumingNodes();
+
+		/**
+		 * The meta object literal for the '<em><b>Remove From Layer</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TENSOR___REMOVE_FROM_LAYER = eINSTANCE.getTensor__RemoveFromLayer();
+
+		/**
+		 * The meta object literal for the '<em><b>Unconnect From Target Input</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TENSOR___UNCONNECT_FROM_TARGET_INPUT__INPUTNODE = eINSTANCE.getTensor__UnconnectFromTargetInput__InputNode();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.athene.nn.model.keras.impl.BackendImpl <em>Backend</em>}' class.

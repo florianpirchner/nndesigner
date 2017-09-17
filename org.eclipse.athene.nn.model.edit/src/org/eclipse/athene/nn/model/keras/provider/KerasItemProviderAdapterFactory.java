@@ -162,29 +162,6 @@ public class KerasItemProviderAdapterFactory extends KerasAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.athene.nn.model.keras.Node} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected NodeItemProvider nodeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.eclipse.athene.nn.model.keras.Node}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createNodeAdapter() {
-		if (nodeItemProvider == null) {
-			nodeItemProvider = new NodeItemProvider(this);
-		}
-
-		return nodeItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.athene.nn.model.keras.InputNode} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -565,10 +542,9 @@ public class KerasItemProviderAdapterFactory extends KerasAdapterFactory impleme
 	public void dispose() {
 		if (modelItemProvider != null) modelItemProvider.dispose();
 		if (layerItemProvider != null) layerItemProvider.dispose();
-		if (nodeItemProvider != null) nodeItemProvider.dispose();
-		if (tensorItemProvider != null) tensorItemProvider.dispose();
 		if (inputNodeItemProvider != null) inputNodeItemProvider.dispose();
 		if (outputNodeItemProvider != null) outputNodeItemProvider.dispose();
+		if (tensorItemProvider != null) tensorItemProvider.dispose();
 		if (backendItemProvider != null) backendItemProvider.dispose();
 		if (denseItemProvider != null) denseItemProvider.dispose();
 		if (dropoutItemProvider != null) dropoutItemProvider.dispose();

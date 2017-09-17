@@ -41,25 +41,71 @@ public class InputNodeItemProvider extends NodeItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addInputLayerPropertyDescriptor(object);
+			addLayerPropertyDescriptor(object);
+			addInputTensorPropertyDescriptor(object);
+			addConnectedNodePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Input Layer feature.
+	 * This adds a property descriptor for the Layer feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addInputLayerPropertyDescriptor(Object object) {
+	protected void addLayerPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_InputNode_inputLayer_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_InputNode_inputLayer_feature", "_UI_InputNode_type"),
-				 KerasPackage.Literals.INPUT_NODE__INPUT_LAYER,
+				 getString("_UI_InputNode_layer_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_InputNode_layer_feature", "_UI_InputNode_type"),
+				 KerasPackage.Literals.INPUT_NODE__LAYER,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Input Tensor feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addInputTensorPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_InputNode_inputTensor_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_InputNode_inputTensor_feature", "_UI_InputNode_type"),
+				 KerasPackage.Literals.INPUT_NODE__INPUT_TENSOR,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Connected Node feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addConnectedNodePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_InputNode_connectedNode_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_InputNode_connectedNode_feature", "_UI_InputNode_type"),
+				 KerasPackage.Literals.INPUT_NODE__CONNECTED_NODE,
 				 true,
 				 false,
 				 true,

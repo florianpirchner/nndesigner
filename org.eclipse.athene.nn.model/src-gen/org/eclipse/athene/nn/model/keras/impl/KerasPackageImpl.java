@@ -66,13 +66,6 @@ public class KerasPackageImpl extends EPackageImpl implements KerasPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass tensorEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass inputNodeEClass = null;
 
 	/**
@@ -81,6 +74,13 @@ public class KerasPackageImpl extends EPackageImpl implements KerasPackage {
 	 * @generated
 	 */
 	private EClass outputNodeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass tensorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -252,8 +252,17 @@ public class KerasPackageImpl extends EPackageImpl implements KerasPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getLayer_Nodes() {
+	public EReference getLayer_InputNodes() {
 		return (EReference)layerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLayer_OutputNodes() {
+		return (EReference)layerEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -288,7 +297,7 @@ public class KerasPackageImpl extends EPackageImpl implements KerasPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNode_Input() {
+	public EReference getNode_Shape() {
 		return (EReference)nodeEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -297,8 +306,107 @@ public class KerasPackageImpl extends EPackageImpl implements KerasPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNode_Output() {
-		return (EReference)nodeEClass.getEStructuralFeatures().get(1);
+	public EOperation getNode__RemoveFromLayer() {
+		return nodeEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getInputNode() {
+		return inputNodeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInputNode_Layer() {
+		return (EReference)inputNodeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInputNode_InputTensor() {
+		return (EReference)inputNodeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInputNode_ConnectedNode() {
+		return (EReference)inputNodeEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getInputNode__RemoveFromLayer() {
+		return inputNodeEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getOutputNode() {
+		return outputNodeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOutputNode_Layer() {
+		return (EReference)outputNodeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOutputNode_OutputTensor() {
+		return (EReference)outputNodeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOutputNode_ConnectedNode() {
+		return (EReference)outputNodeEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getOutputNode__RemoveFromLayer() {
+		return outputNodeEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getOutputNode__ConnectToLayer__Layer() {
+		return outputNodeEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -315,7 +423,7 @@ public class KerasPackageImpl extends EPackageImpl implements KerasPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTensor_ProvidingNode() {
+	public EReference getTensor_ContainerNode() {
 		return (EReference)tensorEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -333,8 +441,8 @@ public class KerasPackageImpl extends EPackageImpl implements KerasPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getInputNode() {
-		return inputNodeEClass;
+	public EOperation getTensor__RemoveFromLayer() {
+		return tensorEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -342,26 +450,8 @@ public class KerasPackageImpl extends EPackageImpl implements KerasPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInputNode_InputLayer() {
-		return (EReference)inputNodeEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getOutputNode() {
-		return outputNodeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getOutputNode_OutputLayer() {
-		return (EReference)outputNodeEClass.getEStructuralFeatures().get(0);
+	public EOperation getTensor__UnconnectFromTargetInput__InputNode() {
+		return tensorEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -694,23 +784,33 @@ public class KerasPackageImpl extends EPackageImpl implements KerasPackage {
 		createEReference(modelEClass, MODEL__BACKEND);
 
 		layerEClass = createEClass(LAYER);
-		createEReference(layerEClass, LAYER__NODES);
+		createEReference(layerEClass, LAYER__INPUT_NODES);
+		createEReference(layerEClass, LAYER__OUTPUT_NODES);
 		createEOperation(layerEClass, LAYER___GET_OUTPUT__INT);
 		createEOperation(layerEClass, LAYER___GET_INPUT__INT);
 
 		nodeEClass = createEClass(NODE);
-		createEReference(nodeEClass, NODE__INPUT);
-		createEReference(nodeEClass, NODE__OUTPUT);
-
-		tensorEClass = createEClass(TENSOR);
-		createEReference(tensorEClass, TENSOR__PROVIDING_NODE);
-		createEReference(tensorEClass, TENSOR__CONSUMING_NODES);
+		createEReference(nodeEClass, NODE__SHAPE);
+		createEOperation(nodeEClass, NODE___REMOVE_FROM_LAYER);
 
 		inputNodeEClass = createEClass(INPUT_NODE);
-		createEReference(inputNodeEClass, INPUT_NODE__INPUT_LAYER);
+		createEReference(inputNodeEClass, INPUT_NODE__LAYER);
+		createEReference(inputNodeEClass, INPUT_NODE__INPUT_TENSOR);
+		createEReference(inputNodeEClass, INPUT_NODE__CONNECTED_NODE);
+		createEOperation(inputNodeEClass, INPUT_NODE___REMOVE_FROM_LAYER);
 
 		outputNodeEClass = createEClass(OUTPUT_NODE);
-		createEReference(outputNodeEClass, OUTPUT_NODE__OUTPUT_LAYER);
+		createEReference(outputNodeEClass, OUTPUT_NODE__LAYER);
+		createEReference(outputNodeEClass, OUTPUT_NODE__OUTPUT_TENSOR);
+		createEReference(outputNodeEClass, OUTPUT_NODE__CONNECTED_NODE);
+		createEOperation(outputNodeEClass, OUTPUT_NODE___REMOVE_FROM_LAYER);
+		createEOperation(outputNodeEClass, OUTPUT_NODE___CONNECT_TO_LAYER__LAYER);
+
+		tensorEClass = createEClass(TENSOR);
+		createEReference(tensorEClass, TENSOR__CONTAINER_NODE);
+		createEReference(tensorEClass, TENSOR__CONSUMING_NODES);
+		createEOperation(tensorEClass, TENSOR___REMOVE_FROM_LAYER);
+		createEOperation(tensorEClass, TENSOR___UNCONNECT_FROM_TARGET_INPUT__INPUTNODE);
 
 		backendEClass = createEClass(BACKEND);
 		createEAttribute(backendEClass, BACKEND__NAME);
@@ -790,9 +890,9 @@ public class KerasPackageImpl extends EPackageImpl implements KerasPackage {
 		// Add supertypes to classes
 		modelEClass.getESuperTypes().add(theCorePackage.getModel());
 		layerEClass.getESuperTypes().add(theTensorflowPackage.getLayer());
-		tensorEClass.getESuperTypes().add(theCorePackage.getTensor());
 		inputNodeEClass.getESuperTypes().add(this.getNode());
 		outputNodeEClass.getESuperTypes().add(this.getNode());
+		tensorEClass.getESuperTypes().add(theCorePackage.getTensor());
 		denseEClass.getESuperTypes().add(this.getLayer());
 		dropoutEClass.getESuperTypes().add(this.getLayer());
 		activationEClass.getESuperTypes().add(this.getLayer());
@@ -808,7 +908,8 @@ public class KerasPackageImpl extends EPackageImpl implements KerasPackage {
 		initEReference(getModel_Backend(), this.getBackend(), null, "backend", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(layerEClass, Layer.class, "Layer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getLayer_Nodes(), this.getNode(), null, "nodes", null, 0, -1, Layer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLayer_InputNodes(), this.getInputNode(), this.getInputNode_Layer(), "inputNodes", null, 0, -1, Layer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLayer_OutputNodes(), this.getOutputNode(), this.getOutputNode_Layer(), "outputNodes", null, 0, -1, Layer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getLayer__GetOutput__int(), this.getTensor(), "getOutput", 0, 1, !IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theEcorePackage.getEInt(), "index", 0, 1, !IS_UNIQUE, IS_ORDERED);
@@ -816,19 +917,36 @@ public class KerasPackageImpl extends EPackageImpl implements KerasPackage {
 		op = initEOperation(getLayer__GetInput__int(), this.getTensor(), "getInput", 0, 1, !IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theEcorePackage.getEInt(), "index", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
-		initEClass(nodeEClass, Node.class, "Node", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getNode_Input(), this.getTensor(), this.getTensor_ProvidingNode(), "input", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNode_Output(), this.getTensor(), null, "output", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(nodeEClass, Node.class, "Node", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getNode_Shape(), theCorePackage.getShape(), null, "shape", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(tensorEClass, Tensor.class, "Tensor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTensor_ProvidingNode(), this.getNode(), this.getNode_Input(), "providingNode", null, 0, 1, Tensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTensor_ConsumingNodes(), this.getNode(), this.getNode_Output(), "consumingNodes", null, 0, -1, Tensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEOperation(getNode__RemoveFromLayer(), null, "removeFromLayer", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
 		initEClass(inputNodeEClass, InputNode.class, "InputNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getInputNode_InputLayer(), this.getLayer(), null, "inputLayer", null, 0, 1, InputNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInputNode_Layer(), this.getLayer(), this.getLayer_InputNodes(), "layer", null, 0, 1, InputNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInputNode_InputTensor(), this.getTensor(), this.getTensor_ConsumingNodes(), "inputTensor", null, 0, 1, InputNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInputNode_ConnectedNode(), this.getOutputNode(), this.getOutputNode_ConnectedNode(), "connectedNode", null, 0, 1, InputNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getInputNode__RemoveFromLayer(), null, "removeFromLayer", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
 		initEClass(outputNodeEClass, OutputNode.class, "OutputNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getOutputNode_OutputLayer(), this.getLayer(), null, "outputLayer", null, 0, 1, OutputNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOutputNode_Layer(), this.getLayer(), this.getLayer_OutputNodes(), "layer", null, 0, 1, OutputNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOutputNode_OutputTensor(), this.getTensor(), this.getTensor_ContainerNode(), "outputTensor", null, 0, 1, OutputNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOutputNode_ConnectedNode(), this.getInputNode(), this.getInputNode_ConnectedNode(), "connectedNode", null, 0, 1, OutputNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getOutputNode__RemoveFromLayer(), null, "removeFromLayer", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getOutputNode__ConnectToLayer__Layer(), null, "connectToLayer", 0, 1, !IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getLayer(), "target", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+		initEClass(tensorEClass, Tensor.class, "Tensor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTensor_ContainerNode(), this.getOutputNode(), this.getOutputNode_OutputTensor(), "containerNode", null, 0, 1, Tensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTensor_ConsumingNodes(), this.getInputNode(), this.getInputNode_InputTensor(), "consumingNodes", null, 0, -1, Tensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getTensor__RemoveFromLayer(), null, "removeFromLayer", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getTensor__UnconnectFromTargetInput__InputNode(), null, "unconnectFromTargetInput", 0, 1, !IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getInputNode(), "targetInputNode", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
 		initEClass(backendEClass, Backend.class, "Backend", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBackend_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Backend.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

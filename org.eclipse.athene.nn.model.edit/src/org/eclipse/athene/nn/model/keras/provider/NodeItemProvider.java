@@ -5,7 +5,7 @@ package org.eclipse.athene.nn.model.keras.provider;
 
 import java.util.Collection;
 import java.util.List;
-import org.eclipse.athene.nn.model.keras.KerasFactory;
+import org.eclipse.athene.nn.model.core.CoreFactory;
 import org.eclipse.athene.nn.model.keras.KerasPackage;
 import org.eclipse.athene.nn.model.keras.Node;
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -13,7 +13,6 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -59,31 +58,8 @@ public class NodeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addInputPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Input feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addInputPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Node_input_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Node_input_feature", "_UI_Node_type"),
-				 KerasPackage.Literals.NODE__INPUT,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -98,7 +74,7 @@ public class NodeItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(KerasPackage.Literals.NODE__OUTPUT);
+			childrenFeatures.add(KerasPackage.Literals.NODE__SHAPE);
 		}
 		return childrenFeatures;
 	}
@@ -114,17 +90,6 @@ public class NodeItemProvider
 		// adding (see {@link AddCommand}) it as a child.
 
 		return super.getChildFeature(object, child);
-	}
-
-	/**
-	 * This returns Node.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Node"));
 	}
 
 	/**
@@ -151,7 +116,7 @@ public class NodeItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Node.class)) {
-			case KerasPackage.NODE__OUTPUT:
+			case KerasPackage.NODE__SHAPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -171,8 +136,13 @@ public class NodeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(KerasPackage.Literals.NODE__OUTPUT,
-				 KerasFactory.eINSTANCE.createTensor()));
+				(KerasPackage.Literals.NODE__SHAPE,
+				 CoreFactory.eINSTANCE.createShape2D()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KerasPackage.Literals.NODE__SHAPE,
+				 CoreFactory.eINSTANCE.createShape3D()));
 	}
 
 	/**

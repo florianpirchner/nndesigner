@@ -59,7 +59,8 @@ public class LayerItemProvider extends org.eclipse.athene.nn.model.tensorflow.pr
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(KerasPackage.Literals.LAYER__NODES);
+			childrenFeatures.add(KerasPackage.Literals.LAYER__INPUT_NODES);
+			childrenFeatures.add(KerasPackage.Literals.LAYER__OUTPUT_NODES);
 		}
 		return childrenFeatures;
 	}
@@ -115,7 +116,8 @@ public class LayerItemProvider extends org.eclipse.athene.nn.model.tensorflow.pr
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Layer.class)) {
-			case KerasPackage.LAYER__NODES:
+			case KerasPackage.LAYER__INPUT_NODES:
+			case KerasPackage.LAYER__OUTPUT_NODES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -135,17 +137,12 @@ public class LayerItemProvider extends org.eclipse.athene.nn.model.tensorflow.pr
 
 		newChildDescriptors.add
 			(createChildParameter
-				(KerasPackage.Literals.LAYER__NODES,
-				 KerasFactory.eINSTANCE.createNode()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(KerasPackage.Literals.LAYER__NODES,
+				(KerasPackage.Literals.LAYER__INPUT_NODES,
 				 KerasFactory.eINSTANCE.createInputNode()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(KerasPackage.Literals.LAYER__NODES,
+				(KerasPackage.Literals.LAYER__OUTPUT_NODES,
 				 KerasFactory.eINSTANCE.createOutputNode()));
 	}
 

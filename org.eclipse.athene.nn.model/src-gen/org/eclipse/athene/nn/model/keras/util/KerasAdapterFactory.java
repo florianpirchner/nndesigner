@@ -82,16 +82,16 @@ public class KerasAdapterFactory extends AdapterFactoryImpl {
 				return createNodeAdapter();
 			}
 			@Override
-			public Adapter caseTensor(Tensor object) {
-				return createTensorAdapter();
-			}
-			@Override
 			public Adapter caseInputNode(InputNode object) {
 				return createInputNodeAdapter();
 			}
 			@Override
 			public Adapter caseOutputNode(OutputNode object) {
 				return createOutputNodeAdapter();
+			}
+			@Override
+			public Adapter caseTensor(Tensor object) {
+				return createTensorAdapter();
 			}
 			@Override
 			public Adapter caseBackend(Backend object) {
@@ -212,20 +212,6 @@ public class KerasAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.athene.nn.model.keras.Tensor <em>Tensor</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.athene.nn.model.keras.Tensor
-	 * @generated
-	 */
-	public Adapter createTensorAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.athene.nn.model.keras.InputNode <em>Input Node</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -250,6 +236,20 @@ public class KerasAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createOutputNodeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.athene.nn.model.keras.Tensor <em>Tensor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.athene.nn.model.keras.Tensor
+	 * @generated
+	 */
+	public Adapter createTensorAdapter() {
 		return null;
 	}
 

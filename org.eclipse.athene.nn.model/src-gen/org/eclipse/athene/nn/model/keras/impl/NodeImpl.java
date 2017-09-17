@@ -2,12 +2,17 @@
  */
 package org.eclipse.athene.nn.model.keras.impl;
 
+import java.lang.reflect.InvocationTargetException;
+
+import org.eclipse.athene.nn.model.core.Shape;
+
 import org.eclipse.athene.nn.model.keras.KerasPackage;
 import org.eclipse.athene.nn.model.keras.Node;
-import org.eclipse.athene.nn.model.keras.Tensor;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -23,32 +28,21 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.athene.nn.model.keras.impl.NodeImpl#getInput <em>Input</em>}</li>
- *   <li>{@link org.eclipse.athene.nn.model.keras.impl.NodeImpl#getOutput <em>Output</em>}</li>
+ *   <li>{@link org.eclipse.athene.nn.model.keras.impl.NodeImpl#getShape <em>Shape</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
+public abstract class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 	/**
-	 * The cached value of the '{@link #getInput() <em>Input</em>}' reference.
+	 * The cached value of the '{@link #getShape() <em>Shape</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getInput()
+	 * @see #getShape()
 	 * @generated
 	 * @ordered
 	 */
-	protected Tensor input;
-
-	/**
-	 * The cached value of the '{@link #getOutput() <em>Output</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOutput()
-	 * @generated
-	 * @ordered
-	 */
-	protected Tensor output;
+	protected Shape shape;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -74,16 +68,8 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Tensor getInput() {
-		if (input != null && input.eIsProxy()) {
-			InternalEObject oldInput = (InternalEObject)input;
-			input = (Tensor)eResolveProxy(oldInput);
-			if (input != oldInput) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, KerasPackage.NODE__INPUT, oldInput, input));
-			}
-		}
-		return input;
+	public Shape getShape() {
+		return shape;
 	}
 
 	/**
@@ -91,20 +77,11 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Tensor basicGetInput() {
-		return input;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetInput(Tensor newInput, NotificationChain msgs) {
-		Tensor oldInput = input;
-		input = newInput;
+	public NotificationChain basicSetShape(Shape newShape, NotificationChain msgs) {
+		Shape oldShape = shape;
+		shape = newShape;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KerasPackage.NODE__INPUT, oldInput, newInput);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KerasPackage.NODE__SHAPE, oldShape, newShape);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -115,18 +92,18 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setInput(Tensor newInput) {
-		if (newInput != input) {
+	public void setShape(Shape newShape) {
+		if (newShape != shape) {
 			NotificationChain msgs = null;
-			if (input != null)
-				msgs = ((InternalEObject)input).eInverseRemove(this, KerasPackage.TENSOR__PROVIDING_NODE, Tensor.class, msgs);
-			if (newInput != null)
-				msgs = ((InternalEObject)newInput).eInverseAdd(this, KerasPackage.TENSOR__PROVIDING_NODE, Tensor.class, msgs);
-			msgs = basicSetInput(newInput, msgs);
+			if (shape != null)
+				msgs = ((InternalEObject)shape).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KerasPackage.NODE__SHAPE, null, msgs);
+			if (newShape != null)
+				msgs = ((InternalEObject)newShape).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KerasPackage.NODE__SHAPE, null, msgs);
+			msgs = basicSetShape(newShape, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, KerasPackage.NODE__INPUT, newInput, newInput));
+			eNotify(new ENotificationImpl(this, Notification.SET, KerasPackage.NODE__SHAPE, newShape, newShape));
 	}
 
 	/**
@@ -134,58 +111,8 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Tensor getOutput() {
-		return output;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetOutput(Tensor newOutput, NotificationChain msgs) {
-		Tensor oldOutput = output;
-		output = newOutput;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KerasPackage.NODE__OUTPUT, oldOutput, newOutput);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setOutput(Tensor newOutput) {
-		if (newOutput != output) {
-			NotificationChain msgs = null;
-			if (output != null)
-				msgs = ((InternalEObject)output).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KerasPackage.NODE__OUTPUT, null, msgs);
-			if (newOutput != null)
-				msgs = ((InternalEObject)newOutput).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KerasPackage.NODE__OUTPUT, null, msgs);
-			msgs = basicSetOutput(newOutput, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, KerasPackage.NODE__OUTPUT, newOutput, newOutput));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case KerasPackage.NODE__INPUT:
-				if (input != null)
-					msgs = ((InternalEObject)input).eInverseRemove(this, KerasPackage.TENSOR__PROVIDING_NODE, Tensor.class, msgs);
-				return basicSetInput((Tensor)otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
+	public void removeFromLayer() {
+		
 	}
 
 	/**
@@ -196,10 +123,8 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case KerasPackage.NODE__INPUT:
-				return basicSetInput(null, msgs);
-			case KerasPackage.NODE__OUTPUT:
-				return basicSetOutput(null, msgs);
+			case KerasPackage.NODE__SHAPE:
+				return basicSetShape(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -212,11 +137,8 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case KerasPackage.NODE__INPUT:
-				if (resolve) return getInput();
-				return basicGetInput();
-			case KerasPackage.NODE__OUTPUT:
-				return getOutput();
+			case KerasPackage.NODE__SHAPE:
+				return getShape();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -229,11 +151,8 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case KerasPackage.NODE__INPUT:
-				setInput((Tensor)newValue);
-				return;
-			case KerasPackage.NODE__OUTPUT:
-				setOutput((Tensor)newValue);
+			case KerasPackage.NODE__SHAPE:
+				setShape((Shape)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -247,11 +166,8 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case KerasPackage.NODE__INPUT:
-				setInput((Tensor)null);
-				return;
-			case KerasPackage.NODE__OUTPUT:
-				setOutput((Tensor)null);
+			case KerasPackage.NODE__SHAPE:
+				setShape((Shape)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -265,12 +181,25 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case KerasPackage.NODE__INPUT:
-				return input != null;
-			case KerasPackage.NODE__OUTPUT:
-				return output != null;
+			case KerasPackage.NODE__SHAPE:
+				return shape != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case KerasPackage.NODE___REMOVE_FROM_LAYER:
+				removeFromLayer();
+				return null;
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //NodeImpl

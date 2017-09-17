@@ -2,6 +2,8 @@
  */
 package org.eclipse.athene.nn.model.keras;
 
+import org.eclipse.athene.nn.model.core.Shape;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -13,67 +15,46 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.athene.nn.model.keras.Node#getInput <em>Input</em>}</li>
- *   <li>{@link org.eclipse.athene.nn.model.keras.Node#getOutput <em>Output</em>}</li>
+ *   <li>{@link org.eclipse.athene.nn.model.keras.Node#getShape <em>Shape</em>}</li>
  * </ul>
  *
  * @see org.eclipse.athene.nn.model.keras.KerasPackage#getNode()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Node extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Input</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link org.eclipse.athene.nn.model.keras.Tensor#getProvidingNode <em>Providing Node</em>}'.
+	 * Returns the value of the '<em><b>Shape</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Input</em>' reference isn't clear,
+	 * If the meaning of the '<em>Shape</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Input</em>' reference.
-	 * @see #setInput(Tensor)
-	 * @see org.eclipse.athene.nn.model.keras.KerasPackage#getNode_Input()
-	 * @see org.eclipse.athene.nn.model.keras.Tensor#getProvidingNode
-	 * @model opposite="providingNode"
-	 * @generated
-	 */
-	Tensor getInput();
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.athene.nn.model.keras.Node#getInput <em>Input</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Input</em>' reference.
-	 * @see #getInput()
-	 * @generated
-	 */
-	void setInput(Tensor value);
-
-	/**
-	 * Returns the value of the '<em><b>Output</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Output</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Output</em>' containment reference.
-	 * @see #setOutput(Tensor)
-	 * @see org.eclipse.athene.nn.model.keras.KerasPackage#getNode_Output()
+	 * @return the value of the '<em>Shape</em>' containment reference.
+	 * @see #setShape(Shape)
+	 * @see org.eclipse.athene.nn.model.keras.KerasPackage#getNode_Shape()
 	 * @model containment="true"
 	 * @generated
 	 */
-	Tensor getOutput();
+	Shape getShape();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.athene.nn.model.keras.Node#getOutput <em>Output</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.athene.nn.model.keras.Node#getShape <em>Shape</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Output</em>' containment reference.
-	 * @see #getOutput()
+	 * @param value the new value of the '<em>Shape</em>' containment reference.
+	 * @see #getShape()
 	 * @generated
 	 */
-	void setOutput(Tensor value);
+	void setShape(Shape value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body=''"
+	 * @generated
+	 */
+	void removeFromLayer();
 
 } // Node
