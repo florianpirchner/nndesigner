@@ -34,6 +34,7 @@ class Layer extends org.eclipse.athene.nn.model.tensorflow.Layer {
 }
 
 abstract class Node {
+	String name
 	contains Shape shape
 	op void removeFromLayer() {
 	}
@@ -60,7 +61,10 @@ class InputNode extends Node {
 class OutputNode extends Node {
 	container Layer layer opposite outputNodes
 	contains Tensor outputTensor opposite containerNode
-	refers InputNode connectedNode opposite connectedNode
+	refers InputNode connectedNode opposite connectedNode set {
+		name = connectedNode.name
+	}
+
 	/**
 	 * Removes the input node and its connected input node from the layer
 	 */
@@ -73,7 +77,8 @@ class OutputNode extends Node {
 		connectedNode.removeFromLayer
 		connectedNode = null
 	}
-	op void connectToLayer(Layer target) {
+	
+	op void connectToInputLayer(Layer target) {
 		var Tensor tensor = null
 		if (outputTensor !== null) {
 			tensor = getOutputTensor()
@@ -127,6 +132,10 @@ class Tensor extends org.eclipse.athene.nn.model.core.Tensor {
 
 class Backend {
 	String name
+}
+
+class Input extends Layer {
+	
 }
 
 class Dense extends Layer {

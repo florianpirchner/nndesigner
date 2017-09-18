@@ -142,7 +142,10 @@ public class OutputNodeItemProvider extends NodeItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_OutputNode_type");
+		String label = ((OutputNode)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_OutputNode_type") :
+			getString("_UI_OutputNode_type") + " " + label;
 	}
 	
 

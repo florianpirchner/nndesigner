@@ -62,6 +62,7 @@ public class KerasFactoryImpl extends EFactoryImpl implements KerasFactory {
 			case KerasPackage.OUTPUT_NODE: return createOutputNode();
 			case KerasPackage.TENSOR: return createTensor();
 			case KerasPackage.BACKEND: return createBackend();
+			case KerasPackage.INPUT: return createInput();
 			case KerasPackage.DENSE: return createDense();
 			case KerasPackage.DROPOUT: return createDropout();
 			case KerasPackage.ACTIVATION: return createActivation();
@@ -133,6 +134,16 @@ public class KerasFactoryImpl extends EFactoryImpl implements KerasFactory {
 	public Backend createBackend() {
 		BackendImpl backend = new BackendImpl();
 		return backend;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Input createInput() {
+		InputImpl input = new InputImpl();
+		return input;
 	}
 
 	/**

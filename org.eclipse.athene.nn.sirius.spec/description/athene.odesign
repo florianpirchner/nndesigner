@@ -2,23 +2,13 @@
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="athene" version="12.0.0.2017041100">
   <ownedViewpoints name="Athene NN Designer" modelFileExtension="athene">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="NNDesigner" domainClass="core::Design">
+      <layout xsi:type="description_1:OrderedTreeLayout" childrenExpression="elements" nodeMapping="//@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='Activation'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='Dense'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='Dropout'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='Flatten'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='Input'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='Permute'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='RepeatVector'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='Reshape']"/>
       <defaultLayer name="Default">
         <toolSections/>
       </defaultLayer>
       <additionalLayers name="Layers" activeByDefault="true">
-        <nodeMappings name="Activation" domainClass="keras::Activation">
-          <style xsi:type="style:WorkspaceImageDescription" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/org.eclipse.athene.sirius.spec/icons/man.svg">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-          </style>
-        </nodeMappings>
-        <nodeMappings name="Dropout" domainClass="keras::Dropout"/>
-        <nodeMappings name="Flatten" domainClass="keras::Flatten"/>
-        <nodeMappings name="Permute" domainClass="keras::Permute"/>
-        <nodeMappings name="RepeatVector" domainClass="keras::RepeatVector"/>
-        <nodeMappings name="Reshape" domainClass="keras::Reshape"/>
-        <edgeMappings name="connectedNode" sourceMapping="//@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='Dense']/@borderedNodeMappings[name='inputNode']" targetMapping="//@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='Dense']/@borderedNodeMappings[name='outputNode']" targetFinderExpression="feature:connectedNode">
-          <style lineStyle="dash" targetArrow="NoDecoration" sizeComputationExpression="2">
+        <edgeMappings name="connectedNode" sourceMapping="//@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='Dense']/@borderedNodeMappings[name='inputNode'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='Dropout']/@borderedNodeMappings[name='inputNode'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='Flatten']/@borderedNodeMappings[name='inputNode'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='Permute']/@borderedNodeMappings[name='inputNode'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='RepeatVector']/@borderedNodeMappings[name='inputNode'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='Reshape']/@borderedNodeMappings[name='inputNode']" targetMapping="//@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='Dense']/@borderedNodeMappings[name='outputNode'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='Dropout']/@borderedNodeMappings[name='outputNode'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='Flatten']/@borderedNodeMappings[name='outputNode'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='Permute']/@borderedNodeMappings[name='outputNode'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='RepeatVector']/@borderedNodeMappings[name='outputNode'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='Reshape']/@borderedNodeMappings[name='outputNode'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='Input']/@borderedNodeMappings[name='outputNode']" targetFinderExpression="feature:connectedNode">
+          <style lineStyle="dash" targetArrow="NoDecoration" endsCentering="Both">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
             <centerLabelStyleDescription>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -27,26 +17,212 @@
         </edgeMappings>
         <containerMappings name="Dense" domainClass="keras.Dense">
           <borderedNodeMappings name="inputNode" deletionDescription="//@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@toolSections.0/@ownedTools[name='DeleteNode']" semanticCandidatesExpression="feature:inputNodes" domainClass="keras.InputNode">
-            <style xsi:type="style:DotDescription" labelPosition="node">
+            <style xsi:type="style:EllipseNodeDescription" sizeComputationExpression="1" labelPosition="node">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <forbiddenSides>SOUTH</forbiddenSides>
               <forbiddenSides>EAST</forbiddenSides>
               <forbiddenSides>NORTH</forbiddenSides>
-              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </borderedNodeMappings>
           <borderedNodeMappings name="outputNode" deletionDescription="//@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@toolSections.0/@ownedTools[name='DeleteNode']" semanticCandidatesExpression="feature:outputNodes" domainClass="keras.OutputNode">
-            <style xsi:type="style:DotDescription" labelPosition="node">
+            <style xsi:type="style:EllipseNodeDescription" sizeComputationExpression="1" labelPosition="node">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <forbiddenSides>WEST</forbiddenSides>
               <forbiddenSides>SOUTH</forbiddenSides>
               <forbiddenSides>NORTH</forbiddenSides>
-              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </borderedNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" roundedCorner="true" widthComputationExpression="7" heightComputationExpression="20">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_yellow']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+          </style>
+        </containerMappings>
+        <containerMappings name="Dropout" domainClass="keras.Dropout">
+          <borderedNodeMappings name="inputNode" deletionDescription="//@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@toolSections.0/@ownedTools[name='DeleteNode']" semanticCandidatesExpression="feature:inputNodes" domainClass="keras.InputNode">
+            <style xsi:type="style:EllipseNodeDescription" sizeComputationExpression="1" labelPosition="node">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <forbiddenSides>SOUTH</forbiddenSides>
+              <forbiddenSides>EAST</forbiddenSides>
+              <forbiddenSides>NORTH</forbiddenSides>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </style>
+          </borderedNodeMappings>
+          <borderedNodeMappings name="outputNode" deletionDescription="//@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@toolSections.0/@ownedTools[name='DeleteNode']" semanticCandidatesExpression="feature:outputNodes" domainClass="keras.OutputNode">
+            <style xsi:type="style:EllipseNodeDescription" sizeComputationExpression="1" labelPosition="node">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <forbiddenSides>WEST</forbiddenSides>
+              <forbiddenSides>SOUTH</forbiddenSides>
+              <forbiddenSides>NORTH</forbiddenSides>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </style>
+          </borderedNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" roundedCorner="true" widthComputationExpression="7" heightComputationExpression="20">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </containerMappings>
+        <containerMappings name="Flatten" domainClass="keras.Flatten">
+          <borderedNodeMappings name="inputNode" deletionDescription="//@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@toolSections.0/@ownedTools[name='DeleteNode']" semanticCandidatesExpression="feature:inputNodes" domainClass="keras.InputNode">
+            <style xsi:type="style:EllipseNodeDescription" sizeComputationExpression="1" labelPosition="node">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <forbiddenSides>SOUTH</forbiddenSides>
+              <forbiddenSides>EAST</forbiddenSides>
+              <forbiddenSides>NORTH</forbiddenSides>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </style>
+          </borderedNodeMappings>
+          <borderedNodeMappings name="outputNode" deletionDescription="//@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@toolSections.0/@ownedTools[name='DeleteNode']" semanticCandidatesExpression="feature:outputNodes" domainClass="keras.OutputNode">
+            <style xsi:type="style:EllipseNodeDescription" sizeComputationExpression="1" labelPosition="node">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <forbiddenSides>WEST</forbiddenSides>
+              <forbiddenSides>SOUTH</forbiddenSides>
+              <forbiddenSides>NORTH</forbiddenSides>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </style>
+          </borderedNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" roundedCorner="true" widthComputationExpression="7" heightComputationExpression="20">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </containerMappings>
+        <containerMappings name="Permute" domainClass="keras.Permute">
+          <borderedNodeMappings name="inputNode" deletionDescription="//@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@toolSections.0/@ownedTools[name='DeleteNode']" semanticCandidatesExpression="feature:inputNodes" domainClass="keras.InputNode">
+            <style xsi:type="style:EllipseNodeDescription" sizeComputationExpression="1" labelPosition="node">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <forbiddenSides>SOUTH</forbiddenSides>
+              <forbiddenSides>EAST</forbiddenSides>
+              <forbiddenSides>NORTH</forbiddenSides>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </style>
+          </borderedNodeMappings>
+          <borderedNodeMappings name="outputNode" deletionDescription="//@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@toolSections.0/@ownedTools[name='DeleteNode']" semanticCandidatesExpression="feature:outputNodes" domainClass="keras.OutputNode">
+            <style xsi:type="style:EllipseNodeDescription" sizeComputationExpression="1" labelPosition="node">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <forbiddenSides>WEST</forbiddenSides>
+              <forbiddenSides>SOUTH</forbiddenSides>
+              <forbiddenSides>NORTH</forbiddenSides>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </style>
+          </borderedNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" roundedCorner="true" widthComputationExpression="7" heightComputationExpression="20">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </containerMappings>
+        <containerMappings name="RepeatVector" domainClass="keras.RepeatVector">
+          <borderedNodeMappings name="inputNode" deletionDescription="//@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@toolSections.0/@ownedTools[name='DeleteNode']" semanticCandidatesExpression="feature:inputNodes" domainClass="keras.InputNode">
+            <style xsi:type="style:EllipseNodeDescription" sizeComputationExpression="1" labelPosition="node">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <forbiddenSides>SOUTH</forbiddenSides>
+              <forbiddenSides>EAST</forbiddenSides>
+              <forbiddenSides>NORTH</forbiddenSides>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </style>
+          </borderedNodeMappings>
+          <borderedNodeMappings name="outputNode" deletionDescription="//@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@toolSections.0/@ownedTools[name='DeleteNode']" semanticCandidatesExpression="feature:outputNodes" domainClass="keras.OutputNode">
+            <style xsi:type="style:EllipseNodeDescription" sizeComputationExpression="1" labelPosition="node">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <forbiddenSides>WEST</forbiddenSides>
+              <forbiddenSides>SOUTH</forbiddenSides>
+              <forbiddenSides>NORTH</forbiddenSides>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </style>
+          </borderedNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" roundedCorner="true" widthComputationExpression="7" heightComputationExpression="20">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </containerMappings>
+        <containerMappings name="Reshape" domainClass="keras.Reshape">
+          <borderedNodeMappings name="inputNode" deletionDescription="//@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@toolSections.0/@ownedTools[name='DeleteNode']" semanticCandidatesExpression="feature:inputNodes" domainClass="keras.InputNode">
+            <style xsi:type="style:EllipseNodeDescription" sizeComputationExpression="1" labelPosition="node">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <forbiddenSides>SOUTH</forbiddenSides>
+              <forbiddenSides>EAST</forbiddenSides>
+              <forbiddenSides>NORTH</forbiddenSides>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </style>
+          </borderedNodeMappings>
+          <borderedNodeMappings name="outputNode" deletionDescription="//@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@toolSections.0/@ownedTools[name='DeleteNode']" semanticCandidatesExpression="feature:outputNodes" domainClass="keras.OutputNode">
+            <style xsi:type="style:EllipseNodeDescription" sizeComputationExpression="1" labelPosition="node">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <forbiddenSides>WEST</forbiddenSides>
+              <forbiddenSides>SOUTH</forbiddenSides>
+              <forbiddenSides>NORTH</forbiddenSides>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </style>
+          </borderedNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" roundedCorner="true" widthComputationExpression="7" heightComputationExpression="20">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </containerMappings>
+        <containerMappings name="Input" domainClass="keras.Input">
+          <borderedNodeMappings name="outputNode" deletionDescription="//@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@toolSections.0/@ownedTools[name='DeleteNode']" semanticCandidatesExpression="feature:outputNodes" domainClass="keras.OutputNode">
+            <style xsi:type="style:EllipseNodeDescription" sizeComputationExpression="1" labelPosition="node">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <forbiddenSides>WEST</forbiddenSides>
+              <forbiddenSides>SOUTH</forbiddenSides>
+              <forbiddenSides>NORTH</forbiddenSides>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </style>
+          </borderedNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" roundedCorner="true" widthComputationExpression="7" heightComputationExpression="20">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </containerMappings>
+        <containerMappings name="Activation" domainClass="keras.Activation">
+          <borderedNodeMappings name="inputNode" deletionDescription="//@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@toolSections.0/@ownedTools[name='DeleteNode']" semanticCandidatesExpression="feature:inputNodes" domainClass="keras.InputNode">
+            <style xsi:type="style:EllipseNodeDescription" sizeComputationExpression="1" labelPosition="node">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <forbiddenSides>SOUTH</forbiddenSides>
+              <forbiddenSides>EAST</forbiddenSides>
+              <forbiddenSides>NORTH</forbiddenSides>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </style>
+          </borderedNodeMappings>
+          <borderedNodeMappings name="outputNode" deletionDescription="//@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@toolSections.0/@ownedTools[name='DeleteNode']" semanticCandidatesExpression="feature:outputNodes" domainClass="keras.OutputNode">
+            <style xsi:type="style:EllipseNodeDescription" sizeComputationExpression="1" labelPosition="node">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <forbiddenSides>WEST</forbiddenSides>
+              <forbiddenSides>SOUTH</forbiddenSides>
+              <forbiddenSides>NORTH</forbiddenSides>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </style>
+          </borderedNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" roundedCorner="true" widthComputationExpression="7" heightComputationExpression="20">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -54,18 +230,7 @@
           </style>
         </containerMappings>
         <toolSections>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="createActivation" label="Activation" nodeMappings="//@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@nodeMappings[name='Activation']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="keras::Activate" referenceName="elements">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New Layer"/>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="connectToInput" label="Tensor" edgeMappings="//@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Tensor']/@edgeMappings[name='Tensor']" iconPath="/org.eclipse.sirius.sample.basicfamily.advanced.design/icons/father.png">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Tensor" edgeMappings="//@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Tensor']/@edgeMappings[name='Tensor']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -80,6 +245,9 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="keras.Dense" referenceName="elements"/>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:finishNewLayer"/>
+                </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -91,10 +259,95 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:removeNode()"/>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Dropout" containerMappings="//@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='Dropout']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="keras.Dropout" referenceName="elements"/>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:finishNewLayer"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Flatten" containerMappings="//@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='Flatten']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="keras.Flatten" referenceName="elements"/>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:finishNewLayer"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Permute" containerMappings="//@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='Permute']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="keras.Permute" referenceName="elements"/>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:finishNewLayer"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="RepeatVector" containerMappings="//@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='RepeatVector']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="keras.RepeatVector" referenceName="elements"/>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:finishNewLayer"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Reshape" containerMappings="//@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='Reshape']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="keras.Reshape" referenceName="elements"/>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:finishNewLayer"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Input" containerMappings="//@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='Input']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="keras.Input" referenceName="elements"/>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="keras.OutputNode" referenceName="outputNodes" variableName="outputNode"/>
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:finishNewLayer"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Activation" containerMappings="//@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='Activation']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="keras.Activation" referenceName="elements"/>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:finishNewLayer"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
         </toolSections>
       </additionalLayers>
       <additionalLayers name="Tensor" activeByDefault="true">
-        <edgeMappings name="Tensor" deletionDescription="//@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Tensor']/@toolSections.0/@ownedTools[name='DeleteTensor']" sourceMapping="//@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='Dense']/@borderedNodeMappings[name='outputNode']" targetMapping="//@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='Dense'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='Dense']/@borderedNodeMappings[name='inputNode']" targetFinderExpression="[thisEObject.consumingNodes/]" sourceFinderExpression="[thisEObject.containerNode/]" domainClass="core::Tensor" useDomainElement="true">
+        <edgeMappings name="Tensor" deletionDescription="//@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Tensor']/@toolSections.0/@ownedTools[name='DeleteTensor']" sourceMapping="//@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='Dense']/@borderedNodeMappings[name='outputNode'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='Dropout']/@borderedNodeMappings[name='outputNode'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='Flatten']/@borderedNodeMappings[name='outputNode'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='Permute']/@borderedNodeMappings[name='outputNode'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='RepeatVector']/@borderedNodeMappings[name='outputNode'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='Reshape']/@borderedNodeMappings[name='outputNode'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='Input']/@borderedNodeMappings[name='outputNode'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='Activation']/@borderedNodeMappings[name='outputNode']" targetMapping="//@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='Dense'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='Dense']/@borderedNodeMappings[name='inputNode'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='Dropout'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='Dropout']/@borderedNodeMappings[name='inputNode'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='Flatten'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='Flatten']/@borderedNodeMappings[name='inputNode'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='Permute'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='Permute']/@borderedNodeMappings[name='inputNode'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='RepeatVector'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='RepeatVector']/@borderedNodeMappings[name='inputNode'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='Reshape'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='Reshape']/@borderedNodeMappings[name='inputNode'] //@ownedViewpoints[name='Athene%20NN%20Designer']/@ownedRepresentations[name='NNDesigner']/@additionalLayers[name='Layers']/@containerMappings[name='Activation']/@borderedNodeMappings[name='inputNode']" targetFinderExpression="[thisEObject.consumingNodes/]" sourceFinderExpression="[thisEObject.containerNode/]" domainClass="core::Tensor" useDomainElement="true">
           <style sizeComputationExpression="2" routingStyle="manhattan">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription>

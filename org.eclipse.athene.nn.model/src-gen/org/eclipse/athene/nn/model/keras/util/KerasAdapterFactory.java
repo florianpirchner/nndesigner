@@ -98,6 +98,10 @@ public class KerasAdapterFactory extends AdapterFactoryImpl {
 				return createBackendAdapter();
 			}
 			@Override
+			public Adapter caseInput(Input object) {
+				return createInputAdapter();
+			}
+			@Override
 			public Adapter caseDense(Dense object) {
 				return createDenseAdapter();
 			}
@@ -264,6 +268,20 @@ public class KerasAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBackendAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.athene.nn.model.keras.Input <em>Input</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.athene.nn.model.keras.Input
+	 * @generated
+	 */
+	public Adapter createInputAdapter() {
 		return null;
 	}
 

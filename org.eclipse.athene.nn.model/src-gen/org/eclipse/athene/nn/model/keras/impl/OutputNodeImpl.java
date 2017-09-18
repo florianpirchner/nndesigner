@@ -255,7 +255,7 @@ public class OutputNodeImpl extends NodeImpl implements OutputNode {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void connectToLayer(final Layer target) {
+	public void connectToInputLayer(final Layer target) {
 		Tensor tensor = null;
 		Tensor _outputTensor = this.getOutputTensor();
 		boolean _tripleNotEquals = (_outputTensor != null);
@@ -437,8 +437,8 @@ public class OutputNodeImpl extends NodeImpl implements OutputNode {
 			case KerasPackage.OUTPUT_NODE___REMOVE_FROM_LAYER:
 				removeFromLayer();
 				return null;
-			case KerasPackage.OUTPUT_NODE___CONNECT_TO_LAYER__LAYER:
-				connectToLayer((Layer)arguments.get(0));
+			case KerasPackage.OUTPUT_NODE___CONNECT_TO_INPUT_LAYER__LAYER:
+				connectToInputLayer((Layer)arguments.get(0));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

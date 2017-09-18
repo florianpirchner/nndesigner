@@ -11,7 +11,12 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.athene.nn.model;bundle-version="1.0.0",
  org.eclipse.sirius,
  org.eclipse.sirius.common.acceleo.aql,
- org.eclipse.sirius.diagram
+ org.eclipse.sirius.diagram,
+ org.eclipse.emf.transaction,
+ org.eclipse.emf.common,
+ org.eclipse.sirius.ext.base;bundle-version="5.0.0",
+ com.google.guava;bundle-version="21.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: %providerName
+Import-Package: org.eclipse.gmf.runtime.notation

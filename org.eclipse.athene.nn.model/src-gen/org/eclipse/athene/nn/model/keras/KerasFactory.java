@@ -76,6 +76,15 @@ public interface KerasFactory extends EFactory {
 	Backend createBackend();
 
 	/**
+	 * Returns a new object of class '<em>Input</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Input</em>'.
+	 * @generated
+	 */
+	Input createInput();
+
+	/**
 	 * Returns a new object of class '<em>Dense</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

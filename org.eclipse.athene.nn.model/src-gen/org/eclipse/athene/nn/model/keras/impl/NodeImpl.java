@@ -28,12 +28,33 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.eclipse.athene.nn.model.keras.impl.NodeImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.athene.nn.model.keras.impl.NodeImpl#getShape <em>Shape</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class NodeImpl extends MinimalEObjectImpl.Container implements Node {
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
+
 	/**
 	 * The cached value of the '{@link #getShape() <em>Shape</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -61,6 +82,27 @@ public abstract class NodeImpl extends MinimalEObjectImpl.Container implements N
 	@Override
 	protected EClass eStaticClass() {
 		return KerasPackage.Literals.NODE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, KerasPackage.NODE__NAME, oldName, name));
 	}
 
 	/**
@@ -137,6 +179,8 @@ public abstract class NodeImpl extends MinimalEObjectImpl.Container implements N
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case KerasPackage.NODE__NAME:
+				return getName();
 			case KerasPackage.NODE__SHAPE:
 				return getShape();
 		}
@@ -151,6 +195,9 @@ public abstract class NodeImpl extends MinimalEObjectImpl.Container implements N
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case KerasPackage.NODE__NAME:
+				setName((String)newValue);
+				return;
 			case KerasPackage.NODE__SHAPE:
 				setShape((Shape)newValue);
 				return;
@@ -166,6 +213,9 @@ public abstract class NodeImpl extends MinimalEObjectImpl.Container implements N
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case KerasPackage.NODE__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 			case KerasPackage.NODE__SHAPE:
 				setShape((Shape)null);
 				return;
@@ -181,6 +231,8 @@ public abstract class NodeImpl extends MinimalEObjectImpl.Container implements N
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case KerasPackage.NODE__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case KerasPackage.NODE__SHAPE:
 				return shape != null;
 		}
@@ -200,6 +252,22 @@ public abstract class NodeImpl extends MinimalEObjectImpl.Container implements N
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
 	}
 
 } //NodeImpl

@@ -210,13 +210,22 @@ public interface KerasPackage extends EPackage {
 	int NODE = 2;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE__NAME = 0;
+
+	/**
 	 * The feature id for the '<em><b>Shape</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__SHAPE = 0;
+	int NODE__SHAPE = 1;
 
 	/**
 	 * The number of structural features of the '<em>Node</em>' class.
@@ -225,7 +234,7 @@ public interface KerasPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE_FEATURE_COUNT = 1;
+	int NODE_FEATURE_COUNT = 2;
 
 	/**
 	 * The operation id for the '<em>Remove From Layer</em>' operation.
@@ -254,6 +263,15 @@ public interface KerasPackage extends EPackage {
 	 * @generated
 	 */
 	int INPUT_NODE = 3;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_NODE__NAME = NODE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Shape</b></em>' containment reference.
@@ -329,6 +347,15 @@ public interface KerasPackage extends EPackage {
 	int OUTPUT_NODE = 4;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_NODE__NAME = NODE__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Shape</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -383,13 +410,13 @@ public interface KerasPackage extends EPackage {
 	int OUTPUT_NODE___REMOVE_FROM_LAYER = NODE_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Connect To Layer</em>' operation.
+	 * The operation id for the '<em>Connect To Input Layer</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OUTPUT_NODE___CONNECT_TO_LAYER__LAYER = NODE_OPERATION_COUNT + 1;
+	int OUTPUT_NODE___CONNECT_TO_INPUT_LAYER__LAYER = NODE_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Output Node</em>' class.
@@ -502,6 +529,88 @@ public interface KerasPackage extends EPackage {
 	int BACKEND_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.athene.nn.model.keras.impl.InputImpl <em>Input</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.athene.nn.model.keras.impl.InputImpl
+	 * @see org.eclipse.athene.nn.model.keras.impl.KerasPackageImpl#getInput()
+	 * @generated
+	 */
+	int INPUT = 7;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT__NAME = LAYER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Trainable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT__TRAINABLE = LAYER__TRAINABLE;
+
+	/**
+	 * The feature id for the '<em><b>Input Nodes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT__INPUT_NODES = LAYER__INPUT_NODES;
+
+	/**
+	 * The feature id for the '<em><b>Output Nodes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT__OUTPUT_NODES = LAYER__OUTPUT_NODES;
+
+	/**
+	 * The number of structural features of the '<em>Input</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_FEATURE_COUNT = LAYER_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Output</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT___GET_OUTPUT__INT = LAYER___GET_OUTPUT__INT;
+
+	/**
+	 * The operation id for the '<em>Get Input</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT___GET_INPUT__INT = LAYER___GET_INPUT__INT;
+
+	/**
+	 * The number of operations of the '<em>Input</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_OPERATION_COUNT = LAYER_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.athene.nn.model.keras.impl.DenseImpl <em>Dense</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -509,7 +618,7 @@ public interface KerasPackage extends EPackage {
 	 * @see org.eclipse.athene.nn.model.keras.impl.KerasPackageImpl#getDense()
 	 * @generated
 	 */
-	int DENSE = 7;
+	int DENSE = 8;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -645,7 +754,7 @@ public interface KerasPackage extends EPackage {
 	 * @see org.eclipse.athene.nn.model.keras.impl.KerasPackageImpl#getDropout()
 	 * @generated
 	 */
-	int DROPOUT = 8;
+	int DROPOUT = 9;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -754,7 +863,7 @@ public interface KerasPackage extends EPackage {
 	 * @see org.eclipse.athene.nn.model.keras.impl.KerasPackageImpl#getActivation()
 	 * @generated
 	 */
-	int ACTIVATION = 9;
+	int ACTIVATION = 10;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -854,7 +963,7 @@ public interface KerasPackage extends EPackage {
 	 * @see org.eclipse.athene.nn.model.keras.impl.KerasPackageImpl#getReshape()
 	 * @generated
 	 */
-	int RESHAPE = 10;
+	int RESHAPE = 11;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -963,7 +1072,7 @@ public interface KerasPackage extends EPackage {
 	 * @see org.eclipse.athene.nn.model.keras.impl.KerasPackageImpl#getFlatten()
 	 * @generated
 	 */
-	int FLATTEN = 11;
+	int FLATTEN = 12;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1045,7 +1154,7 @@ public interface KerasPackage extends EPackage {
 	 * @see org.eclipse.athene.nn.model.keras.impl.KerasPackageImpl#getPermute()
 	 * @generated
 	 */
-	int PERMUTE = 12;
+	int PERMUTE = 13;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1154,7 +1263,7 @@ public interface KerasPackage extends EPackage {
 	 * @see org.eclipse.athene.nn.model.keras.impl.KerasPackageImpl#getRepeatVector()
 	 * @generated
 	 */
-	int REPEAT_VECTOR = 13;
+	int REPEAT_VECTOR = 14;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1263,7 +1372,7 @@ public interface KerasPackage extends EPackage {
 	 * @see org.eclipse.athene.nn.model.keras.impl.KerasPackageImpl#getActivityRegularization()
 	 * @generated
 	 */
-	int ACTIVITY_REGULARIZATION = 14;
+	int ACTIVITY_REGULARIZATION = 15;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1460,6 +1569,17 @@ public interface KerasPackage extends EPackage {
 	EClass getNode();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.athene.nn.model.keras.Node#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.eclipse.athene.nn.model.keras.Node#getName()
+	 * @see #getNode()
+	 * @generated
+	 */
+	EAttribute getNode_Name();
+
+	/**
 	 * Returns the meta object for the containment reference '{@link org.eclipse.athene.nn.model.keras.Node#getShape <em>Shape</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1587,14 +1707,14 @@ public interface KerasPackage extends EPackage {
 	EOperation getOutputNode__RemoveFromLayer();
 
 	/**
-	 * Returns the meta object for the '{@link org.eclipse.athene.nn.model.keras.OutputNode#connectToLayer(org.eclipse.athene.nn.model.keras.Layer) <em>Connect To Layer</em>}' operation.
+	 * Returns the meta object for the '{@link org.eclipse.athene.nn.model.keras.OutputNode#connectToInputLayer(org.eclipse.athene.nn.model.keras.Layer) <em>Connect To Input Layer</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Connect To Layer</em>' operation.
-	 * @see org.eclipse.athene.nn.model.keras.OutputNode#connectToLayer(org.eclipse.athene.nn.model.keras.Layer)
+	 * @return the meta object for the '<em>Connect To Input Layer</em>' operation.
+	 * @see org.eclipse.athene.nn.model.keras.OutputNode#connectToInputLayer(org.eclipse.athene.nn.model.keras.Layer)
 	 * @generated
 	 */
-	EOperation getOutputNode__ConnectToLayer__Layer();
+	EOperation getOutputNode__ConnectToInputLayer__Layer();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.athene.nn.model.keras.Tensor <em>Tensor</em>}'.
@@ -1668,6 +1788,16 @@ public interface KerasPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getBackend_Name();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.athene.nn.model.keras.Input <em>Input</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Input</em>'.
+	 * @see org.eclipse.athene.nn.model.keras.Input
+	 * @generated
+	 */
+	EClass getInput();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.athene.nn.model.keras.Dense <em>Dense</em>}'.
@@ -2104,6 +2234,14 @@ public interface KerasPackage extends EPackage {
 		EClass NODE = eINSTANCE.getNode();
 
 		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NODE__NAME = eINSTANCE.getNode_Name();
+
+		/**
 		 * The meta object literal for the '<em><b>Shape</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2204,12 +2342,12 @@ public interface KerasPackage extends EPackage {
 		EOperation OUTPUT_NODE___REMOVE_FROM_LAYER = eINSTANCE.getOutputNode__RemoveFromLayer();
 
 		/**
-		 * The meta object literal for the '<em><b>Connect To Layer</b></em>' operation.
+		 * The meta object literal for the '<em><b>Connect To Input Layer</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation OUTPUT_NODE___CONNECT_TO_LAYER__LAYER = eINSTANCE.getOutputNode__ConnectToLayer__Layer();
+		EOperation OUTPUT_NODE___CONNECT_TO_INPUT_LAYER__LAYER = eINSTANCE.getOutputNode__ConnectToInputLayer__Layer();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.athene.nn.model.keras.impl.TensorImpl <em>Tensor</em>}' class.
@@ -2270,6 +2408,16 @@ public interface KerasPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute BACKEND__NAME = eINSTANCE.getBackend_Name();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.athene.nn.model.keras.impl.InputImpl <em>Input</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.athene.nn.model.keras.impl.InputImpl
+		 * @see org.eclipse.athene.nn.model.keras.impl.KerasPackageImpl#getInput()
+		 * @generated
+		 */
+		EClass INPUT = eINSTANCE.getInput();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.athene.nn.model.keras.impl.DenseImpl <em>Dense</em>}' class.

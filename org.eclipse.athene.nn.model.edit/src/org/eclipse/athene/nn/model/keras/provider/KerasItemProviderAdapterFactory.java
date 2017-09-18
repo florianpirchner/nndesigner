@@ -208,6 +208,29 @@ public class KerasItemProviderAdapterFactory extends KerasAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.athene.nn.model.keras.Input} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected InputItemProvider inputItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.athene.nn.model.keras.Input}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createInputAdapter() {
+		if (inputItemProvider == null) {
+			inputItemProvider = new InputItemProvider(this);
+		}
+
+		return inputItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.athene.nn.model.keras.Backend} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -546,6 +569,7 @@ public class KerasItemProviderAdapterFactory extends KerasAdapterFactory impleme
 		if (outputNodeItemProvider != null) outputNodeItemProvider.dispose();
 		if (tensorItemProvider != null) tensorItemProvider.dispose();
 		if (backendItemProvider != null) backendItemProvider.dispose();
+		if (inputItemProvider != null) inputItemProvider.dispose();
 		if (denseItemProvider != null) denseItemProvider.dispose();
 		if (dropoutItemProvider != null) dropoutItemProvider.dispose();
 		if (activationItemProvider != null) activationItemProvider.dispose();
@@ -612,6 +636,11 @@ public class KerasItemProviderAdapterFactory extends KerasAdapterFactory impleme
 					(createChildParameter
 						(CorePackage.Literals.DESIGN__ELEMENTS,
 						 KerasFactory.eINSTANCE.createLayer()));
+
+				newChildDescriptors.add
+					(createChildParameter
+						(CorePackage.Literals.DESIGN__ELEMENTS,
+						 KerasFactory.eINSTANCE.createInput()));
 
 				newChildDescriptors.add
 					(createChildParameter

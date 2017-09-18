@@ -119,6 +119,16 @@ public class KerasSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case KerasPackage.INPUT: {
+				Input input = (Input)theEObject;
+				T result = caseInput(input);
+				if (result == null) result = caseLayer(input);
+				if (result == null) result = caseTensorflow_Layer(input);
+				if (result == null) result = caseCore_Layer(input);
+				if (result == null) result = caseElement(input);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case KerasPackage.DENSE: {
 				Dense dense = (Dense)theEObject;
 				T result = caseDense(dense);
@@ -305,6 +315,21 @@ public class KerasSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseBackend(Backend object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Input</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Input</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInput(Input object) {
 		return null;
 	}
 

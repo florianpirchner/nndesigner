@@ -6,6 +6,7 @@ package org.eclipse.athene.nn.model.keras.provider;
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.athene.nn.model.keras.InputNode;
 import org.eclipse.athene.nn.model.keras.KerasPackage;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -133,7 +134,10 @@ public class InputNodeItemProvider extends NodeItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_InputNode_type");
+		String label = ((InputNode)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_InputNode_type") :
+			getString("_UI_InputNode_type") + " " + label;
 	}
 	
 

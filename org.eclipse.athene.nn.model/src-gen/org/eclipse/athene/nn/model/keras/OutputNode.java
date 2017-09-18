@@ -125,6 +125,6 @@ public interface OutputNode extends Node {
 	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='&lt;%org.eclipse.athene.nn.model.keras.Tensor%&gt; tensor = null;\n&lt;%org.eclipse.athene.nn.model.keras.Tensor%&gt; _outputTensor = this.getOutputTensor();\nboolean _tripleNotEquals = (_outputTensor != null);\nif (_tripleNotEquals)\n{\n\ttensor = this.getOutputTensor();\n}\nelse\n{\n\ttensor = &lt;%org.eclipse.athene.nn.model.keras.KerasFactory%&gt;.eINSTANCE.createTensor();\n\tthis.setOutputTensor(tensor);\n}\nfinal &lt;%org.eclipse.athene.nn.model.keras.InputNode%&gt; targetInputNode = &lt;%org.eclipse.athene.nn.model.keras.KerasFactory%&gt;.eINSTANCE.createInputNode();\ntarget.getInputNodes().add(targetInputNode);\nfinal &lt;%org.eclipse.athene.nn.model.keras.OutputNode%&gt; targetOutputNode = &lt;%org.eclipse.athene.nn.model.keras.KerasFactory%&gt;.eINSTANCE.createOutputNode();\ntarget.getOutputNodes().add(targetOutputNode);\ntargetOutputNode.setConnectedNode(targetInputNode);\ntargetInputNode.setInputTensor(tensor);'"
 	 * @generated
 	 */
-	void connectToLayer(Layer target);
+	void connectToInputLayer(Layer target);
 
 } // OutputNode
