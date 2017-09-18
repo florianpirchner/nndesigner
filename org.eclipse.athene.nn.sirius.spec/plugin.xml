@@ -7,4 +7,11 @@
 	       name="athene">
     </component>
   </extension>
+  
+  <extension
+           point="org.eclipse.sirius.sessionManagerListener">
+        <listener
+              class="org.eclipse.athene.sirius.spec.SessionListener">
+        </listener>
+     </extension>
 </plugin>

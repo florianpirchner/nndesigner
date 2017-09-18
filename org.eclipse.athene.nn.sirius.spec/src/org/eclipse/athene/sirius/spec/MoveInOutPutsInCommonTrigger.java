@@ -22,22 +22,20 @@ import com.google.common.collect.Iterators;
 import com.google.common.collect.Sets;
 import com.google.common.collect.UnmodifiableIterator;
 
-public class AutoSizeTrigger implements ModelChangeTrigger {
+public class MoveInOutPutsInCommonTrigger implements ModelChangeTrigger {
 
 	public static final Adapter AUTO_SIZE_MARKER = new AdapterImpl();
 	private TransactionalEditingDomain domain;
 
-	public AutoSizeTrigger(TransactionalEditingDomain domain) {
+	public MoveInOutPutsInCommonTrigger(TransactionalEditingDomain domain) {
 		super();
 		this.domain = domain;
 	}
 
 	public static final NotificationFilter IS_GMF_NODE_ATTACHMENT = new NotificationFilter.Custom() {
-
 		public boolean matches(Notification input) {
 			return input.getNewValue() instanceof org.eclipse.gmf.runtime.notation.Node
 					&& input.getFeature() instanceof EReference && ((EReference) input.getFeature()).isContainment();
-
 		}
 	};
 
