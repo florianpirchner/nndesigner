@@ -7,14 +7,6 @@
 <plugin>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated keras -->
-      <package
-            uri="org.eclipse.athene.nn.model.keras"
-            class="org.eclipse.athene.nn.model.keras.KerasPackage"
-            genModel="src/nndesigner/keras.xcore"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated tensorflow -->
       <package
             uri="org.eclipse.athene.nn.model.tensorflow"
@@ -28,6 +20,14 @@
             uri="org.eclipse.athene.nn.model.core"
             class="org.eclipse.athene.nn.model.core.CorePackage"
             genModel="src/nndesigner/core.xcore"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated keras -->
+      <package
+            uri="org.eclipse.athene.nn.model.keras"
+            class="org.eclipse.athene.nn.model.keras.KerasPackage"
+            genModel="src/nndesigner/keras.xcore"/>
    </extension>
 
 </plugin>

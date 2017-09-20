@@ -6,7 +6,7 @@ package org.eclipse.athene.nn.model.keras.provider;
 import java.util.Collection;
 import java.util.List;
 
-import org.eclipse.athene.nn.model.keras.InputNode;
+import org.eclipse.athene.nn.model.keras.SingleInputNode;
 import org.eclipse.athene.nn.model.keras.KerasPackage;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -15,19 +15,19 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.athene.nn.model.keras.InputNode} object.
+ * This is the item provider adapter for a {@link org.eclipse.athene.nn.model.keras.SingleInputNode} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class InputNodeItemProvider extends NodeItemProvider {
+public class SingleInputNodeItemProvider extends NodeItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public InputNodeItemProvider(AdapterFactory adapterFactory) {
+	public SingleInputNodeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -62,7 +62,7 @@ public class InputNodeItemProvider extends NodeItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_InputNode_layer_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_InputNode_layer_feature", "_UI_InputNode_type"),
-				 KerasPackage.Literals.INPUT_NODE__LAYER,
+				 KerasPackage.Literals.SINGLE_INPUT_NODE__LAYER,
 				 true,
 				 false,
 				 true,
@@ -84,7 +84,7 @@ public class InputNodeItemProvider extends NodeItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_InputNode_inputTensor_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_InputNode_inputTensor_feature", "_UI_InputNode_type"),
-				 KerasPackage.Literals.INPUT_NODE__INPUT_TENSOR,
+				 KerasPackage.Literals.SINGLE_INPUT_NODE__INPUT_TENSOR,
 				 true,
 				 false,
 				 true,
@@ -106,7 +106,7 @@ public class InputNodeItemProvider extends NodeItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_InputNode_connectedNode_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_InputNode_connectedNode_feature", "_UI_InputNode_type"),
-				 KerasPackage.Literals.INPUT_NODE__CONNECTED_NODE,
+				 KerasPackage.Literals.SINGLE_INPUT_NODE__CONNECTED_NODE,
 				 true,
 				 false,
 				 true,
@@ -134,7 +134,7 @@ public class InputNodeItemProvider extends NodeItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((InputNode)object).getName();
+		String label = ((SingleInputNode)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_InputNode_type") :
 			getString("_UI_InputNode_type") + " " + label;

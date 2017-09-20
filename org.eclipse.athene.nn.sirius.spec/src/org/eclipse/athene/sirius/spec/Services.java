@@ -3,7 +3,7 @@ package org.eclipse.athene.sirius.spec;
 import java.util.stream.Collectors;
 
 import org.eclipse.athene.nn.model.core.Design;
-import org.eclipse.athene.nn.model.keras.InputNode;
+import org.eclipse.athene.nn.model.keras.SingleInputNode;
 import org.eclipse.athene.nn.model.keras.Layer;
 import org.eclipse.athene.nn.model.keras.Node;
 import org.eclipse.athene.nn.model.keras.OutputNode;
@@ -18,13 +18,13 @@ public class Services {
 		sourceOutputNode.connectToInputLayer(target);
 	}
 
-	public void connectTensorToInput(OutputNode source, InputNode inputNode) {
+	public void connectTensorToInput(OutputNode source, SingleInputNode inputNode) {
 		connectTensorToInput(source, inputNode.getLayer());
 	}
 
 	@SuppressWarnings("restriction")
 	public void unconnectFromTargetInput(Tensor tensor, DEdgeSpec targetInputNodeView) {
-		InputNode targetInputNode = (InputNode) ((DNodeSpec) targetInputNodeView.getTargetNode()).getTarget();
+		SingleInputNode targetInputNode = (SingleInputNode) ((DNodeSpec) targetInputNodeView.getTargetNode()).getTarget();
 		tensor.unconnectFromTargetInput(targetInputNode);
 	}
 

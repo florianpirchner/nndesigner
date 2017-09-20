@@ -1,3 +1,5 @@
+import org.eclipse.athene.nn.model.keras.SingleInputNode
+
 @GenModel(childCreationExtenders="true")
 @GenModel(extensibleProviderFactory="true")
 @GenModel(editDirectory="/org.eclipse.athene.nn.model.edit/src")
@@ -17,7 +19,7 @@ class Model extends org.eclipse.athene.nn.model.core.Model {
 }
 
 class Layer extends org.eclipse.athene.nn.model.tensorflow.Layer {
-	contains InputNode[*] inputNodes opposite layer
+	contains SingleInputNode[*] inputNodes opposite layer
 	contains OutputNode[*] outputNodes opposite layer
 	/**
 	 * Returns the output tensor for the given node index
@@ -29,7 +31,7 @@ class Layer extends org.eclipse.athene.nn.model.tensorflow.Layer {
 	 * Returns the input tensor for the given node index
 	 */
 	op Tensor getInput(int index) {
-		return inputNodes.get(index).inputTensor
+		return inputNodes.get(index).getInputTensor
 	}
 }
 
@@ -40,7 +42,7 @@ abstract class Node {
 	}
 }
 
-class InputNode extends Node {
+class SingleInputNode extends Node {
 	container Layer layer opposite inputNodes
 	refers Tensor inputTensor opposite consumingNodes
 	refers OutputNode connectedNode opposite connectedNode
@@ -48,23 +50,23 @@ class InputNode extends Node {
 	 * Removes the input node and its connected output node from the layer
 	 */
 	op void removeFromLayer() {
-		if (layer === null) {
+		if (getLayer === null) {
 			return
 		}
 		layer = null
 		inputTensor = null
-		connectedNode.removeFromLayer
+		getConnectedNode.removeFromLayer
 		connectedNode = null
 	}
 	op void autoName() {
-		name = "I" + layer.inputNodes.size
+		name = "I" + getLayer.inputNodes.size
 	}
 }
 
 class OutputNode extends Node {
 	container Layer layer opposite outputNodes
 	contains Tensor outputTensor opposite containerNode
-	refers InputNode connectedNode opposite connectedNode set {
+	refers SingleInputNode connectedNode opposite connectedNode set {
 		name = connectedNode.name
 	}
 	op void autoName() {
@@ -93,7 +95,7 @@ class OutputNode extends Node {
 		}
 
 		// create input and output nodes and connect
-		val InputNode targetInputNode = KerasFactory.eINSTANCE.createInputNode()
+		val SingleInputNode targetInputNode = KerasFactory.eINSTANCE.createSingleInputNode()
 		target.inputNodes.add(targetInputNode)
 		targetInputNode.autoName
 
@@ -118,7 +120,7 @@ class Tensor extends org.eclipse.athene.nn.model.core.Tensor {
 	// the node which creates (exports) the tensor
 	refers OutputNode containerNode opposite outputTensor
 	// the nodes which consume the tensor (imports)
-	refers InputNode[*] consumingNodes opposite inputTensor
+	refers SingleInputNode[*] consumingNodes opposite inputTensor
 	/**
 	 * Removes the tensor and its container node from its layer
 	 */
@@ -132,7 +134,7 @@ class Tensor extends org.eclipse.athene.nn.model.core.Tensor {
 	/**
 	 * Removes the tensor and its container node from its layer
 	 */
-	op void unconnectFromTargetInput(InputNode targetInputNode) {
+	op void unconnectFromTargetInput(SingleInputNode targetInputNode) {
 		consumingNodes.remove(targetInputNode);
 
 		// TODO - for now we only delete the tensor and not the whole invalid chain

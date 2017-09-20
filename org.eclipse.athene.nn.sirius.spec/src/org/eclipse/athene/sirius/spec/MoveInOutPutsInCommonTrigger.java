@@ -54,7 +54,7 @@ public class MoveInOutPutsInCommonTrigger implements ModelChangeTrigger {
 				org.eclipse.gmf.runtime.notation.Node gmfConnected = null;
 				if (semanticObject instanceof org.eclipse.athene.nn.model.keras.OutputNode) {
 					org.eclipse.athene.nn.model.keras.OutputNode semanticNode = (org.eclipse.athene.nn.model.keras.OutputNode) semanticObject;
-					org.eclipse.athene.nn.model.keras.InputNode semanticConnected = semanticNode.getConnectedNode();
+					org.eclipse.athene.nn.model.keras.SingleInputNode semanticConnected = semanticNode.getConnectedNode();
 
 					Collection<EObject> diagramConnected = new EObjectQuery(semanticConnected)
 							.getInverseReferences(ViewpointPackage.Literals.DSEMANTIC_DECORATOR__TARGET);
@@ -68,8 +68,8 @@ public class MoveInOutPutsInCommonTrigger implements ModelChangeTrigger {
 							}
 						}
 					}
-				} else if (semanticObject instanceof org.eclipse.athene.nn.model.keras.InputNode) {
-					org.eclipse.athene.nn.model.keras.InputNode semanticNode = (org.eclipse.athene.nn.model.keras.InputNode) semanticObject;
+				} else if (semanticObject instanceof org.eclipse.athene.nn.model.keras.SingleInputNode) {
+					org.eclipse.athene.nn.model.keras.SingleInputNode semanticNode = (org.eclipse.athene.nn.model.keras.SingleInputNode) semanticObject;
 					org.eclipse.athene.nn.model.keras.OutputNode semanticConnected = semanticNode.getConnectedNode();
 
 					Collection<EObject> diagramConnected = new EObjectQuery(semanticConnected)
