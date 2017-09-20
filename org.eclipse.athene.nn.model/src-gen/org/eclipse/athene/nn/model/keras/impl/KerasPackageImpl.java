@@ -377,6 +377,15 @@ public class KerasPackageImpl extends EPackageImpl implements KerasPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getInputNode__AutoName() {
+		return inputNodeEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getOutputNode() {
 		return outputNodeEClass;
 	}
@@ -413,7 +422,7 @@ public class KerasPackageImpl extends EPackageImpl implements KerasPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getOutputNode__RemoveFromLayer() {
+	public EOperation getOutputNode__AutoName() {
 		return outputNodeEClass.getEOperations().get(0);
 	}
 
@@ -422,8 +431,17 @@ public class KerasPackageImpl extends EPackageImpl implements KerasPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getOutputNode__ConnectToInputLayer__Layer() {
+	public EOperation getOutputNode__RemoveFromLayer() {
 		return outputNodeEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getOutputNode__ConnectToInputLayer__Layer() {
+		return outputNodeEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -467,8 +485,17 @@ public class KerasPackageImpl extends EPackageImpl implements KerasPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getTensor__UnconnectFromTargetInput__InputNode() {
+	public EOperation getTensor__AutoName() {
 		return tensorEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getTensor__UnconnectFromTargetInput__InputNode() {
+		return tensorEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -825,11 +852,13 @@ public class KerasPackageImpl extends EPackageImpl implements KerasPackage {
 		createEReference(inputNodeEClass, INPUT_NODE__INPUT_TENSOR);
 		createEReference(inputNodeEClass, INPUT_NODE__CONNECTED_NODE);
 		createEOperation(inputNodeEClass, INPUT_NODE___REMOVE_FROM_LAYER);
+		createEOperation(inputNodeEClass, INPUT_NODE___AUTO_NAME);
 
 		outputNodeEClass = createEClass(OUTPUT_NODE);
 		createEReference(outputNodeEClass, OUTPUT_NODE__LAYER);
 		createEReference(outputNodeEClass, OUTPUT_NODE__OUTPUT_TENSOR);
 		createEReference(outputNodeEClass, OUTPUT_NODE__CONNECTED_NODE);
+		createEOperation(outputNodeEClass, OUTPUT_NODE___AUTO_NAME);
 		createEOperation(outputNodeEClass, OUTPUT_NODE___REMOVE_FROM_LAYER);
 		createEOperation(outputNodeEClass, OUTPUT_NODE___CONNECT_TO_INPUT_LAYER__LAYER);
 
@@ -837,6 +866,7 @@ public class KerasPackageImpl extends EPackageImpl implements KerasPackage {
 		createEReference(tensorEClass, TENSOR__CONTAINER_NODE);
 		createEReference(tensorEClass, TENSOR__CONSUMING_NODES);
 		createEOperation(tensorEClass, TENSOR___REMOVE_FROM_LAYER);
+		createEOperation(tensorEClass, TENSOR___AUTO_NAME);
 		createEOperation(tensorEClass, TENSOR___UNCONNECT_FROM_TARGET_INPUT__INPUTNODE);
 
 		backendEClass = createEClass(BACKEND);
@@ -960,10 +990,14 @@ public class KerasPackageImpl extends EPackageImpl implements KerasPackage {
 
 		initEOperation(getInputNode__RemoveFromLayer(), null, "removeFromLayer", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
+		initEOperation(getInputNode__AutoName(), null, "autoName", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
 		initEClass(outputNodeEClass, OutputNode.class, "OutputNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getOutputNode_Layer(), this.getLayer(), this.getLayer_OutputNodes(), "layer", null, 0, 1, OutputNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOutputNode_OutputTensor(), this.getTensor(), this.getTensor_ContainerNode(), "outputTensor", null, 0, 1, OutputNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOutputNode_ConnectedNode(), this.getInputNode(), this.getInputNode_ConnectedNode(), "connectedNode", null, 0, 1, OutputNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getOutputNode__AutoName(), null, "autoName", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getOutputNode__RemoveFromLayer(), null, "removeFromLayer", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
@@ -975,6 +1009,8 @@ public class KerasPackageImpl extends EPackageImpl implements KerasPackage {
 		initEReference(getTensor_ConsumingNodes(), this.getInputNode(), this.getInputNode_InputTensor(), "consumingNodes", null, 0, -1, Tensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getTensor__RemoveFromLayer(), null, "removeFromLayer", 0, 1, !IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getTensor__AutoName(), null, "autoName", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getTensor__UnconnectFromTargetInput__InputNode(), null, "unconnectFromTargetInput", 0, 1, !IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getInputNode(), "targetInputNode", 0, 1, !IS_UNIQUE, IS_ORDERED);

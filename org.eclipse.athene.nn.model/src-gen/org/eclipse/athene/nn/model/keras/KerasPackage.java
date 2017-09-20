@@ -328,13 +328,22 @@ public interface KerasPackage extends EPackage {
 	int INPUT_NODE___REMOVE_FROM_LAYER = NODE_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Auto Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_NODE___AUTO_NAME = NODE_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Input Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_NODE_OPERATION_COUNT = NODE_OPERATION_COUNT + 1;
+	int INPUT_NODE_OPERATION_COUNT = NODE_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.athene.nn.model.keras.impl.OutputNodeImpl <em>Output Node</em>}' class.
@@ -401,13 +410,22 @@ public interface KerasPackage extends EPackage {
 	int OUTPUT_NODE_FEATURE_COUNT = NODE_FEATURE_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Auto Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_NODE___AUTO_NAME = NODE_OPERATION_COUNT + 0;
+
+	/**
 	 * The operation id for the '<em>Remove From Layer</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OUTPUT_NODE___REMOVE_FROM_LAYER = NODE_OPERATION_COUNT + 0;
+	int OUTPUT_NODE___REMOVE_FROM_LAYER = NODE_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Connect To Input Layer</em>' operation.
@@ -416,7 +434,7 @@ public interface KerasPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OUTPUT_NODE___CONNECT_TO_INPUT_LAYER__LAYER = NODE_OPERATION_COUNT + 1;
+	int OUTPUT_NODE___CONNECT_TO_INPUT_LAYER__LAYER = NODE_OPERATION_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Output Node</em>' class.
@@ -425,7 +443,7 @@ public interface KerasPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OUTPUT_NODE_OPERATION_COUNT = NODE_OPERATION_COUNT + 2;
+	int OUTPUT_NODE_OPERATION_COUNT = NODE_OPERATION_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.athene.nn.model.keras.impl.TensorImpl <em>Tensor</em>}' class.
@@ -436,6 +454,15 @@ public interface KerasPackage extends EPackage {
 	 * @generated
 	 */
 	int TENSOR = 5;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TENSOR__NAME = CorePackage.TENSOR__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Container Node</b></em>' container reference.
@@ -474,13 +501,22 @@ public interface KerasPackage extends EPackage {
 	int TENSOR___REMOVE_FROM_LAYER = CorePackage.TENSOR_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Auto Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TENSOR___AUTO_NAME = CorePackage.TENSOR_OPERATION_COUNT + 1;
+
+	/**
 	 * The operation id for the '<em>Unconnect From Target Input</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TENSOR___UNCONNECT_FROM_TARGET_INPUT__INPUTNODE = CorePackage.TENSOR_OPERATION_COUNT + 1;
+	int TENSOR___UNCONNECT_FROM_TARGET_INPUT__INPUTNODE = CorePackage.TENSOR_OPERATION_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Tensor</em>' class.
@@ -489,7 +525,7 @@ public interface KerasPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TENSOR_OPERATION_COUNT = CorePackage.TENSOR_OPERATION_COUNT + 2;
+	int TENSOR_OPERATION_COUNT = CorePackage.TENSOR_OPERATION_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.athene.nn.model.keras.impl.BackendImpl <em>Backend</em>}' class.
@@ -1654,6 +1690,16 @@ public interface KerasPackage extends EPackage {
 	EOperation getInputNode__RemoveFromLayer();
 
 	/**
+	 * Returns the meta object for the '{@link org.eclipse.athene.nn.model.keras.InputNode#autoName() <em>Auto Name</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Auto Name</em>' operation.
+	 * @see org.eclipse.athene.nn.model.keras.InputNode#autoName()
+	 * @generated
+	 */
+	EOperation getInputNode__AutoName();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.athene.nn.model.keras.OutputNode <em>Output Node</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1695,6 +1741,16 @@ public interface KerasPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getOutputNode_ConnectedNode();
+
+	/**
+	 * Returns the meta object for the '{@link org.eclipse.athene.nn.model.keras.OutputNode#autoName() <em>Auto Name</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Auto Name</em>' operation.
+	 * @see org.eclipse.athene.nn.model.keras.OutputNode#autoName()
+	 * @generated
+	 */
+	EOperation getOutputNode__AutoName();
 
 	/**
 	 * Returns the meta object for the '{@link org.eclipse.athene.nn.model.keras.OutputNode#removeFromLayer() <em>Remove From Layer</em>}' operation.
@@ -1757,6 +1813,16 @@ public interface KerasPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getTensor__RemoveFromLayer();
+
+	/**
+	 * Returns the meta object for the '{@link org.eclipse.athene.nn.model.keras.Tensor#autoName() <em>Auto Name</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Auto Name</em>' operation.
+	 * @see org.eclipse.athene.nn.model.keras.Tensor#autoName()
+	 * @generated
+	 */
+	EOperation getTensor__AutoName();
 
 	/**
 	 * Returns the meta object for the '{@link org.eclipse.athene.nn.model.keras.Tensor#unconnectFromTargetInput(org.eclipse.athene.nn.model.keras.InputNode) <em>Unconnect From Target Input</em>}' operation.
@@ -2300,6 +2366,14 @@ public interface KerasPackage extends EPackage {
 		EOperation INPUT_NODE___REMOVE_FROM_LAYER = eINSTANCE.getInputNode__RemoveFromLayer();
 
 		/**
+		 * The meta object literal for the '<em><b>Auto Name</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation INPUT_NODE___AUTO_NAME = eINSTANCE.getInputNode__AutoName();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.athene.nn.model.keras.impl.OutputNodeImpl <em>Output Node</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2332,6 +2406,14 @@ public interface KerasPackage extends EPackage {
 		 * @generated
 		 */
 		EReference OUTPUT_NODE__CONNECTED_NODE = eINSTANCE.getOutputNode_ConnectedNode();
+
+		/**
+		 * The meta object literal for the '<em><b>Auto Name</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation OUTPUT_NODE___AUTO_NAME = eINSTANCE.getOutputNode__AutoName();
 
 		/**
 		 * The meta object literal for the '<em><b>Remove From Layer</b></em>' operation.
@@ -2382,6 +2464,14 @@ public interface KerasPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation TENSOR___REMOVE_FROM_LAYER = eINSTANCE.getTensor__RemoveFromLayer();
+
+		/**
+		 * The meta object literal for the '<em><b>Auto Name</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TENSOR___AUTO_NAME = eINSTANCE.getTensor__AutoName();
 
 		/**
 		 * The meta object literal for the '<em><b>Unconnect From Target Input</b></em>' operation.

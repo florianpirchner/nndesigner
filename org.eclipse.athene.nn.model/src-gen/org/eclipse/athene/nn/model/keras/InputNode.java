@@ -118,4 +118,12 @@ public interface InputNode extends Node {
 	 */
 	void removeFromLayer();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='int _size = this.getLayer().getInputNodes().size();\n&lt;%java.lang.String%&gt; _plus = (\"I\" + &lt;%java.lang.Integer%&gt;.valueOf(_size));\nthis.setName(_plus);'"
+	 * @generated
+	 */
+	void autoName();
+
 } // InputNode

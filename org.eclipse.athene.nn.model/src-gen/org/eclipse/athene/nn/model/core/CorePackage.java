@@ -143,13 +143,22 @@ public interface CorePackage extends EPackage {
 	int TENSOR = 2;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TENSOR__NAME = 0;
+
+	/**
 	 * The number of structural features of the '<em>Tensor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TENSOR_FEATURE_COUNT = 0;
+	int TENSOR_FEATURE_COUNT = 1;
 
 	/**
 	 * The number of operations of the '<em>Tensor</em>' class.
@@ -741,6 +750,17 @@ public interface CorePackage extends EPackage {
 	EClass getTensor();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.athene.nn.model.core.Tensor#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.eclipse.athene.nn.model.core.Tensor#getName()
+	 * @see #getTensor()
+	 * @generated
+	 */
+	EAttribute getTensor_Name();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.athene.nn.model.core.Layer <em>Layer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1003,6 +1023,14 @@ public interface CorePackage extends EPackage {
 		 * @generated
 		 */
 		EClass TENSOR = eINSTANCE.getTensor();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TENSOR__NAME = eINSTANCE.getTensor_Name();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.athene.nn.model.core.impl.LayerImpl <em>Layer</em>}' class.

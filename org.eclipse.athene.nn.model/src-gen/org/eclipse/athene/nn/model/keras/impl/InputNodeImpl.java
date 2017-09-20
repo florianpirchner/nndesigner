@@ -271,6 +271,17 @@ public class InputNodeImpl extends NodeImpl implements InputNode {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void autoName() {
+		int _size = this.getLayer().getInputNodes().size();
+		String _plus = ("I" + Integer.valueOf(_size));
+		this.setName(_plus);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -429,6 +440,9 @@ public class InputNodeImpl extends NodeImpl implements InputNode {
 		switch (operationID) {
 			case KerasPackage.INPUT_NODE___REMOVE_FROM_LAYER:
 				removeFromLayer();
+				return null;
+			case KerasPackage.INPUT_NODE___AUTO_NAME:
+				autoName();
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

@@ -271,6 +271,15 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getTensor_Name() {
+		return (EAttribute)tensorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getLayer() {
 		return layerEClass;
 	}
@@ -472,6 +481,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		createEAttribute(elementEClass, ELEMENT__NAME);
 
 		tensorEClass = createEClass(TENSOR);
+		createEAttribute(tensorEClass, TENSOR__NAME);
 
 		layerEClass = createEClass(LAYER);
 
@@ -559,6 +569,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		initEAttribute(getElement_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tensorEClass, Tensor.class, "Tensor", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTensor_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Tensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(layerEClass, Layer.class, "Layer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

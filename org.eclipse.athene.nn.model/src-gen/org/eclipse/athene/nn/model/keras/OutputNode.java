@@ -109,6 +109,14 @@ public interface OutputNode extends Node {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='int _size = this.getLayer().getOutputNodes().size();\n&lt;%java.lang.String%&gt; _plus = (\"O\" + &lt;%java.lang.Integer%&gt;.valueOf(_size));\nthis.setName(_plus);'"
+	 * @generated
+	 */
+	void autoName();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * *
 	 * Removes the input node and its connected input node from the layer
@@ -122,7 +130,7 @@ public interface OutputNode extends Node {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model targetUnique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='&lt;%org.eclipse.athene.nn.model.keras.Tensor%&gt; tensor = null;\n&lt;%org.eclipse.athene.nn.model.keras.Tensor%&gt; _outputTensor = this.getOutputTensor();\nboolean _tripleNotEquals = (_outputTensor != null);\nif (_tripleNotEquals)\n{\n\ttensor = this.getOutputTensor();\n}\nelse\n{\n\ttensor = &lt;%org.eclipse.athene.nn.model.keras.KerasFactory%&gt;.eINSTANCE.createTensor();\n\tthis.setOutputTensor(tensor);\n}\nfinal &lt;%org.eclipse.athene.nn.model.keras.InputNode%&gt; targetInputNode = &lt;%org.eclipse.athene.nn.model.keras.KerasFactory%&gt;.eINSTANCE.createInputNode();\ntarget.getInputNodes().add(targetInputNode);\nfinal &lt;%org.eclipse.athene.nn.model.keras.OutputNode%&gt; targetOutputNode = &lt;%org.eclipse.athene.nn.model.keras.KerasFactory%&gt;.eINSTANCE.createOutputNode();\ntarget.getOutputNodes().add(targetOutputNode);\ntargetOutputNode.setConnectedNode(targetInputNode);\ntargetInputNode.setInputTensor(tensor);'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='&lt;%org.eclipse.athene.nn.model.keras.Tensor%&gt; tensor = null;\n&lt;%org.eclipse.athene.nn.model.keras.Tensor%&gt; _outputTensor = this.getOutputTensor();\nboolean _tripleNotEquals = (_outputTensor != null);\nif (_tripleNotEquals)\n{\n\ttensor = this.getOutputTensor();\n}\nelse\n{\n\ttensor = &lt;%org.eclipse.athene.nn.model.keras.KerasFactory%&gt;.eINSTANCE.createTensor();\n\tthis.setOutputTensor(tensor);\n}\nfinal &lt;%org.eclipse.athene.nn.model.keras.InputNode%&gt; targetInputNode = &lt;%org.eclipse.athene.nn.model.keras.KerasFactory%&gt;.eINSTANCE.createInputNode();\ntarget.getInputNodes().add(targetInputNode);\ntargetInputNode.autoName();\nfinal &lt;%org.eclipse.athene.nn.model.keras.OutputNode%&gt; targetOutputNode = &lt;%org.eclipse.athene.nn.model.keras.KerasFactory%&gt;.eINSTANCE.createOutputNode();\ntarget.getOutputNodes().add(targetOutputNode);\ntargetOutputNode.autoName();\ntargetOutputNode.setConnectedNode(targetInputNode);\ntargetInputNode.setInputTensor(tensor);\n&lt;%java.lang.String%&gt; _name = tensor.getName();\nboolean _tripleEquals = (_name == null);\nif (_tripleEquals)\n{\n\ttensor.autoName();\n}'"
 	 * @generated
 	 */
 	void connectToInputLayer(Layer target);

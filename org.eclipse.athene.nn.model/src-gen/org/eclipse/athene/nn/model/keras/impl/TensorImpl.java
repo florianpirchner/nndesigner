@@ -148,6 +148,20 @@ public class TensorImpl extends org.eclipse.athene.nn.model.core.impl.TensorImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void autoName() {
+		String _name = this.getContainerNode().getLayer().getName();
+		String _plus = ("T_" + _name);
+		String _plus_1 = (_plus + "_");
+		String _name_1 = this.getContainerNode().getName();
+		String _plus_2 = (_plus_1 + _name_1);
+		this.setName(_plus_2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void unconnectFromTargetInput(final InputNode targetInputNode) {
 		this.getConsumingNodes().remove(targetInputNode);
 		boolean _isEmpty = this.getConsumingNodes().isEmpty();
@@ -286,6 +300,9 @@ public class TensorImpl extends org.eclipse.athene.nn.model.core.impl.TensorImpl
 		switch (operationID) {
 			case KerasPackage.TENSOR___REMOVE_FROM_LAYER:
 				removeFromLayer();
+				return null;
+			case KerasPackage.TENSOR___AUTO_NAME:
+				autoName();
 				return null;
 			case KerasPackage.TENSOR___UNCONNECT_FROM_TARGET_INPUT__INPUTNODE:
 				unconnectFromTargetInput((InputNode)arguments.get(0));

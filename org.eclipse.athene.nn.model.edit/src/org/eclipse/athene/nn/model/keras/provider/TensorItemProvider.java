@@ -6,6 +6,7 @@ package org.eclipse.athene.nn.model.keras.provider;
 import java.util.Collection;
 import java.util.List;
 import org.eclipse.athene.nn.model.keras.KerasPackage;
+import org.eclipse.athene.nn.model.keras.Tensor;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
@@ -108,7 +109,10 @@ public class TensorItemProvider extends org.eclipse.athene.nn.model.core.provide
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Tensor_type");
+		String label = ((Tensor)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Tensor_type") :
+			getString("_UI_Tensor_type") + " " + label;
 	}
 	
 

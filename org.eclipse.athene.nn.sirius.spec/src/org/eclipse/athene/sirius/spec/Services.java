@@ -9,10 +9,6 @@ import org.eclipse.athene.nn.model.keras.Node;
 import org.eclipse.athene.nn.model.keras.OutputNode;
 import org.eclipse.athene.nn.model.keras.Tensor;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.sirius.diagram.DDiagram;
-import org.eclipse.sirius.diagram.DNode;
-import org.eclipse.sirius.diagram.DNodeContainer;
-import org.eclipse.sirius.diagram.EdgeTarget;
 import org.eclipse.sirius.diagram.business.internal.metamodel.spec.DEdgeSpec;
 import org.eclipse.sirius.diagram.business.internal.metamodel.spec.DNodeSpec;
 
@@ -36,16 +32,20 @@ public class Services {
 		node.removeFromLayer();
 	}
 
-	public void finishNewLayer(Layer layer) {
-		
+	public void finishElement(Layer layer) {
 		Design d = (Design) layer.eContainer();
 		int count = d.getElements().stream().filter(e -> e.eClass() == layer.eClass()).collect(Collectors.toList())
 				.size();
-		layer.setName(layer.getClass().getSimpleName() + "-" + (count + 1));
+		layer.setName(layer.getClass().getSimpleName().replace("Impl", "") + "-" + (count));
+		
+		// for default nodes, do auto name
+		for(OutputNode o : layer.getOutputNodes()) {
+			o.autoName();
+		}
 	}
-	
+
 	public void style(EObject eobjct) {
 		System.out.println("");
 	}
-	
+
 }

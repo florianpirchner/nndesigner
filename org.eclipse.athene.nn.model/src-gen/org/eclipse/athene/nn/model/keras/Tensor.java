@@ -83,6 +83,14 @@ public interface Tensor extends org.eclipse.athene.nn.model.core.Tensor {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='&lt;%java.lang.String%&gt; _name = this.getContainerNode().getLayer().getName();\n&lt;%java.lang.String%&gt; _plus = (\"T_\" + _name);\n&lt;%java.lang.String%&gt; _plus_1 = (_plus + \"_\");\n&lt;%java.lang.String%&gt; _name_1 = this.getContainerNode().getName();\n&lt;%java.lang.String%&gt; _plus_2 = (_plus_1 + _name_1);\nthis.setName(_plus_2);'"
+	 * @generated
+	 */
+	void autoName();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * *
 	 * Removes the tensor and its container node from its layer

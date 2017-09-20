@@ -238,6 +238,17 @@ public class OutputNodeImpl extends NodeImpl implements OutputNode {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void autoName() {
+		int _size = this.getLayer().getOutputNodes().size();
+		String _plus = ("O" + Integer.valueOf(_size));
+		this.setName(_plus);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void removeFromLayer() {
 		Layer _layer = this.getLayer();
 		boolean _tripleEquals = (_layer == null);
@@ -268,10 +279,17 @@ public class OutputNodeImpl extends NodeImpl implements OutputNode {
 		}
 		final InputNode targetInputNode = KerasFactory.eINSTANCE.createInputNode();
 		target.getInputNodes().add(targetInputNode);
+		targetInputNode.autoName();
 		final OutputNode targetOutputNode = KerasFactory.eINSTANCE.createOutputNode();
 		target.getOutputNodes().add(targetOutputNode);
+		targetOutputNode.autoName();
 		targetOutputNode.setConnectedNode(targetInputNode);
 		targetInputNode.setInputTensor(tensor);
+		String _name = tensor.getName();
+		boolean _tripleEquals = (_name == null);
+		if (_tripleEquals) {
+			tensor.autoName();
+		}
 	}
 
 	/**
@@ -434,6 +452,9 @@ public class OutputNodeImpl extends NodeImpl implements OutputNode {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
+			case KerasPackage.OUTPUT_NODE___AUTO_NAME:
+				autoName();
+				return null;
 			case KerasPackage.OUTPUT_NODE___REMOVE_FROM_LAYER:
 				removeFromLayer();
 				return null;

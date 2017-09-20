@@ -48,13 +48,16 @@ class InputNode extends Node {
 	 * Removes the input node and its connected output node from the layer
 	 */
 	op void removeFromLayer() {
-		if(layer === null) {
+		if (layer === null) {
 			return
 		}
 		layer = null
 		inputTensor = null
 		connectedNode.removeFromLayer
 		connectedNode = null
+	}
+	op void autoName() {
+		name = "I" + layer.inputNodes.size
 	}
 }
 
@@ -64,12 +67,14 @@ class OutputNode extends Node {
 	refers InputNode connectedNode opposite connectedNode set {
 		name = connectedNode.name
 	}
-
+	op void autoName() {
+		name = "O" + layer.outputNodes.size
+	}
 	/**
 	 * Removes the input node and its connected input node from the layer
 	 */
 	op void removeFromLayer() {
-		if(layer === null) {
+		if (layer === null) {
 			return
 		}
 		layer = null
@@ -90,14 +95,22 @@ class OutputNode extends Node {
 		// create input and output nodes and connect
 		val InputNode targetInputNode = KerasFactory.eINSTANCE.createInputNode()
 		target.inputNodes.add(targetInputNode)
+		targetInputNode.autoName
 
 		val OutputNode targetOutputNode = KerasFactory.eINSTANCE.createOutputNode()
 		target.outputNodes.add(targetOutputNode)
+		targetOutputNode.autoName
 
 		targetOutputNode.connectedNode = targetInputNode
 
 		// apply the tensor to target input node
 		targetInputNode.inputTensor = tensor
+		
+		// name the tensor
+		if(tensor.name === null) {
+			tensor.autoName
+		}
+		
 	}
 }
 
@@ -112,6 +125,9 @@ class Tensor extends org.eclipse.athene.nn.model.core.Tensor {
 	op void removeFromLayer() {
 		containerNode.layer = null
 		consumingNodes.clear
+	}
+	op void autoName() {
+		name = "T_" + containerNode.layer.name + "_" + containerNode.name
 	}
 	/**
 	 * Removes the tensor and its container node from its layer
@@ -135,7 +151,6 @@ class Backend {
 }
 
 class Input extends Layer {
-	
 }
 
 class Dense extends Layer {
