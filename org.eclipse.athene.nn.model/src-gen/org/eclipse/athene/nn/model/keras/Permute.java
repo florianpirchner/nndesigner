@@ -28,7 +28,7 @@ import org.eclipse.athene.nn.model.core.Shape;
  * @model
  * @generated
  */
-public interface Permute extends Layer {
+public interface Permute extends Layer, SingleInputNodeProvider {
 	/**
 	 * Returns the value of the '<em><b>Dims</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

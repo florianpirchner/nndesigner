@@ -277,14 +277,14 @@ public class OutputNodeImpl extends NodeImpl implements OutputNode {
 			tensor = KerasFactory.eINSTANCE.createTensor();
 			this.setOutputTensor(tensor);
 		}
-		final InputNode targetInputNode = KerasFactory.eINSTANCE.createInputNode();
+		final InputNode targetInputNode = target.createInputNode();
 		target.getInputNodes().add(targetInputNode);
 		targetInputNode.autoName();
-		final OutputNode targetOutputNode = KerasFactory.eINSTANCE.createOutputNode();
+		final OutputNode targetOutputNode = target.creatOutputNode();
 		target.getOutputNodes().add(targetOutputNode);
 		targetOutputNode.autoName();
 		targetOutputNode.setConnectedNode(targetInputNode);
-		targetInputNode.setInputTensor(tensor);
+		targetInputNode.connectInputTensor(tensor);
 		String _name = tensor.getName();
 		boolean _tripleEquals = (_name == null);
 		if (_tripleEquals) {
@@ -438,6 +438,7 @@ public class OutputNodeImpl extends NodeImpl implements OutputNode {
 		if (baseClass == Node.class) {
 			switch (baseOperationID) {
 				case KerasPackage.NODE___REMOVE_FROM_LAYER: return KerasPackage.OUTPUT_NODE___REMOVE_FROM_LAYER;
+				case KerasPackage.NODE___AUTO_NAME: return KerasPackage.OUTPUT_NODE___AUTO_NAME;
 				default: return super.eDerivedOperationID(baseOperationID, baseClass);
 			}
 		}

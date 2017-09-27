@@ -138,7 +138,12 @@ public class LayerItemProvider extends org.eclipse.athene.nn.model.tensorflow.pr
 		newChildDescriptors.add
 			(createChildParameter
 				(KerasPackage.Literals.LAYER__INPUT_NODES,
-				 KerasFactory.eINSTANCE.createInputNode()));
+				 KerasFactory.eINSTANCE.createSingleInputNode()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(KerasPackage.Literals.LAYER__INPUT_NODES,
+				 KerasFactory.eINSTANCE.createMultiInputNode()));
 
 		newChildDescriptors.add
 			(createChildParameter

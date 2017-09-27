@@ -10,7 +10,6 @@ import org.eclipse.athene.nn.model.keras.InputNode;
 import org.eclipse.athene.nn.model.keras.KerasPackage;
 import org.eclipse.athene.nn.model.keras.Layer;
 import org.eclipse.athene.nn.model.keras.OutputNode;
-import org.eclipse.athene.nn.model.keras.Tensor;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -105,8 +104,8 @@ public class LayerImpl extends org.eclipse.athene.nn.model.tensorflow.impl.Layer
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Tensor getOutput(final int index) {
-		return this.getOutputNodes().get(index).getOutputTensor();
+	public InputNode createInputNode() {
+		throw new UnsupportedOperationException("Override in subclass");
 	}
 
 	/**
@@ -114,8 +113,8 @@ public class LayerImpl extends org.eclipse.athene.nn.model.tensorflow.impl.Layer
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Tensor getInput(final int index) {
-		return this.getInputNodes().get(index).getInputTensor();
+	public OutputNode creatOutputNode() {
+		throw new UnsupportedOperationException("Override in subclass");
 	}
 
 	/**
@@ -230,10 +229,10 @@ public class LayerImpl extends org.eclipse.athene.nn.model.tensorflow.impl.Layer
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case KerasPackage.LAYER___GET_OUTPUT__INT:
-				return getOutput((Integer)arguments.get(0));
-			case KerasPackage.LAYER___GET_INPUT__INT:
-				return getInput((Integer)arguments.get(0));
+			case KerasPackage.LAYER___CREATE_INPUT_NODE:
+				return createInputNode();
+			case KerasPackage.LAYER___CREAT_OUTPUT_NODE:
+				return creatOutputNode();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

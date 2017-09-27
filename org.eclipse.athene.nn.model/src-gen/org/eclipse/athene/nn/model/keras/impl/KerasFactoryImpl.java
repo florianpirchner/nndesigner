@@ -58,7 +58,8 @@ public class KerasFactoryImpl extends EFactoryImpl implements KerasFactory {
 		switch (eClass.getClassifierID()) {
 			case KerasPackage.MODEL: return createModel();
 			case KerasPackage.LAYER: return createLayer();
-			case KerasPackage.INPUT_NODE: return createInputNode();
+			case KerasPackage.SINGLE_INPUT_NODE: return createSingleInputNode();
+			case KerasPackage.MULTI_INPUT_NODE: return createMultiInputNode();
 			case KerasPackage.OUTPUT_NODE: return createOutputNode();
 			case KerasPackage.TENSOR: return createTensor();
 			case KerasPackage.BACKEND: return createBackend();
@@ -101,9 +102,19 @@ public class KerasFactoryImpl extends EFactoryImpl implements KerasFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public InputNode createInputNode() {
-		InputNodeImpl inputNode = new InputNodeImpl();
-		return inputNode;
+	public SingleInputNode createSingleInputNode() {
+		SingleInputNodeImpl singleInputNode = new SingleInputNodeImpl();
+		return singleInputNode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MultiInputNode createMultiInputNode() {
+		MultiInputNodeImpl multiInputNode = new MultiInputNodeImpl();
+		return multiInputNode;
 	}
 
 	/**

@@ -21,9 +21,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -127,7 +126,7 @@ public class TensorImpl extends org.eclipse.athene.nn.model.core.impl.TensorImpl
 	 */
 	public EList<InputNode> getConsumingNodes() {
 		if (consumingNodes == null) {
-			consumingNodes = new EObjectWithInverseResolvingEList<InputNode>(InputNode.class, this, KerasPackage.TENSOR__CONSUMING_NODES, KerasPackage.INPUT_NODE__INPUT_TENSOR);
+			consumingNodes = new EObjectResolvingEList<InputNode>(InputNode.class, this, KerasPackage.TENSOR__CONSUMING_NODES);
 		}
 		return consumingNodes;
 	}
@@ -164,6 +163,7 @@ public class TensorImpl extends org.eclipse.athene.nn.model.core.impl.TensorImpl
 	 */
 	public void unconnectFromTargetInput(final InputNode targetInputNode) {
 		this.getConsumingNodes().remove(targetInputNode);
+		targetInputNode.deconnectInputTensor(this);
 		boolean _isEmpty = this.getConsumingNodes().isEmpty();
 		if (_isEmpty) {
 			this.removeFromLayer();
@@ -175,7 +175,6 @@ public class TensorImpl extends org.eclipse.athene.nn.model.core.impl.TensorImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -183,8 +182,6 @@ public class TensorImpl extends org.eclipse.athene.nn.model.core.impl.TensorImpl
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetContainerNode((OutputNode)otherEnd, msgs);
-			case KerasPackage.TENSOR__CONSUMING_NODES:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getConsumingNodes()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -199,8 +196,6 @@ public class TensorImpl extends org.eclipse.athene.nn.model.core.impl.TensorImpl
 		switch (featureID) {
 			case KerasPackage.TENSOR__CONTAINER_NODE:
 				return basicSetContainerNode(null, msgs);
-			case KerasPackage.TENSOR__CONSUMING_NODES:
-				return ((InternalEList<?>)getConsumingNodes()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}

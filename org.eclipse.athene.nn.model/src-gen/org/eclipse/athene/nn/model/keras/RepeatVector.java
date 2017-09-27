@@ -27,7 +27,7 @@ import org.eclipse.athene.nn.model.core.Shape3D;
  * @model
  * @generated
  */
-public interface RepeatVector extends Layer {
+public interface RepeatVector extends Layer, SingleInputNodeProvider {
 	/**
 	 * Returns the value of the '<em><b>Number Of Repeats</b></em>' attribute.
 	 * <!-- begin-user-doc -->

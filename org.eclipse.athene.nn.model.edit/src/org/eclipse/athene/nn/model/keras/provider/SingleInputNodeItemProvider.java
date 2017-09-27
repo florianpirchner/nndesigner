@@ -20,7 +20,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SingleInputNodeItemProvider extends NodeItemProvider {
+public class SingleInputNodeItemProvider extends InputNodeItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -42,33 +42,9 @@ public class SingleInputNodeItemProvider extends NodeItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addLayerPropertyDescriptor(object);
 			addInputTensorPropertyDescriptor(object);
-			addConnectedNodePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Layer feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addLayerPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_InputNode_layer_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_InputNode_layer_feature", "_UI_InputNode_type"),
-				 KerasPackage.Literals.SINGLE_INPUT_NODE__LAYER,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -82,8 +58,8 @@ public class SingleInputNodeItemProvider extends NodeItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_InputNode_inputTensor_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_InputNode_inputTensor_feature", "_UI_InputNode_type"),
+				 getString("_UI_SingleInputNode_inputTensor_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SingleInputNode_inputTensor_feature", "_UI_SingleInputNode_type"),
 				 KerasPackage.Literals.SINGLE_INPUT_NODE__INPUT_TENSOR,
 				 true,
 				 false,
@@ -94,36 +70,14 @@ public class SingleInputNodeItemProvider extends NodeItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Connected Node feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addConnectedNodePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_InputNode_connectedNode_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_InputNode_connectedNode_feature", "_UI_InputNode_type"),
-				 KerasPackage.Literals.SINGLE_INPUT_NODE__CONNECTED_NODE,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This returns InputNode.gif.
+	 * This returns SingleInputNode.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/InputNode"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SingleInputNode"));
 	}
 
 	/**
@@ -136,8 +90,8 @@ public class SingleInputNodeItemProvider extends NodeItemProvider {
 	public String getText(Object object) {
 		String label = ((SingleInputNode)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_InputNode_type") :
-			getString("_UI_InputNode_type") + " " + label;
+			getString("_UI_SingleInputNode_type") :
+			getString("_UI_SingleInputNode_type") + " " + label;
 	}
 	
 

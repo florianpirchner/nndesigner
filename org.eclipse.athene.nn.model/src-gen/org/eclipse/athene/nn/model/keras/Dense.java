@@ -27,7 +27,7 @@ import org.eclipse.athene.nn.model.core.Shape;
  * @model
  * @generated
  */
-public interface Dense extends Layer {
+public interface Dense extends Layer, SingleInputNodeProvider {
 	/**
 	 * Returns the value of the '<em><b>Units</b></em>' attribute.
 	 * <!-- begin-user-doc -->

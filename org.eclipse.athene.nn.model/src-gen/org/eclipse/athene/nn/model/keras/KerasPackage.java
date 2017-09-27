@@ -173,22 +173,22 @@ public interface KerasPackage extends EPackage {
 	int LAYER_FEATURE_COUNT = TensorflowPackage.LAYER_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Get Output</em>' operation.
+	 * The operation id for the '<em>Create Input Node</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LAYER___GET_OUTPUT__INT = TensorflowPackage.LAYER_OPERATION_COUNT + 0;
+	int LAYER___CREATE_INPUT_NODE = TensorflowPackage.LAYER_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Get Input</em>' operation.
+	 * The operation id for the '<em>Creat Output Node</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LAYER___GET_INPUT__INT = TensorflowPackage.LAYER_OPERATION_COUNT + 1;
+	int LAYER___CREAT_OUTPUT_NODE = TensorflowPackage.LAYER_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Layer</em>' class.
@@ -200,6 +200,98 @@ public interface KerasPackage extends EPackage {
 	int LAYER_OPERATION_COUNT = TensorflowPackage.LAYER_OPERATION_COUNT + 2;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.athene.nn.model.keras.impl.SingleInputNodeProviderImpl <em>Single Input Node Provider</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.athene.nn.model.keras.impl.SingleInputNodeProviderImpl
+	 * @see org.eclipse.athene.nn.model.keras.impl.KerasPackageImpl#getSingleInputNodeProvider()
+	 * @generated
+	 */
+	int SINGLE_INPUT_NODE_PROVIDER = 2;
+
+	/**
+	 * The number of structural features of the '<em>Single Input Node Provider</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_INPUT_NODE_PROVIDER_FEATURE_COUNT = 0;
+
+	/**
+	 * The operation id for the '<em>Create Input Node</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_INPUT_NODE_PROVIDER___CREATE_INPUT_NODE = 0;
+
+	/**
+	 * The operation id for the '<em>Creat Output Node</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_INPUT_NODE_PROVIDER___CREAT_OUTPUT_NODE = 1;
+
+	/**
+	 * The number of operations of the '<em>Single Input Node Provider</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_INPUT_NODE_PROVIDER_OPERATION_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.athene.nn.model.keras.impl.MultiInputNodeProviderImpl <em>Multi Input Node Provider</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.athene.nn.model.keras.impl.MultiInputNodeProviderImpl
+	 * @see org.eclipse.athene.nn.model.keras.impl.KerasPackageImpl#getMultiInputNodeProvider()
+	 * @generated
+	 */
+	int MULTI_INPUT_NODE_PROVIDER = 3;
+
+	/**
+	 * The number of structural features of the '<em>Multi Input Node Provider</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_INPUT_NODE_PROVIDER_FEATURE_COUNT = 0;
+
+	/**
+	 * The operation id for the '<em>Create Input Node</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_INPUT_NODE_PROVIDER___CREATE_INPUT_NODE = 0;
+
+	/**
+	 * The operation id for the '<em>Creat Output Node</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_INPUT_NODE_PROVIDER___CREAT_OUTPUT_NODE = 1;
+
+	/**
+	 * The number of operations of the '<em>Multi Input Node Provider</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_INPUT_NODE_PROVIDER_OPERATION_COUNT = 2;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.athene.nn.model.keras.impl.NodeImpl <em>Node</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -207,7 +299,7 @@ public interface KerasPackage extends EPackage {
 	 * @see org.eclipse.athene.nn.model.keras.impl.KerasPackageImpl#getNode()
 	 * @generated
 	 */
-	int NODE = 2;
+	int NODE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -246,13 +338,22 @@ public interface KerasPackage extends EPackage {
 	int NODE___REMOVE_FROM_LAYER = 0;
 
 	/**
+	 * The operation id for the '<em>Auto Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE___AUTO_NAME = 1;
+
+	/**
 	 * The number of operations of the '<em>Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE_OPERATION_COUNT = 1;
+	int NODE_OPERATION_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.athene.nn.model.keras.impl.InputNodeImpl <em>Input Node</em>}' class.
@@ -262,7 +363,7 @@ public interface KerasPackage extends EPackage {
 	 * @see org.eclipse.athene.nn.model.keras.impl.KerasPackageImpl#getInputNode()
 	 * @generated
 	 */
-	int INPUT_NODE = 3;
+	int INPUT_NODE = 5;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -292,22 +393,13 @@ public interface KerasPackage extends EPackage {
 	int INPUT_NODE__LAYER = NODE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Input Tensor</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INPUT_NODE__INPUT_TENSOR = NODE_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Connected Node</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_NODE__CONNECTED_NODE = NODE_FEATURE_COUNT + 2;
+	int INPUT_NODE__CONNECTED_NODE = NODE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Input Node</em>' class.
@@ -316,7 +408,7 @@ public interface KerasPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_NODE_FEATURE_COUNT = NODE_FEATURE_COUNT + 3;
+	int INPUT_NODE_FEATURE_COUNT = NODE_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Remove From Layer</em>' operation.
@@ -325,7 +417,7 @@ public interface KerasPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_NODE___REMOVE_FROM_LAYER = NODE_OPERATION_COUNT + 0;
+	int INPUT_NODE___REMOVE_FROM_LAYER = NODE___REMOVE_FROM_LAYER;
 
 	/**
 	 * The operation id for the '<em>Auto Name</em>' operation.
@@ -334,7 +426,25 @@ public interface KerasPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_NODE___AUTO_NAME = NODE_OPERATION_COUNT + 1;
+	int INPUT_NODE___AUTO_NAME = NODE___AUTO_NAME;
+
+	/**
+	 * The operation id for the '<em>Connect Input Tensor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_NODE___CONNECT_INPUT_TENSOR__TENSOR = NODE_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Deconnect Input Tensor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_NODE___DECONNECT_INPUT_TENSOR__TENSOR = NODE_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Input Node</em>' class.
@@ -346,6 +456,224 @@ public interface KerasPackage extends EPackage {
 	int INPUT_NODE_OPERATION_COUNT = NODE_OPERATION_COUNT + 2;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.athene.nn.model.keras.impl.SingleInputNodeImpl <em>Single Input Node</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.athene.nn.model.keras.impl.SingleInputNodeImpl
+	 * @see org.eclipse.athene.nn.model.keras.impl.KerasPackageImpl#getSingleInputNode()
+	 * @generated
+	 */
+	int SINGLE_INPUT_NODE = 6;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_INPUT_NODE__NAME = INPUT_NODE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Shape</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_INPUT_NODE__SHAPE = INPUT_NODE__SHAPE;
+
+	/**
+	 * The feature id for the '<em><b>Layer</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_INPUT_NODE__LAYER = INPUT_NODE__LAYER;
+
+	/**
+	 * The feature id for the '<em><b>Connected Node</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_INPUT_NODE__CONNECTED_NODE = INPUT_NODE__CONNECTED_NODE;
+
+	/**
+	 * The feature id for the '<em><b>Input Tensor</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_INPUT_NODE__INPUT_TENSOR = INPUT_NODE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Single Input Node</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_INPUT_NODE_FEATURE_COUNT = INPUT_NODE_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Remove From Layer</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_INPUT_NODE___REMOVE_FROM_LAYER = INPUT_NODE_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Auto Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_INPUT_NODE___AUTO_NAME = INPUT_NODE_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Connect Input Tensor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_INPUT_NODE___CONNECT_INPUT_TENSOR__TENSOR = INPUT_NODE_OPERATION_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Deconnect Input Tensor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_INPUT_NODE___DECONNECT_INPUT_TENSOR__TENSOR = INPUT_NODE_OPERATION_COUNT + 3;
+
+	/**
+	 * The number of operations of the '<em>Single Input Node</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_INPUT_NODE_OPERATION_COUNT = INPUT_NODE_OPERATION_COUNT + 4;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.athene.nn.model.keras.impl.MultiInputNodeImpl <em>Multi Input Node</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.athene.nn.model.keras.impl.MultiInputNodeImpl
+	 * @see org.eclipse.athene.nn.model.keras.impl.KerasPackageImpl#getMultiInputNode()
+	 * @generated
+	 */
+	int MULTI_INPUT_NODE = 7;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_INPUT_NODE__NAME = INPUT_NODE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Shape</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_INPUT_NODE__SHAPE = INPUT_NODE__SHAPE;
+
+	/**
+	 * The feature id for the '<em><b>Layer</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_INPUT_NODE__LAYER = INPUT_NODE__LAYER;
+
+	/**
+	 * The feature id for the '<em><b>Connected Node</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_INPUT_NODE__CONNECTED_NODE = INPUT_NODE__CONNECTED_NODE;
+
+	/**
+	 * The feature id for the '<em><b>Input Tensors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_INPUT_NODE__INPUT_TENSORS = INPUT_NODE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Multi Input Node</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_INPUT_NODE_FEATURE_COUNT = INPUT_NODE_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Remove From Layer</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_INPUT_NODE___REMOVE_FROM_LAYER = INPUT_NODE_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Auto Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_INPUT_NODE___AUTO_NAME = INPUT_NODE_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Connect Input Tensor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_INPUT_NODE___CONNECT_INPUT_TENSOR__TENSOR = INPUT_NODE_OPERATION_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Deconnect Input Tensor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_INPUT_NODE___DECONNECT_INPUT_TENSOR__TENSOR = INPUT_NODE_OPERATION_COUNT + 3;
+
+	/**
+	 * The number of operations of the '<em>Multi Input Node</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_INPUT_NODE_OPERATION_COUNT = INPUT_NODE_OPERATION_COUNT + 4;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.athene.nn.model.keras.impl.OutputNodeImpl <em>Output Node</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -353,7 +681,7 @@ public interface KerasPackage extends EPackage {
 	 * @see org.eclipse.athene.nn.model.keras.impl.KerasPackageImpl#getOutputNode()
 	 * @generated
 	 */
-	int OUTPUT_NODE = 4;
+	int OUTPUT_NODE = 8;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -453,7 +781,7 @@ public interface KerasPackage extends EPackage {
 	 * @see org.eclipse.athene.nn.model.keras.impl.KerasPackageImpl#getTensor()
 	 * @generated
 	 */
-	int TENSOR = 5;
+	int TENSOR = 9;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -535,7 +863,7 @@ public interface KerasPackage extends EPackage {
 	 * @see org.eclipse.athene.nn.model.keras.impl.KerasPackageImpl#getBackend()
 	 * @generated
 	 */
-	int BACKEND = 6;
+	int BACKEND = 10;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -572,7 +900,7 @@ public interface KerasPackage extends EPackage {
 	 * @see org.eclipse.athene.nn.model.keras.impl.KerasPackageImpl#getInput()
 	 * @generated
 	 */
-	int INPUT = 7;
+	int INPUT = 11;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -620,22 +948,22 @@ public interface KerasPackage extends EPackage {
 	int INPUT_FEATURE_COUNT = LAYER_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Get Output</em>' operation.
+	 * The operation id for the '<em>Create Input Node</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT___GET_OUTPUT__INT = LAYER___GET_OUTPUT__INT;
+	int INPUT___CREATE_INPUT_NODE = LAYER___CREATE_INPUT_NODE;
 
 	/**
-	 * The operation id for the '<em>Get Input</em>' operation.
+	 * The operation id for the '<em>Creat Output Node</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT___GET_INPUT__INT = LAYER___GET_INPUT__INT;
+	int INPUT___CREAT_OUTPUT_NODE = LAYER___CREAT_OUTPUT_NODE;
 
 	/**
 	 * The number of operations of the '<em>Input</em>' class.
@@ -654,7 +982,7 @@ public interface KerasPackage extends EPackage {
 	 * @see org.eclipse.athene.nn.model.keras.impl.KerasPackageImpl#getDense()
 	 * @generated
 	 */
-	int DENSE = 8;
+	int DENSE = 12;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -756,22 +1084,22 @@ public interface KerasPackage extends EPackage {
 	int DENSE_FEATURE_COUNT = LAYER_FEATURE_COUNT + 6;
 
 	/**
-	 * The operation id for the '<em>Get Output</em>' operation.
+	 * The operation id for the '<em>Create Input Node</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DENSE___GET_OUTPUT__INT = LAYER___GET_OUTPUT__INT;
+	int DENSE___CREATE_INPUT_NODE = LAYER_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Get Input</em>' operation.
+	 * The operation id for the '<em>Creat Output Node</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DENSE___GET_INPUT__INT = LAYER___GET_INPUT__INT;
+	int DENSE___CREAT_OUTPUT_NODE = LAYER_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Dense</em>' class.
@@ -780,7 +1108,7 @@ public interface KerasPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DENSE_OPERATION_COUNT = LAYER_OPERATION_COUNT + 0;
+	int DENSE_OPERATION_COUNT = LAYER_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.athene.nn.model.keras.impl.DropoutImpl <em>Dropout</em>}' class.
@@ -790,7 +1118,7 @@ public interface KerasPackage extends EPackage {
 	 * @see org.eclipse.athene.nn.model.keras.impl.KerasPackageImpl#getDropout()
 	 * @generated
 	 */
-	int DROPOUT = 9;
+	int DROPOUT = 13;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -865,22 +1193,22 @@ public interface KerasPackage extends EPackage {
 	int DROPOUT_FEATURE_COUNT = LAYER_FEATURE_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Get Output</em>' operation.
+	 * The operation id for the '<em>Create Input Node</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DROPOUT___GET_OUTPUT__INT = LAYER___GET_OUTPUT__INT;
+	int DROPOUT___CREATE_INPUT_NODE = LAYER_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Get Input</em>' operation.
+	 * The operation id for the '<em>Creat Output Node</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DROPOUT___GET_INPUT__INT = LAYER___GET_INPUT__INT;
+	int DROPOUT___CREAT_OUTPUT_NODE = LAYER_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Dropout</em>' class.
@@ -889,7 +1217,7 @@ public interface KerasPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DROPOUT_OPERATION_COUNT = LAYER_OPERATION_COUNT + 0;
+	int DROPOUT_OPERATION_COUNT = LAYER_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.athene.nn.model.keras.impl.ActivationImpl <em>Activation</em>}' class.
@@ -899,7 +1227,7 @@ public interface KerasPackage extends EPackage {
 	 * @see org.eclipse.athene.nn.model.keras.impl.KerasPackageImpl#getActivation()
 	 * @generated
 	 */
-	int ACTIVATION = 10;
+	int ACTIVATION = 14;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -965,22 +1293,22 @@ public interface KerasPackage extends EPackage {
 	int ACTIVATION_FEATURE_COUNT = LAYER_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Get Output</em>' operation.
+	 * The operation id for the '<em>Create Input Node</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTIVATION___GET_OUTPUT__INT = LAYER___GET_OUTPUT__INT;
+	int ACTIVATION___CREATE_INPUT_NODE = LAYER_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Get Input</em>' operation.
+	 * The operation id for the '<em>Creat Output Node</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTIVATION___GET_INPUT__INT = LAYER___GET_INPUT__INT;
+	int ACTIVATION___CREAT_OUTPUT_NODE = LAYER_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Activation</em>' class.
@@ -989,7 +1317,7 @@ public interface KerasPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTIVATION_OPERATION_COUNT = LAYER_OPERATION_COUNT + 0;
+	int ACTIVATION_OPERATION_COUNT = LAYER_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.athene.nn.model.keras.impl.ReshapeImpl <em>Reshape</em>}' class.
@@ -999,7 +1327,7 @@ public interface KerasPackage extends EPackage {
 	 * @see org.eclipse.athene.nn.model.keras.impl.KerasPackageImpl#getReshape()
 	 * @generated
 	 */
-	int RESHAPE = 11;
+	int RESHAPE = 15;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1074,22 +1402,22 @@ public interface KerasPackage extends EPackage {
 	int RESHAPE_FEATURE_COUNT = LAYER_FEATURE_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Get Output</em>' operation.
+	 * The operation id for the '<em>Create Input Node</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESHAPE___GET_OUTPUT__INT = LAYER___GET_OUTPUT__INT;
+	int RESHAPE___CREATE_INPUT_NODE = LAYER_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Get Input</em>' operation.
+	 * The operation id for the '<em>Creat Output Node</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESHAPE___GET_INPUT__INT = LAYER___GET_INPUT__INT;
+	int RESHAPE___CREAT_OUTPUT_NODE = LAYER_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Reshape</em>' class.
@@ -1098,7 +1426,7 @@ public interface KerasPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESHAPE_OPERATION_COUNT = LAYER_OPERATION_COUNT + 0;
+	int RESHAPE_OPERATION_COUNT = LAYER_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.athene.nn.model.keras.impl.FlattenImpl <em>Flatten</em>}' class.
@@ -1108,7 +1436,7 @@ public interface KerasPackage extends EPackage {
 	 * @see org.eclipse.athene.nn.model.keras.impl.KerasPackageImpl#getFlatten()
 	 * @generated
 	 */
-	int FLATTEN = 12;
+	int FLATTEN = 16;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1156,22 +1484,22 @@ public interface KerasPackage extends EPackage {
 	int FLATTEN_FEATURE_COUNT = LAYER_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Get Output</em>' operation.
+	 * The operation id for the '<em>Create Input Node</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FLATTEN___GET_OUTPUT__INT = LAYER___GET_OUTPUT__INT;
+	int FLATTEN___CREATE_INPUT_NODE = LAYER_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Get Input</em>' operation.
+	 * The operation id for the '<em>Creat Output Node</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FLATTEN___GET_INPUT__INT = LAYER___GET_INPUT__INT;
+	int FLATTEN___CREAT_OUTPUT_NODE = LAYER_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Flatten</em>' class.
@@ -1180,7 +1508,7 @@ public interface KerasPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FLATTEN_OPERATION_COUNT = LAYER_OPERATION_COUNT + 0;
+	int FLATTEN_OPERATION_COUNT = LAYER_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.athene.nn.model.keras.impl.PermuteImpl <em>Permute</em>}' class.
@@ -1190,7 +1518,7 @@ public interface KerasPackage extends EPackage {
 	 * @see org.eclipse.athene.nn.model.keras.impl.KerasPackageImpl#getPermute()
 	 * @generated
 	 */
-	int PERMUTE = 13;
+	int PERMUTE = 17;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1265,22 +1593,22 @@ public interface KerasPackage extends EPackage {
 	int PERMUTE_FEATURE_COUNT = LAYER_FEATURE_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Get Output</em>' operation.
+	 * The operation id for the '<em>Create Input Node</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PERMUTE___GET_OUTPUT__INT = LAYER___GET_OUTPUT__INT;
+	int PERMUTE___CREATE_INPUT_NODE = LAYER_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Get Input</em>' operation.
+	 * The operation id for the '<em>Creat Output Node</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PERMUTE___GET_INPUT__INT = LAYER___GET_INPUT__INT;
+	int PERMUTE___CREAT_OUTPUT_NODE = LAYER_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Permute</em>' class.
@@ -1289,7 +1617,7 @@ public interface KerasPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PERMUTE_OPERATION_COUNT = LAYER_OPERATION_COUNT + 0;
+	int PERMUTE_OPERATION_COUNT = LAYER_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.athene.nn.model.keras.impl.RepeatVectorImpl <em>Repeat Vector</em>}' class.
@@ -1299,7 +1627,7 @@ public interface KerasPackage extends EPackage {
 	 * @see org.eclipse.athene.nn.model.keras.impl.KerasPackageImpl#getRepeatVector()
 	 * @generated
 	 */
-	int REPEAT_VECTOR = 14;
+	int REPEAT_VECTOR = 18;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1374,22 +1702,22 @@ public interface KerasPackage extends EPackage {
 	int REPEAT_VECTOR_FEATURE_COUNT = LAYER_FEATURE_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Get Output</em>' operation.
+	 * The operation id for the '<em>Create Input Node</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REPEAT_VECTOR___GET_OUTPUT__INT = LAYER___GET_OUTPUT__INT;
+	int REPEAT_VECTOR___CREATE_INPUT_NODE = LAYER_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Get Input</em>' operation.
+	 * The operation id for the '<em>Creat Output Node</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REPEAT_VECTOR___GET_INPUT__INT = LAYER___GET_INPUT__INT;
+	int REPEAT_VECTOR___CREAT_OUTPUT_NODE = LAYER_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Repeat Vector</em>' class.
@@ -1398,7 +1726,7 @@ public interface KerasPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPEAT_VECTOR_OPERATION_COUNT = LAYER_OPERATION_COUNT + 0;
+	int REPEAT_VECTOR_OPERATION_COUNT = LAYER_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.athene.nn.model.keras.impl.ActivityRegularizationImpl <em>Activity Regularization</em>}' class.
@@ -1408,7 +1736,7 @@ public interface KerasPackage extends EPackage {
 	 * @see org.eclipse.athene.nn.model.keras.impl.KerasPackageImpl#getActivityRegularization()
 	 * @generated
 	 */
-	int ACTIVITY_REGULARIZATION = 15;
+	int ACTIVITY_REGULARIZATION = 19;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1483,22 +1811,22 @@ public interface KerasPackage extends EPackage {
 	int ACTIVITY_REGULARIZATION_FEATURE_COUNT = LAYER_FEATURE_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Get Output</em>' operation.
+	 * The operation id for the '<em>Create Input Node</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTIVITY_REGULARIZATION___GET_OUTPUT__INT = LAYER___GET_OUTPUT__INT;
+	int ACTIVITY_REGULARIZATION___CREATE_INPUT_NODE = LAYER_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Get Input</em>' operation.
+	 * The operation id for the '<em>Creat Output Node</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTIVITY_REGULARIZATION___GET_INPUT__INT = LAYER___GET_INPUT__INT;
+	int ACTIVITY_REGULARIZATION___CREAT_OUTPUT_NODE = LAYER_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Activity Regularization</em>' class.
@@ -1507,7 +1835,7 @@ public interface KerasPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTIVITY_REGULARIZATION_OPERATION_COUNT = LAYER_OPERATION_COUNT + 0;
+	int ACTIVITY_REGULARIZATION_OPERATION_COUNT = LAYER_OPERATION_COUNT + 2;
 
 
 	/**
@@ -1575,24 +1903,84 @@ public interface KerasPackage extends EPackage {
 	EReference getLayer_OutputNodes();
 
 	/**
-	 * Returns the meta object for the '{@link org.eclipse.athene.nn.model.keras.Layer#getOutput(int) <em>Get Output</em>}' operation.
+	 * Returns the meta object for the '{@link org.eclipse.athene.nn.model.keras.Layer#createInputNode() <em>Create Input Node</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Output</em>' operation.
-	 * @see org.eclipse.athene.nn.model.keras.Layer#getOutput(int)
+	 * @return the meta object for the '<em>Create Input Node</em>' operation.
+	 * @see org.eclipse.athene.nn.model.keras.Layer#createInputNode()
 	 * @generated
 	 */
-	EOperation getLayer__GetOutput__int();
+	EOperation getLayer__CreateInputNode();
 
 	/**
-	 * Returns the meta object for the '{@link org.eclipse.athene.nn.model.keras.Layer#getInput(int) <em>Get Input</em>}' operation.
+	 * Returns the meta object for the '{@link org.eclipse.athene.nn.model.keras.Layer#creatOutputNode() <em>Creat Output Node</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Input</em>' operation.
-	 * @see org.eclipse.athene.nn.model.keras.Layer#getInput(int)
+	 * @return the meta object for the '<em>Creat Output Node</em>' operation.
+	 * @see org.eclipse.athene.nn.model.keras.Layer#creatOutputNode()
 	 * @generated
 	 */
-	EOperation getLayer__GetInput__int();
+	EOperation getLayer__CreatOutputNode();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.athene.nn.model.keras.SingleInputNodeProvider <em>Single Input Node Provider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Single Input Node Provider</em>'.
+	 * @see org.eclipse.athene.nn.model.keras.SingleInputNodeProvider
+	 * @generated
+	 */
+	EClass getSingleInputNodeProvider();
+
+	/**
+	 * Returns the meta object for the '{@link org.eclipse.athene.nn.model.keras.SingleInputNodeProvider#createInputNode() <em>Create Input Node</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Create Input Node</em>' operation.
+	 * @see org.eclipse.athene.nn.model.keras.SingleInputNodeProvider#createInputNode()
+	 * @generated
+	 */
+	EOperation getSingleInputNodeProvider__CreateInputNode();
+
+	/**
+	 * Returns the meta object for the '{@link org.eclipse.athene.nn.model.keras.SingleInputNodeProvider#creatOutputNode() <em>Creat Output Node</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Creat Output Node</em>' operation.
+	 * @see org.eclipse.athene.nn.model.keras.SingleInputNodeProvider#creatOutputNode()
+	 * @generated
+	 */
+	EOperation getSingleInputNodeProvider__CreatOutputNode();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.athene.nn.model.keras.MultiInputNodeProvider <em>Multi Input Node Provider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Multi Input Node Provider</em>'.
+	 * @see org.eclipse.athene.nn.model.keras.MultiInputNodeProvider
+	 * @generated
+	 */
+	EClass getMultiInputNodeProvider();
+
+	/**
+	 * Returns the meta object for the '{@link org.eclipse.athene.nn.model.keras.MultiInputNodeProvider#createInputNode() <em>Create Input Node</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Create Input Node</em>' operation.
+	 * @see org.eclipse.athene.nn.model.keras.MultiInputNodeProvider#createInputNode()
+	 * @generated
+	 */
+	EOperation getMultiInputNodeProvider__CreateInputNode();
+
+	/**
+	 * Returns the meta object for the '{@link org.eclipse.athene.nn.model.keras.MultiInputNodeProvider#creatOutputNode() <em>Creat Output Node</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Creat Output Node</em>' operation.
+	 * @see org.eclipse.athene.nn.model.keras.MultiInputNodeProvider#creatOutputNode()
+	 * @generated
+	 */
+	EOperation getMultiInputNodeProvider__CreatOutputNode();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.athene.nn.model.keras.Node <em>Node</em>}'.
@@ -1637,6 +2025,16 @@ public interface KerasPackage extends EPackage {
 	EOperation getNode__RemoveFromLayer();
 
 	/**
+	 * Returns the meta object for the '{@link org.eclipse.athene.nn.model.keras.Node#autoName() <em>Auto Name</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Auto Name</em>' operation.
+	 * @see org.eclipse.athene.nn.model.keras.Node#autoName()
+	 * @generated
+	 */
+	EOperation getNode__AutoName();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.athene.nn.model.keras.InputNode <em>Input Node</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1658,17 +2056,6 @@ public interface KerasPackage extends EPackage {
 	EReference getInputNode_Layer();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.athene.nn.model.keras.InputNode#getInputTensor <em>Input Tensor</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Input Tensor</em>'.
-	 * @see org.eclipse.athene.nn.model.keras.InputNode#getInputTensor()
-	 * @see #getInputNode()
-	 * @generated
-	 */
-	EReference getInputNode_InputTensor();
-
-	/**
 	 * Returns the meta object for the reference '{@link org.eclipse.athene.nn.model.keras.InputNode#getConnectedNode <em>Connected Node</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1680,24 +2067,146 @@ public interface KerasPackage extends EPackage {
 	EReference getInputNode_ConnectedNode();
 
 	/**
-	 * Returns the meta object for the '{@link org.eclipse.athene.nn.model.keras.InputNode#removeFromLayer() <em>Remove From Layer</em>}' operation.
+	 * Returns the meta object for the '{@link org.eclipse.athene.nn.model.keras.InputNode#connectInputTensor(org.eclipse.athene.nn.model.keras.Tensor) <em>Connect Input Tensor</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Connect Input Tensor</em>' operation.
+	 * @see org.eclipse.athene.nn.model.keras.InputNode#connectInputTensor(org.eclipse.athene.nn.model.keras.Tensor)
+	 * @generated
+	 */
+	EOperation getInputNode__ConnectInputTensor__Tensor();
+
+	/**
+	 * Returns the meta object for the '{@link org.eclipse.athene.nn.model.keras.InputNode#deconnectInputTensor(org.eclipse.athene.nn.model.keras.Tensor) <em>Deconnect Input Tensor</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Deconnect Input Tensor</em>' operation.
+	 * @see org.eclipse.athene.nn.model.keras.InputNode#deconnectInputTensor(org.eclipse.athene.nn.model.keras.Tensor)
+	 * @generated
+	 */
+	EOperation getInputNode__DeconnectInputTensor__Tensor();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.athene.nn.model.keras.SingleInputNode <em>Single Input Node</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Single Input Node</em>'.
+	 * @see org.eclipse.athene.nn.model.keras.SingleInputNode
+	 * @generated
+	 */
+	EClass getSingleInputNode();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.athene.nn.model.keras.SingleInputNode#getInputTensor <em>Input Tensor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Input Tensor</em>'.
+	 * @see org.eclipse.athene.nn.model.keras.SingleInputNode#getInputTensor()
+	 * @see #getSingleInputNode()
+	 * @generated
+	 */
+	EReference getSingleInputNode_InputTensor();
+
+	/**
+	 * Returns the meta object for the '{@link org.eclipse.athene.nn.model.keras.SingleInputNode#removeFromLayer() <em>Remove From Layer</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Remove From Layer</em>' operation.
-	 * @see org.eclipse.athene.nn.model.keras.InputNode#removeFromLayer()
+	 * @see org.eclipse.athene.nn.model.keras.SingleInputNode#removeFromLayer()
 	 * @generated
 	 */
-	EOperation getInputNode__RemoveFromLayer();
+	EOperation getSingleInputNode__RemoveFromLayer();
 
 	/**
-	 * Returns the meta object for the '{@link org.eclipse.athene.nn.model.keras.InputNode#autoName() <em>Auto Name</em>}' operation.
+	 * Returns the meta object for the '{@link org.eclipse.athene.nn.model.keras.SingleInputNode#autoName() <em>Auto Name</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Auto Name</em>' operation.
-	 * @see org.eclipse.athene.nn.model.keras.InputNode#autoName()
+	 * @see org.eclipse.athene.nn.model.keras.SingleInputNode#autoName()
 	 * @generated
 	 */
-	EOperation getInputNode__AutoName();
+	EOperation getSingleInputNode__AutoName();
+
+	/**
+	 * Returns the meta object for the '{@link org.eclipse.athene.nn.model.keras.SingleInputNode#connectInputTensor(org.eclipse.athene.nn.model.keras.Tensor) <em>Connect Input Tensor</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Connect Input Tensor</em>' operation.
+	 * @see org.eclipse.athene.nn.model.keras.SingleInputNode#connectInputTensor(org.eclipse.athene.nn.model.keras.Tensor)
+	 * @generated
+	 */
+	EOperation getSingleInputNode__ConnectInputTensor__Tensor();
+
+	/**
+	 * Returns the meta object for the '{@link org.eclipse.athene.nn.model.keras.SingleInputNode#deconnectInputTensor(org.eclipse.athene.nn.model.keras.Tensor) <em>Deconnect Input Tensor</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Deconnect Input Tensor</em>' operation.
+	 * @see org.eclipse.athene.nn.model.keras.SingleInputNode#deconnectInputTensor(org.eclipse.athene.nn.model.keras.Tensor)
+	 * @generated
+	 */
+	EOperation getSingleInputNode__DeconnectInputTensor__Tensor();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.athene.nn.model.keras.MultiInputNode <em>Multi Input Node</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Multi Input Node</em>'.
+	 * @see org.eclipse.athene.nn.model.keras.MultiInputNode
+	 * @generated
+	 */
+	EClass getMultiInputNode();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.eclipse.athene.nn.model.keras.MultiInputNode#getInputTensors <em>Input Tensors</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Input Tensors</em>'.
+	 * @see org.eclipse.athene.nn.model.keras.MultiInputNode#getInputTensors()
+	 * @see #getMultiInputNode()
+	 * @generated
+	 */
+	EReference getMultiInputNode_InputTensors();
+
+	/**
+	 * Returns the meta object for the '{@link org.eclipse.athene.nn.model.keras.MultiInputNode#removeFromLayer() <em>Remove From Layer</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Remove From Layer</em>' operation.
+	 * @see org.eclipse.athene.nn.model.keras.MultiInputNode#removeFromLayer()
+	 * @generated
+	 */
+	EOperation getMultiInputNode__RemoveFromLayer();
+
+	/**
+	 * Returns the meta object for the '{@link org.eclipse.athene.nn.model.keras.MultiInputNode#autoName() <em>Auto Name</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Auto Name</em>' operation.
+	 * @see org.eclipse.athene.nn.model.keras.MultiInputNode#autoName()
+	 * @generated
+	 */
+	EOperation getMultiInputNode__AutoName();
+
+	/**
+	 * Returns the meta object for the '{@link org.eclipse.athene.nn.model.keras.MultiInputNode#connectInputTensor(org.eclipse.athene.nn.model.keras.Tensor) <em>Connect Input Tensor</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Connect Input Tensor</em>' operation.
+	 * @see org.eclipse.athene.nn.model.keras.MultiInputNode#connectInputTensor(org.eclipse.athene.nn.model.keras.Tensor)
+	 * @generated
+	 */
+	EOperation getMultiInputNode__ConnectInputTensor__Tensor();
+
+	/**
+	 * Returns the meta object for the '{@link org.eclipse.athene.nn.model.keras.MultiInputNode#deconnectInputTensor(org.eclipse.athene.nn.model.keras.Tensor) <em>Deconnect Input Tensor</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Deconnect Input Tensor</em>' operation.
+	 * @see org.eclipse.athene.nn.model.keras.MultiInputNode#deconnectInputTensor(org.eclipse.athene.nn.model.keras.Tensor)
+	 * @generated
+	 */
+	EOperation getMultiInputNode__DeconnectInputTensor__Tensor();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.athene.nn.model.keras.OutputNode <em>Output Node</em>}'.
@@ -2274,20 +2783,72 @@ public interface KerasPackage extends EPackage {
 		EReference LAYER__OUTPUT_NODES = eINSTANCE.getLayer_OutputNodes();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Output</b></em>' operation.
+		 * The meta object literal for the '<em><b>Create Input Node</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation LAYER___GET_OUTPUT__INT = eINSTANCE.getLayer__GetOutput__int();
+		EOperation LAYER___CREATE_INPUT_NODE = eINSTANCE.getLayer__CreateInputNode();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Input</b></em>' operation.
+		 * The meta object literal for the '<em><b>Creat Output Node</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation LAYER___GET_INPUT__INT = eINSTANCE.getLayer__GetInput__int();
+		EOperation LAYER___CREAT_OUTPUT_NODE = eINSTANCE.getLayer__CreatOutputNode();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.athene.nn.model.keras.impl.SingleInputNodeProviderImpl <em>Single Input Node Provider</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.athene.nn.model.keras.impl.SingleInputNodeProviderImpl
+		 * @see org.eclipse.athene.nn.model.keras.impl.KerasPackageImpl#getSingleInputNodeProvider()
+		 * @generated
+		 */
+		EClass SINGLE_INPUT_NODE_PROVIDER = eINSTANCE.getSingleInputNodeProvider();
+
+		/**
+		 * The meta object literal for the '<em><b>Create Input Node</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SINGLE_INPUT_NODE_PROVIDER___CREATE_INPUT_NODE = eINSTANCE.getSingleInputNodeProvider__CreateInputNode();
+
+		/**
+		 * The meta object literal for the '<em><b>Creat Output Node</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SINGLE_INPUT_NODE_PROVIDER___CREAT_OUTPUT_NODE = eINSTANCE.getSingleInputNodeProvider__CreatOutputNode();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.athene.nn.model.keras.impl.MultiInputNodeProviderImpl <em>Multi Input Node Provider</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.athene.nn.model.keras.impl.MultiInputNodeProviderImpl
+		 * @see org.eclipse.athene.nn.model.keras.impl.KerasPackageImpl#getMultiInputNodeProvider()
+		 * @generated
+		 */
+		EClass MULTI_INPUT_NODE_PROVIDER = eINSTANCE.getMultiInputNodeProvider();
+
+		/**
+		 * The meta object literal for the '<em><b>Create Input Node</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation MULTI_INPUT_NODE_PROVIDER___CREATE_INPUT_NODE = eINSTANCE.getMultiInputNodeProvider__CreateInputNode();
+
+		/**
+		 * The meta object literal for the '<em><b>Creat Output Node</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation MULTI_INPUT_NODE_PROVIDER___CREAT_OUTPUT_NODE = eINSTANCE.getMultiInputNodeProvider__CreatOutputNode();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.athene.nn.model.keras.impl.NodeImpl <em>Node</em>}' class.
@@ -2324,6 +2885,14 @@ public interface KerasPackage extends EPackage {
 		EOperation NODE___REMOVE_FROM_LAYER = eINSTANCE.getNode__RemoveFromLayer();
 
 		/**
+		 * The meta object literal for the '<em><b>Auto Name</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NODE___AUTO_NAME = eINSTANCE.getNode__AutoName();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.athene.nn.model.keras.impl.InputNodeImpl <em>Input Node</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2342,14 +2911,6 @@ public interface KerasPackage extends EPackage {
 		EReference INPUT_NODE__LAYER = eINSTANCE.getInputNode_Layer();
 
 		/**
-		 * The meta object literal for the '<em><b>Input Tensor</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference INPUT_NODE__INPUT_TENSOR = eINSTANCE.getInputNode_InputTensor();
-
-		/**
 		 * The meta object literal for the '<em><b>Connected Node</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2358,12 +2919,46 @@ public interface KerasPackage extends EPackage {
 		EReference INPUT_NODE__CONNECTED_NODE = eINSTANCE.getInputNode_ConnectedNode();
 
 		/**
+		 * The meta object literal for the '<em><b>Connect Input Tensor</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation INPUT_NODE___CONNECT_INPUT_TENSOR__TENSOR = eINSTANCE.getInputNode__ConnectInputTensor__Tensor();
+
+		/**
+		 * The meta object literal for the '<em><b>Deconnect Input Tensor</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation INPUT_NODE___DECONNECT_INPUT_TENSOR__TENSOR = eINSTANCE.getInputNode__DeconnectInputTensor__Tensor();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.athene.nn.model.keras.impl.SingleInputNodeImpl <em>Single Input Node</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.athene.nn.model.keras.impl.SingleInputNodeImpl
+		 * @see org.eclipse.athene.nn.model.keras.impl.KerasPackageImpl#getSingleInputNode()
+		 * @generated
+		 */
+		EClass SINGLE_INPUT_NODE = eINSTANCE.getSingleInputNode();
+
+		/**
+		 * The meta object literal for the '<em><b>Input Tensor</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SINGLE_INPUT_NODE__INPUT_TENSOR = eINSTANCE.getSingleInputNode_InputTensor();
+
+		/**
 		 * The meta object literal for the '<em><b>Remove From Layer</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation INPUT_NODE___REMOVE_FROM_LAYER = eINSTANCE.getInputNode__RemoveFromLayer();
+		EOperation SINGLE_INPUT_NODE___REMOVE_FROM_LAYER = eINSTANCE.getSingleInputNode__RemoveFromLayer();
 
 		/**
 		 * The meta object literal for the '<em><b>Auto Name</b></em>' operation.
@@ -2371,7 +2966,73 @@ public interface KerasPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation INPUT_NODE___AUTO_NAME = eINSTANCE.getInputNode__AutoName();
+		EOperation SINGLE_INPUT_NODE___AUTO_NAME = eINSTANCE.getSingleInputNode__AutoName();
+
+		/**
+		 * The meta object literal for the '<em><b>Connect Input Tensor</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SINGLE_INPUT_NODE___CONNECT_INPUT_TENSOR__TENSOR = eINSTANCE.getSingleInputNode__ConnectInputTensor__Tensor();
+
+		/**
+		 * The meta object literal for the '<em><b>Deconnect Input Tensor</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SINGLE_INPUT_NODE___DECONNECT_INPUT_TENSOR__TENSOR = eINSTANCE.getSingleInputNode__DeconnectInputTensor__Tensor();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.athene.nn.model.keras.impl.MultiInputNodeImpl <em>Multi Input Node</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.athene.nn.model.keras.impl.MultiInputNodeImpl
+		 * @see org.eclipse.athene.nn.model.keras.impl.KerasPackageImpl#getMultiInputNode()
+		 * @generated
+		 */
+		EClass MULTI_INPUT_NODE = eINSTANCE.getMultiInputNode();
+
+		/**
+		 * The meta object literal for the '<em><b>Input Tensors</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MULTI_INPUT_NODE__INPUT_TENSORS = eINSTANCE.getMultiInputNode_InputTensors();
+
+		/**
+		 * The meta object literal for the '<em><b>Remove From Layer</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation MULTI_INPUT_NODE___REMOVE_FROM_LAYER = eINSTANCE.getMultiInputNode__RemoveFromLayer();
+
+		/**
+		 * The meta object literal for the '<em><b>Auto Name</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation MULTI_INPUT_NODE___AUTO_NAME = eINSTANCE.getMultiInputNode__AutoName();
+
+		/**
+		 * The meta object literal for the '<em><b>Connect Input Tensor</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation MULTI_INPUT_NODE___CONNECT_INPUT_TENSOR__TENSOR = eINSTANCE.getMultiInputNode__ConnectInputTensor__Tensor();
+
+		/**
+		 * The meta object literal for the '<em><b>Deconnect Input Tensor</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation MULTI_INPUT_NODE___DECONNECT_INPUT_TENSOR__TENSOR = eINSTANCE.getMultiInputNode__DeconnectInputTensor__Tensor();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.athene.nn.model.keras.impl.OutputNodeImpl <em>Output Node</em>}' class.

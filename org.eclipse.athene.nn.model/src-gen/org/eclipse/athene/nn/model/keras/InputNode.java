@@ -13,12 +13,11 @@ package org.eclipse.athene.nn.model.keras;
  * </p>
  * <ul>
  *   <li>{@link org.eclipse.athene.nn.model.keras.InputNode#getLayer <em>Layer</em>}</li>
- *   <li>{@link org.eclipse.athene.nn.model.keras.InputNode#getInputTensor <em>Input Tensor</em>}</li>
  *   <li>{@link org.eclipse.athene.nn.model.keras.InputNode#getConnectedNode <em>Connected Node</em>}</li>
  * </ul>
  *
  * @see org.eclipse.athene.nn.model.keras.KerasPackage#getInputNode()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface InputNode extends Node {
@@ -49,34 +48,6 @@ public interface InputNode extends Node {
 	 * @generated
 	 */
 	void setLayer(Layer value);
-
-	/**
-	 * Returns the value of the '<em><b>Input Tensor</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link org.eclipse.athene.nn.model.keras.Tensor#getConsumingNodes <em>Consuming Nodes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Input Tensor</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Input Tensor</em>' reference.
-	 * @see #setInputTensor(Tensor)
-	 * @see org.eclipse.athene.nn.model.keras.KerasPackage#getInputNode_InputTensor()
-	 * @see org.eclipse.athene.nn.model.keras.Tensor#getConsumingNodes
-	 * @model opposite="consumingNodes"
-	 * @generated
-	 */
-	Tensor getInputTensor();
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.athene.nn.model.keras.InputNode#getInputTensor <em>Input Tensor</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Input Tensor</em>' reference.
-	 * @see #getInputTensor()
-	 * @generated
-	 */
-	void setInputTensor(Tensor value);
 
 	/**
 	 * Returns the value of the '<em><b>Connected Node</b></em>' reference.
@@ -111,19 +82,21 @@ public interface InputNode extends Node {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * *
-	 * Removes the input node and its connected output node from the layer
+	 * Applies the t as an input. Implementation differs between SingleInputNode and MultiInputNode.
 	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='&lt;%org.eclipse.athene.nn.model.keras.Layer%&gt; _layer = this.getLayer();\nboolean _tripleEquals = (_layer == null);\nif (_tripleEquals)\n{\n\treturn;\n}\nthis.setLayer(null);\nthis.setInputTensor(null);\nthis.getConnectedNode().removeFromLayer();\nthis.setConnectedNode(null);'"
+	 * @model tUnique="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='throw new &lt;%java.lang.UnsupportedOperationException%&gt;(\"override in sub class\");'"
 	 * @generated
 	 */
-	void removeFromLayer();
+	void connectInputTensor(Tensor t);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='int _size = this.getLayer().getInputNodes().size();\n&lt;%java.lang.String%&gt; _plus = (\"I\" + &lt;%java.lang.Integer%&gt;.valueOf(_size));\nthis.setName(_plus);'"
+	 * @model tUnique="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='throw new &lt;%java.lang.UnsupportedOperationException%&gt;(\"override in sub class\");'"
 	 * @generated
 	 */
-	void autoName();
+	void deconnectInputTensor(Tensor t);
 
 } // InputNode

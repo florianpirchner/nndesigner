@@ -19,17 +19,35 @@ class Model extends org.eclipse.athene.nn.model.core.Model {
 class Layer extends org.eclipse.athene.nn.model.tensorflow.Layer {
 	contains InputNode[*] inputNodes opposite layer
 	contains OutputNode[*] outputNodes opposite layer
-	/**
-	 * Returns the output tensor for the given node index
-	 */
-	op Tensor getOutput(int index) {
-		return outputNodes.get(index).outputTensor
+	op InputNode createInputNode() {
+		throw new UnsupportedOperationException("Override in subclass")
 	}
-	/**
-	 * Returns the input tensor for the given node index
-	 */
-	op Tensor getInput(int index) {
-		return inputNodes.get(index).inputTensor
+	op OutputNode creatOutputNode() {
+		throw new UnsupportedOperationException("Override in subclass")
+	}
+}
+
+/**
+ * Provides a SingleInputNode. Only one Tensor can connect to SingleInputNode.
+ */
+abstract class SingleInputNodeProvider {
+	op InputNode createInputNode() {
+		KerasFactory.eINSTANCE.createSingleInputNode()
+	}
+	op OutputNode creatOutputNode() {
+		KerasFactory.eINSTANCE.createOutputNode()
+	}
+}
+
+/**
+ * Provides a MultiInputNode. Multiple Tensors can connect to MultiInputNode.
+ */
+abstract class MultiInputNodeProvider {
+	op InputNode createInputNode() {
+		KerasFactory.eINSTANCE.createMultiInputNode()
+	}
+	op OutputNode creatOutputNode() {
+		KerasFactory.eINSTANCE.createOutputNode()
 	}
 }
 
@@ -38,12 +56,30 @@ abstract class Node {
 	contains Shape shape
 	op void removeFromLayer() {
 	}
+	op void autoName() {
+		throw new UnsupportedOperationException("override in sub class")
+	}
 }
 
-class InputNode extends Node {
+abstract class InputNode extends Node {
 	container Layer layer opposite inputNodes
-	refers Tensor inputTensor opposite consumingNodes
 	refers OutputNode connectedNode opposite connectedNode
+	/**
+	 * Applies the t as an input. Implementation differs between SingleInputNode and MultiInputNode.
+	 */
+	op void connectInputTensor(Tensor t) {
+		throw new UnsupportedOperationException("override in sub class")
+	}
+	op void deconnectInputTensor(Tensor t) {
+		throw new UnsupportedOperationException("override in sub class")
+	}
+}
+
+/**
+ * Only one tensor can connect to this node as an input.
+ */
+class SingleInputNode extends InputNode {
+	refers Tensor inputTensor
 	/**
 	 * Removes the input node and its connected output node from the layer
 	 */
@@ -58,6 +94,53 @@ class InputNode extends Node {
 	}
 	op void autoName() {
 		name = "I" + layer.inputNodes.size
+	}
+	op void connectInputTensor(Tensor t) {
+		inputTensor = t
+
+		// handle opposite
+		t.consumingNodes += this
+	}
+	op void deconnectInputTensor(Tensor t) {
+		if (inputTensor === t) {
+			inputTensor = t
+			// handle opposite
+			t.consumingNodes -= this
+		}
+	}
+}
+
+/**
+ * Multiple tensors can connect to this node as an input.
+ */
+class MultiInputNode extends InputNode {
+	refers Tensor[*] inputTensors
+	/**
+	 * Removes the input node and its connected output node from the layer
+	 */
+	op void removeFromLayer() {
+		if (layer === null) {
+			return
+		}
+		layer = null
+		inputTensors.clear
+		connectedNode.removeFromLayer
+		connectedNode = null
+	}
+	op void autoName() {
+		name = "I" + layer.inputNodes.size
+	}
+	op void connectInputTensor(Tensor t) {
+		inputTensors += t
+
+		// handle opposite
+		t.consumingNodes += this
+	}
+	op void deconnectInputTensor(Tensor t) {
+		inputTensors -= t
+
+		// handle opposite
+		t.consumingNodes -= this
 	}
 }
 
@@ -82,7 +165,6 @@ class OutputNode extends Node {
 		connectedNode.removeFromLayer
 		connectedNode = null
 	}
-	
 	op void connectToInputLayer(Layer target) {
 		var Tensor tensor = null
 		if (outputTensor !== null) {
@@ -93,24 +175,24 @@ class OutputNode extends Node {
 		}
 
 		// create input and output nodes and connect
-		val InputNode targetInputNode = KerasFactory.eINSTANCE.createInputNode()
+		val InputNode targetInputNode = target.createInputNode
 		target.inputNodes.add(targetInputNode)
 		targetInputNode.autoName
 
-		val OutputNode targetOutputNode = KerasFactory.eINSTANCE.createOutputNode()
+		val OutputNode targetOutputNode = target.creatOutputNode
 		target.outputNodes.add(targetOutputNode)
 		targetOutputNode.autoName
 
 		targetOutputNode.connectedNode = targetInputNode
 
 		// apply the tensor to target input node
-		targetInputNode.inputTensor = tensor
-		
+		targetInputNode.connectInputTensor(tensor)
+
 		// name the tensor
-		if(tensor.name === null) {
+		if (tensor.name === null) {
 			tensor.autoName
 		}
-		
+
 	}
 }
 
@@ -118,7 +200,7 @@ class Tensor extends org.eclipse.athene.nn.model.core.Tensor {
 	// the node which creates (exports) the tensor
 	refers OutputNode containerNode opposite outputTensor
 	// the nodes which consume the tensor (imports)
-	refers InputNode[*] consumingNodes opposite inputTensor
+	refers InputNode[*] consumingNodes
 	/**
 	 * Removes the tensor and its container node from its layer
 	 */
@@ -134,6 +216,7 @@ class Tensor extends org.eclipse.athene.nn.model.core.Tensor {
 	 */
 	op void unconnectFromTargetInput(InputNode targetInputNode) {
 		consumingNodes.remove(targetInputNode);
+		targetInputNode.deconnectInputTensor(this)
 
 		// TODO - for now we only delete the tensor and not the whole invalid chain
 		// // remove the input node and the output node from the target layer
@@ -151,9 +234,10 @@ class Backend {
 }
 
 class Input extends Layer {
+	
 }
 
-class Dense extends Layer {
+class Dense extends Layer, SingleInputNodeProvider {
 	// dimension of output space
 	int units
 	/*
@@ -176,13 +260,14 @@ class Dense extends Layer {
 	 *  Initializer for the bias vector (see <a href="https://keras.io/initializers/">initializers</a>).
 	 */
 	refers InitializerFunction biasInitializer
+	
 }
 
 /*
  * Dropout consists in randomly setting a fraction rate of input units to 0 at each update during training time, 
  * which helps prevent overfitting.
  */
-class Dropout extends Layer {
+class Dropout extends Layer, SingleInputNodeProvider {
 	// float between 0 and 1. Fraction of the input units to drop.
 	float rate
 	/*
@@ -193,12 +278,13 @@ class Dropout extends Layer {
 	contains Shape noiseShape
 	// A Python integer to use as random seed.
 	int seed
+	
 }
 
 /*
  * Applies an activation function to an output.
  */
-class Activation extends Layer {
+class Activation extends Layer, SingleInputNodeProvider {
 	// float between 0 and 1. Fraction of the input units to drop.
 	refers ActivationFunction activationFunction
 	/*
@@ -207,6 +293,7 @@ class Activation extends Layer {
 	 * when using this layer as the first layer in a model.
 	 */
 	contains Shape inputShape
+
 }
 
 /*
@@ -227,7 +314,7 @@ class Activation extends Layer {
  * # now: model.output_shape == (None, 3, 2, 2)<br>
  * </code>
  */
-class Reshape extends Layer {
+class Reshape extends Layer, SingleInputNodeProvider {
 	/*
 	 * Tuple of integers,
 	 * does not include the samples dimension (batch size).
@@ -244,19 +331,21 @@ class Reshape extends Layer {
 	 * <code>(batch_size,) + target_shape</code>
 	 */
 	contains Shape outputShape
+	
 }
 
 /*
  * Flattens the input. Does not affect the batch size.
  */
-class Flatten extends Layer {
+class Flatten extends Layer, SingleInputNodeProvider {
+	
 }
 
 /*
  * Permutes the dimensions of the input according to a given pattern.<br>
  * Useful for e.g. connecting RNNs and convnets together.
  */
-class Permute extends Layer {
+class Permute extends Layer, SingleInputNodeProvider {
 	/**
 	 *  Tuple of integers. Permutation pattern, does not include the samples dimension. <br>
 	 * Indexing starts at 1. For instance,  (2, 1) permutes the first and second dimension of the input.
@@ -273,24 +362,26 @@ class Permute extends Layer {
 	 * Same as the input shape, but with the dimensions re-ordered according to the specified pattern.
 	 */
 	contains transient Shape outputShape
+	
 }
 
 /*
  * Repeats the input n times.
  */
-class RepeatVector extends Layer {
+class RepeatVector extends Layer, SingleInputNodeProvider {
 	// repetition factor.
 	int numberOfRepeats
 	// 2D tensor of shape (num_samples, features).
 	contains Shape2D inputShape
 	// 3D tensor of shape (num_samples, n, features).
 	contains Shape3D outputShape
+	
 }
 
 /**
  * Layer that applies an update to the cost function cored input activity.
  */
-class ActivityRegularization extends Layer {
+class ActivityRegularization extends Layer, SingleInputNodeProvider {
 	// L1 regularization factor (positive float).
 	int l1
 	// L2 regularization factor (positive float).
@@ -300,4 +391,5 @@ class ActivityRegularization extends Layer {
 	 * when using this layer as the first layer in a model.
 	 */
 	contains Shape2D inputShape
+	
 }

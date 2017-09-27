@@ -41,7 +41,7 @@ import org.eclipse.athene.nn.model.core.Shape;
  * @model
  * @generated
  */
-public interface Reshape extends Layer {
+public interface Reshape extends Layer, SingleInputNodeProvider {
 	/**
 	 * Returns the value of the '<em><b>Target Shape</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

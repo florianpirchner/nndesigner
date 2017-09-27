@@ -86,6 +86,18 @@ public class KerasSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case KerasPackage.SINGLE_INPUT_NODE_PROVIDER: {
+				SingleInputNodeProvider singleInputNodeProvider = (SingleInputNodeProvider)theEObject;
+				T result = caseSingleInputNodeProvider(singleInputNodeProvider);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case KerasPackage.MULTI_INPUT_NODE_PROVIDER: {
+				MultiInputNodeProvider multiInputNodeProvider = (MultiInputNodeProvider)theEObject;
+				T result = caseMultiInputNodeProvider(multiInputNodeProvider);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case KerasPackage.NODE: {
 				Node node = (Node)theEObject;
 				T result = caseNode(node);
@@ -96,6 +108,22 @@ public class KerasSwitch<T> extends Switch<T> {
 				InputNode inputNode = (InputNode)theEObject;
 				T result = caseInputNode(inputNode);
 				if (result == null) result = caseNode(inputNode);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case KerasPackage.SINGLE_INPUT_NODE: {
+				SingleInputNode singleInputNode = (SingleInputNode)theEObject;
+				T result = caseSingleInputNode(singleInputNode);
+				if (result == null) result = caseInputNode(singleInputNode);
+				if (result == null) result = caseNode(singleInputNode);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case KerasPackage.MULTI_INPUT_NODE: {
+				MultiInputNode multiInputNode = (MultiInputNode)theEObject;
+				T result = caseMultiInputNode(multiInputNode);
+				if (result == null) result = caseInputNode(multiInputNode);
+				if (result == null) result = caseNode(multiInputNode);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -133,6 +161,7 @@ public class KerasSwitch<T> extends Switch<T> {
 				Dense dense = (Dense)theEObject;
 				T result = caseDense(dense);
 				if (result == null) result = caseLayer(dense);
+				if (result == null) result = caseSingleInputNodeProvider(dense);
 				if (result == null) result = caseTensorflow_Layer(dense);
 				if (result == null) result = caseCore_Layer(dense);
 				if (result == null) result = caseElement(dense);
@@ -143,6 +172,7 @@ public class KerasSwitch<T> extends Switch<T> {
 				Dropout dropout = (Dropout)theEObject;
 				T result = caseDropout(dropout);
 				if (result == null) result = caseLayer(dropout);
+				if (result == null) result = caseSingleInputNodeProvider(dropout);
 				if (result == null) result = caseTensorflow_Layer(dropout);
 				if (result == null) result = caseCore_Layer(dropout);
 				if (result == null) result = caseElement(dropout);
@@ -153,6 +183,7 @@ public class KerasSwitch<T> extends Switch<T> {
 				Activation activation = (Activation)theEObject;
 				T result = caseActivation(activation);
 				if (result == null) result = caseLayer(activation);
+				if (result == null) result = caseSingleInputNodeProvider(activation);
 				if (result == null) result = caseTensorflow_Layer(activation);
 				if (result == null) result = caseCore_Layer(activation);
 				if (result == null) result = caseElement(activation);
@@ -163,6 +194,7 @@ public class KerasSwitch<T> extends Switch<T> {
 				Reshape reshape = (Reshape)theEObject;
 				T result = caseReshape(reshape);
 				if (result == null) result = caseLayer(reshape);
+				if (result == null) result = caseSingleInputNodeProvider(reshape);
 				if (result == null) result = caseTensorflow_Layer(reshape);
 				if (result == null) result = caseCore_Layer(reshape);
 				if (result == null) result = caseElement(reshape);
@@ -173,6 +205,7 @@ public class KerasSwitch<T> extends Switch<T> {
 				Flatten flatten = (Flatten)theEObject;
 				T result = caseFlatten(flatten);
 				if (result == null) result = caseLayer(flatten);
+				if (result == null) result = caseSingleInputNodeProvider(flatten);
 				if (result == null) result = caseTensorflow_Layer(flatten);
 				if (result == null) result = caseCore_Layer(flatten);
 				if (result == null) result = caseElement(flatten);
@@ -183,6 +216,7 @@ public class KerasSwitch<T> extends Switch<T> {
 				Permute permute = (Permute)theEObject;
 				T result = casePermute(permute);
 				if (result == null) result = caseLayer(permute);
+				if (result == null) result = caseSingleInputNodeProvider(permute);
 				if (result == null) result = caseTensorflow_Layer(permute);
 				if (result == null) result = caseCore_Layer(permute);
 				if (result == null) result = caseElement(permute);
@@ -193,6 +227,7 @@ public class KerasSwitch<T> extends Switch<T> {
 				RepeatVector repeatVector = (RepeatVector)theEObject;
 				T result = caseRepeatVector(repeatVector);
 				if (result == null) result = caseLayer(repeatVector);
+				if (result == null) result = caseSingleInputNodeProvider(repeatVector);
 				if (result == null) result = caseTensorflow_Layer(repeatVector);
 				if (result == null) result = caseCore_Layer(repeatVector);
 				if (result == null) result = caseElement(repeatVector);
@@ -203,6 +238,7 @@ public class KerasSwitch<T> extends Switch<T> {
 				ActivityRegularization activityRegularization = (ActivityRegularization)theEObject;
 				T result = caseActivityRegularization(activityRegularization);
 				if (result == null) result = caseLayer(activityRegularization);
+				if (result == null) result = caseSingleInputNodeProvider(activityRegularization);
 				if (result == null) result = caseTensorflow_Layer(activityRegularization);
 				if (result == null) result = caseCore_Layer(activityRegularization);
 				if (result == null) result = caseElement(activityRegularization);
@@ -244,6 +280,36 @@ public class KerasSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Single Input Node Provider</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Single Input Node Provider</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSingleInputNodeProvider(SingleInputNodeProvider object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Multi Input Node Provider</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Multi Input Node Provider</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMultiInputNodeProvider(MultiInputNodeProvider object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Node</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -270,6 +336,36 @@ public class KerasSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseInputNode(InputNode object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Single Input Node</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Single Input Node</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSingleInputNode(SingleInputNode object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Multi Input Node</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Multi Input Node</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMultiInputNode(MultiInputNode object) {
 		return null;
 	}
 

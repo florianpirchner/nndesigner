@@ -27,7 +27,7 @@ import org.eclipse.athene.nn.model.core.Shape;
  * @model
  * @generated
  */
-public interface Dropout extends Layer {
+public interface Dropout extends Layer, SingleInputNodeProvider {
 	/**
 	 * Returns the value of the '<em><b>Rate</b></em>' attribute.
 	 * <!-- begin-user-doc -->

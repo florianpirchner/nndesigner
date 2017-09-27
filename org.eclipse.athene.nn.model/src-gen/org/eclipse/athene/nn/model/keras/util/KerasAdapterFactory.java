@@ -78,12 +78,28 @@ public class KerasAdapterFactory extends AdapterFactoryImpl {
 				return createLayerAdapter();
 			}
 			@Override
+			public Adapter caseSingleInputNodeProvider(SingleInputNodeProvider object) {
+				return createSingleInputNodeProviderAdapter();
+			}
+			@Override
+			public Adapter caseMultiInputNodeProvider(MultiInputNodeProvider object) {
+				return createMultiInputNodeProviderAdapter();
+			}
+			@Override
 			public Adapter caseNode(Node object) {
 				return createNodeAdapter();
 			}
 			@Override
 			public Adapter caseInputNode(InputNode object) {
 				return createInputNodeAdapter();
+			}
+			@Override
+			public Adapter caseSingleInputNode(SingleInputNode object) {
+				return createSingleInputNodeAdapter();
+			}
+			@Override
+			public Adapter caseMultiInputNode(MultiInputNode object) {
+				return createMultiInputNodeAdapter();
 			}
 			@Override
 			public Adapter caseOutputNode(OutputNode object) {
@@ -202,6 +218,34 @@ public class KerasAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.athene.nn.model.keras.SingleInputNodeProvider <em>Single Input Node Provider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.athene.nn.model.keras.SingleInputNodeProvider
+	 * @generated
+	 */
+	public Adapter createSingleInputNodeProviderAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.athene.nn.model.keras.MultiInputNodeProvider <em>Multi Input Node Provider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.athene.nn.model.keras.MultiInputNodeProvider
+	 * @generated
+	 */
+	public Adapter createMultiInputNodeProviderAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.athene.nn.model.keras.Node <em>Node</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -226,6 +270,34 @@ public class KerasAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createInputNodeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.athene.nn.model.keras.SingleInputNode <em>Single Input Node</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.athene.nn.model.keras.SingleInputNode
+	 * @generated
+	 */
+	public Adapter createSingleInputNodeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.athene.nn.model.keras.MultiInputNode <em>Multi Input Node</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.athene.nn.model.keras.MultiInputNode
+	 * @generated
+	 */
+	public Adapter createMultiInputNodeAdapter() {
 		return null;
 	}
 

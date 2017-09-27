@@ -162,6 +162,15 @@ public abstract class NodeImpl extends MinimalEObjectImpl.Container implements N
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void autoName() {
+		throw new UnsupportedOperationException("override in sub class");
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -249,6 +258,9 @@ public abstract class NodeImpl extends MinimalEObjectImpl.Container implements N
 		switch (operationID) {
 			case KerasPackage.NODE___REMOVE_FROM_LAYER:
 				removeFromLayer();
+				return null;
+			case KerasPackage.NODE___AUTO_NAME:
+				autoName();
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

@@ -162,26 +162,49 @@ public class KerasItemProviderAdapterFactory extends KerasAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.athene.nn.model.keras.InputNode} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.athene.nn.model.keras.SingleInputNode} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected InputNodeItemProvider inputNodeItemProvider;
+	protected SingleInputNodeItemProvider singleInputNodeItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.athene.nn.model.keras.InputNode}.
+	 * This creates an adapter for a {@link org.eclipse.athene.nn.model.keras.SingleInputNode}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createInputNodeAdapter() {
-		if (inputNodeItemProvider == null) {
-			inputNodeItemProvider = new InputNodeItemProvider(this);
+	public Adapter createSingleInputNodeAdapter() {
+		if (singleInputNodeItemProvider == null) {
+			singleInputNodeItemProvider = new SingleInputNodeItemProvider(this);
 		}
 
-		return inputNodeItemProvider;
+		return singleInputNodeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.athene.nn.model.keras.MultiInputNode} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MultiInputNodeItemProvider multiInputNodeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.athene.nn.model.keras.MultiInputNode}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMultiInputNodeAdapter() {
+		if (multiInputNodeItemProvider == null) {
+			multiInputNodeItemProvider = new MultiInputNodeItemProvider(this);
+		}
+
+		return multiInputNodeItemProvider;
 	}
 
 	/**
@@ -565,7 +588,8 @@ public class KerasItemProviderAdapterFactory extends KerasAdapterFactory impleme
 	public void dispose() {
 		if (modelItemProvider != null) modelItemProvider.dispose();
 		if (layerItemProvider != null) layerItemProvider.dispose();
-		if (inputNodeItemProvider != null) inputNodeItemProvider.dispose();
+		if (singleInputNodeItemProvider != null) singleInputNodeItemProvider.dispose();
+		if (multiInputNodeItemProvider != null) multiInputNodeItemProvider.dispose();
 		if (outputNodeItemProvider != null) outputNodeItemProvider.dispose();
 		if (tensorItemProvider != null) tensorItemProvider.dispose();
 		if (backendItemProvider != null) backendItemProvider.dispose();

@@ -27,7 +27,7 @@ import org.eclipse.athene.nn.model.core.Shape2D;
  * @model
  * @generated
  */
-public interface ActivityRegularization extends Layer {
+public interface ActivityRegularization extends Layer, SingleInputNodeProvider {
 	/**
 	 * Returns the value of the '<em><b>L1</b></em>' attribute.
 	 * <!-- begin-user-doc -->

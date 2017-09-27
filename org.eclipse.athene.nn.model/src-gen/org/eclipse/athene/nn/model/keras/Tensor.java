@@ -53,7 +53,6 @@ public interface Tensor extends org.eclipse.athene.nn.model.core.Tensor {
 	/**
 	 * Returns the value of the '<em><b>Consuming Nodes</b></em>' reference list.
 	 * The list contents are of type {@link org.eclipse.athene.nn.model.keras.InputNode}.
-	 * It is bidirectional and its opposite is '{@link org.eclipse.athene.nn.model.keras.InputNode#getInputTensor <em>Input Tensor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Consuming Nodes</em>' reference list isn't clear,
@@ -62,8 +61,7 @@ public interface Tensor extends org.eclipse.athene.nn.model.core.Tensor {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Consuming Nodes</em>' reference list.
 	 * @see org.eclipse.athene.nn.model.keras.KerasPackage#getTensor_ConsumingNodes()
-	 * @see org.eclipse.athene.nn.model.keras.InputNode#getInputTensor
-	 * @model opposite="inputTensor"
+	 * @model
 	 * @generated
 	 */
 	EList<InputNode> getConsumingNodes();
@@ -96,9 +94,11 @@ public interface Tensor extends org.eclipse.athene.nn.model.core.Tensor {
 	 * Removes the tensor and its container node from its layer
 	 * <!-- end-model-doc -->
 	 * @model targetInputNodeUnique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='this.getConsumingNodes().remove(targetInputNode);\nboolean _isEmpty = this.getConsumingNodes().isEmpty();\nif (_isEmpty)\n{\n\tthis.removeFromLayer();\n}'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='this.getConsumingNodes().remove(targetInputNode);\ntargetInputNode.deconnectInputTensor(this);\nboolean _isEmpty = this.getConsumingNodes().isEmpty();\nif (_isEmpty)\n{\n\tthis.removeFromLayer();\n}'"
 	 * @generated
 	 */
 	void unconnectFromTargetInput(InputNode targetInputNode);
+
+	public abstract void toTensorVariable();
 
 } // Tensor

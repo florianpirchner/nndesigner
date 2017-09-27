@@ -2,11 +2,16 @@ package org.eclipse.athene.sirius.spec;
 
 import java.util.stream.Collectors;
 
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
+
 import org.eclipse.athene.nn.model.core.Design;
-import org.eclipse.athene.nn.model.keras.SingleInputNode;
+import org.eclipse.athene.nn.model.core.Shape;
 import org.eclipse.athene.nn.model.keras.Layer;
 import org.eclipse.athene.nn.model.keras.Node;
 import org.eclipse.athene.nn.model.keras.OutputNode;
+import org.eclipse.athene.nn.model.keras.SingleInputNode;
 import org.eclipse.athene.nn.model.keras.Tensor;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.sirius.diagram.business.internal.metamodel.spec.DEdgeSpec;
@@ -48,4 +53,20 @@ public class Services {
 		System.out.println("");
 	}
 
+	public void calcOutputShape(Shape inputShape) {
+		ScriptEngine engine = new ScriptEngineManager().getEngineByName("python");
+        try {
+			engine.eval("import sys");
+			engine.eval("print sys");
+			engine.put("a", 42);
+			engine.eval("print a");
+			engine.eval("x = 2 + 2");
+			Object x = engine.get("x");
+			System.out.println("x: " + x);
+		} catch (ScriptException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
 }

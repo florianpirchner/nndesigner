@@ -84,4 +84,12 @@ public interface Node extends EObject {
 	 */
 	void removeFromLayer();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='throw new &lt;%java.lang.UnsupportedOperationException%&gt;(\"override in sub class\");'"
+	 * @generated
+	 */
+	void autoName();
+
 } // Node

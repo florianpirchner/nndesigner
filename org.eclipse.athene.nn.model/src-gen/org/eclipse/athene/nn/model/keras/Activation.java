@@ -26,7 +26,7 @@ import org.eclipse.athene.nn.model.core.Shape;
  * @model
  * @generated
  */
-public interface Activation extends Layer {
+public interface Activation extends Layer, SingleInputNodeProvider {
 	/**
 	 * Returns the value of the '<em><b>Activation Function</b></em>' reference.
 	 * <!-- begin-user-doc -->

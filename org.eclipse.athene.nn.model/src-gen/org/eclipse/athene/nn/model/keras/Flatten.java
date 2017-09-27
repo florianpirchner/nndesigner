@@ -17,5 +17,5 @@ package org.eclipse.athene.nn.model.keras;
  * @model
  * @generated
  */
-public interface Flatten extends Layer {
+public interface Flatten extends Layer, SingleInputNodeProvider {
 } // Flatten

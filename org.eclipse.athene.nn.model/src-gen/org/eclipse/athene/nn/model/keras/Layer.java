@@ -61,27 +61,19 @@ public interface Layer extends org.eclipse.athene.nn.model.tensorflow.Layer {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * *
-	 * Returns the output tensor for the given node index
-	 * <!-- end-model-doc -->
-	 * @model unique="false" indexUnique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return this.getOutputNodes().get(index).getOutputTensor();'"
+	 * @model unique="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='throw new &lt;%java.lang.UnsupportedOperationException%&gt;(\"Override in subclass\");'"
 	 * @generated
 	 */
-	Tensor getOutput(int index);
+	InputNode createInputNode();
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * *
-	 * Returns the input tensor for the given node index
-	 * <!-- end-model-doc -->
-	 * @model unique="false" indexUnique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return this.getInputNodes().get(index).getInputTensor();'"
+	 * @model unique="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='throw new &lt;%java.lang.UnsupportedOperationException%&gt;(\"Override in subclass\");'"
 	 * @generated
 	 */
-	Tensor getInput(int index);
+	OutputNode creatOutputNode();
 
 } // Layer

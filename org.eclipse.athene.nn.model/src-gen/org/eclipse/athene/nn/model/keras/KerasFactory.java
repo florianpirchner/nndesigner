@@ -40,13 +40,22 @@ public interface KerasFactory extends EFactory {
 	Layer createLayer();
 
 	/**
-	 * Returns a new object of class '<em>Input Node</em>'.
+	 * Returns a new object of class '<em>Single Input Node</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Input Node</em>'.
+	 * @return a new object of class '<em>Single Input Node</em>'.
 	 * @generated
 	 */
-	InputNode createInputNode();
+	SingleInputNode createSingleInputNode();
+
+	/**
+	 * Returns a new object of class '<em>Multi Input Node</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Multi Input Node</em>'.
+	 * @generated
+	 */
+	MultiInputNode createMultiInputNode();
 
 	/**
 	 * Returns a new object of class '<em>Output Node</em>'.
